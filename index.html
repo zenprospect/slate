@@ -569,27 +569,43 @@ You must replace <code>testzenprospectapikey</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>If the Person ID attribute exists, it will override all other attriutes</td>
+<td>String. If the Person ID attribute exists, it will override all other attriutes</td>
 </tr>
 <tr>
 <td>email</td>
-<td>If the email exists, we&rsquo;ll use the email as the primary</td>
+<td>String. If the email exists, we&rsquo;ll use the email as the primary</td>
 </tr>
 <tr>
 <td>full_name</td>
-<td>We can automatically parse out the first/last name from the full name.</td>
+<td>String. We can automatically parse out the first/last name from the full name.</td>
 </tr>
 <tr>
-<td>first_name, last_name</td>
-<td></td>
+<td>first_name</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String.</td>
 </tr>
 <tr>
 <td>company_name</td>
-<td></td>
+<td>String. Supports boolean queries</td>
 </tr>
 <tr>
 <td>company_website</td>
-<td></td>
+<td>String.</td>
+</tr>
+<tr>
+<td>include_contact</td>
+<td>Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.</td>
+</tr>
+<tr>
+<td>include_job_postings</td>
+<td>Boolean. If set to true, the result will return the company&rsquo;s first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.</td>
+</tr>
+<tr>
+<td>include_newsfeed_events</td>
+<td>Boolean. If set to true, the result will return the company&rsquo;s first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.</td>
 </tr>
 </tbody></table>
 
