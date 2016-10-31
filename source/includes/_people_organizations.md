@@ -199,23 +199,52 @@ has_email | String of "yes" or "no"
 has_phone | String of "yes" or "no" 
 person_functions | Array of job function tokens. *Possible values*: accounting, sales, operations, finance, marketing, human_resources, information_technology, administrator, legal, engineering, business_development, product_management, consulting, education, administrative, media_and_commmunication, arts_and_design, entrepreneurship. 
 person_seniorities | Array of job seniority tokens. *Possible values*: owner, founder, c_suite, partner, vp, head, director, manager, senior, entry, intern
+person_locations | Array of location strings for the *persons*'s current location
+person_location_name, person_location_radius | If instead you want to search via Location/Zip + Radius, enter a String of location name and a Integer radius expressed in miles
+
 
 ### Query Parameters on the Person's Organization
 
-Parameter | Description | Example
---------- | ----------- | -----------
+Parameter | Description 
+--------- | ----------- 
 organization_ids | Array of organization ids to filter by | 
-organization_websites | Array of organization websites to filter by | ["apple.com", "google.com"]
+organization_websites | Array of organization websites to filter by
 not_organization_ids | Array of organization ids to exclude | 
-not_organization_websites | Array of organization websites to exclude | ["apple.com", "google.com"]
+not_organization_websites | Array of organization websites to exclude 
+organization_locations | Array of location strings for the *organization HQ*'s current location
+organization_location_name, organization_location_radius | If instead you want to search via Location/Zip + Radius, enter a String of location name and a Integer radius expressed in miles
+currently_using_any_of_technology_uids | Array of technologies the organization is using. Joined by "OR"
+currently_using_all_of_technology_uids | Array of technologies the organization is using. Joined by "AND"
+currently_using_not_of_technology_uids | Array of technologies the organization is NOT using. Joined by "NOT"
+added_technology_uids, added_technology_date_range | Paired set of filters to target organizations who added a set of technologies within a date range.
+dropped_technology_uids, dropped_technology_date_range | Paired set of filters to target organizations who dropped a set of technologies within a date range.
+organization_has_phone | String of "yes" or "no" to target only organizations for which we have a phone number
+organization_latest_funding_stage_cd | Array. Possible values: [:seed, :angel, :venture, :series_a, :series_b, :series_c, :series_d, :series_e, :series_f, :private_equity, :other]
+latest_funding_amount_range | Hash of { min: X, max: Y }
+latest_funding_date_range | Hash of { min: X, max: Y }
+total_funding_range | Hash of { min: X, max: Y }
+organization_founded_year_range | Hash of { min: X, max: Y }
+organization_domain_status_cd | Array of whether or not the organization's domain supports SMTP verification, is a catch-all domain, or is invalid.
+organization_num_employees_ranges | Array of # employee values
+organization_linkedin_industry_tag_ids | Array of the "LinkedIn" industry tags
+organization_not_linkedin_industry_tag_ids | Array of the "LinkedIn" industry tags to exclude
+organization_angellist_market_tag_ids | Array of the AngelList market tags
+q_organization_job_titles | String of the job posting titles the company is currently hiring for. Supports boolean queries
+organization_job_locations | Array of the location of the job postings
+
+
+
 
 ### Other Query Parameters
 
-Parameter | Description | Example
---------- | ----------- | -----------
+Parameter | Description 
+--------- | ----------- 
 include_contact | Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.
+include_job_postings | Boolean. If set to true, the result will return the company's first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.
+include_newsfeed_events | Boolean. If set to true, the result will return the company's first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.
 per_page | Integer. How many results you'd like to return per page. Possible values: 10, 25.
 page | Current page.
+prospected_by_current_team | String. "yes', 'no', 'or 'excluded'. Use to filter to new people or people you've already prospected.
 
 ## Prospect Organizations
 
@@ -223,8 +252,10 @@ page | Current page.
 
 ZenProspect's people enrichment API lets you enter a set of criteria about a person and receive rich information about them. This is useful for:
 
-- Finding the email address of a person 
+- Finding the email address of a person when you already have their name + company
 - Given an email address of a person, enriching your database with other information like industry, company size, technologies, etc.
+- Given a ZenProspect Person ID, see detailed information about them
+
 
 ### HTTP Request
 
@@ -236,10 +267,10 @@ Enter as much of the following information as you have available. Our algorithm 
 
 Parameter | Notes
 --------- | ----------- 
+id | If the Person ID attribute exists, it will override all other attriutes
 email | If the email exists, we'll use the email as the primary
 full_name | We can automatically parse out the first/last name from the full name.
-first_name | 
-last_name | 
+first_name, last_name | 
 company_name | 
 company_website | 
 
