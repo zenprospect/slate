@@ -267,13 +267,16 @@ Enter as much of the following information as you have available. Our algorithm 
 
 Parameter | Notes
 --------- | ----------- 
-id | If the Person ID attribute exists, it will override all other attriutes
-email | If the email exists, we'll use the email as the primary
-full_name | We can automatically parse out the first/last name from the full name.
-first_name, last_name | 
-company_name | 
-company_website | 
-
+id | String. If the Person ID attribute exists, it will override all other attriutes
+email | String. If the email exists, we'll use the email as the primary
+full_name | String. We can automatically parse out the first/last name from the full name.
+first_name | String.
+last_name | String. 
+company_name | String. Supports boolean queries
+company_website | String.
+include_contact | Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.
+include_job_postings | Boolean. If set to true, the result will return the company's first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.
+include_newsfeed_events | Boolean. If set to true, the result will return the company's first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.
 ## Enrich Organizations
 
 ## Tags
