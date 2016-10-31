@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>ZenProspect API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -99,12 +99,9 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <div style="padding: 20px 0 10px 10px;"><img src="images/logo-white.svg" /></div>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -114,171 +111,297 @@
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the ZenProspect API! </p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Our API is still under active development. Eventually, we plan to make available in the API almost everything you can do in the UI, plus some things you can&rsquo;t. Additionally, if you have have any suggestions for API methods you&rsquo;d like to see, please let us know! We would be happy to see if we can build it into our API.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-
-<h1 id="authentication">Authentication</h1>
+          <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+  -H <span class="s2">"Authorization: testzenprospectapikey"</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code class="prettyprint">testzenprospectapikey</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>ZenProspect uses API keys to allow access to the API. Please contact your dedicated Customer Success Manager for your API key.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>ZenProspect expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p><code class="prettyprint">Authorization: testzenprospectapikey</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>testzenprospectapikey</code> with your personal API key.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+          <h1 id="people-amp-organizations-api">People &amp; Organizations API</h1>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id="prospect-people">Prospect People</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.zenprospect.com/api/v1/people/search"</span>
+  -H <span class="s2">"Authorization: testzenprospectapikey"</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+   </span><span class="nt">"pagination"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"per_page"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_entries"</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"next_page"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"previous_page"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="mi">22</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"faceting"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"prospected_by_current_team_facets"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Net New"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">155</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tooltip"</span><span class="p">:</span><span class="s2">"People you have not prospected"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Already Prospected"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">65</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tooltip"</span><span class="p">:</span><span class="s2">"People from previous lead requests, your CRM, emails, or CSV uploads"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"excluded"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Excluded"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tooltip"</span><span class="p">:</span><span class="s2">"People you explicitly excluded"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"people"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"score"</span><span class="p">:</span><span class="mf">3.0175111</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"revealed_for_current_team"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"54a3b5a8746869367615770c"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Huseman"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Mike Huseman"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="s2">"http://www.linkedin.com/in/mike-huseman-681ba44"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Senior Vice President, Global Sales and Business Development"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Dallas"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email_status"</span><span class="p">:</span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"num_linkedin_connections"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"photo_url"</span><span class="p">:</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/4/000/13f/2e1/263fbce.jpg"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"twitter_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"github_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"facebook_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"headline"</span><span class="p">:</span><span class="s2">"Senior Vice President, Global Sales and Business Development @ EnterpriseDB"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"country"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"mike.huseman@enterprisedb.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"TX"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"contact_id"</span><span class="p">:</span><span class="s2">"56718e10bcc658b367494794"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"contact"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"56718e10bcc658b367494794"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Mike"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Huseman"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Mike Huseman"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="s2">"http://www.linkedin.com/pub/mike-huseman/4/ba4/681"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Senior Vice President, Global Sales and Business Development"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contact_stage_id"</span><span class="p">:</span><span class="s2">"564aacf79350783b9e000163"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"owner_id"</span><span class="p">:</span><span class="s2">"577bd3ba7ff0bb70d81ee89e"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"person_id"</span><span class="p">:</span><span class="s2">"54a3b5a8746869367615770c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_tickled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"organization_name"</span><span class="p">:</span><span class="s2">"EnterpriseDB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"lead_request"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"organization_id"</span><span class="p">:</span><span class="s2">"54a1351569702d333de2a500"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"headline"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"photo_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"present_raw_address"</span><span class="p">:</span><span class="s2">"Dallas, Texas, United States"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"linkedin_uid"</span><span class="p">:</span><span class="s2">"14896321"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"(781) 357-3390"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sanitized_phone"</span><span class="p">:</span><span class="s2">"+17813573390"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extrapolated_email_confidence"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"mike.huseman@enterprisedb.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"salesforce_lead_id"</span><span class="p">:</span><span class="s2">"00Q1a000008XlcTEAS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"salesforce_contact_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2015-12-16T16:15:12.279Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lead_request_id"</span><span class="p">:</span><span class="s2">"56718c067ff0bb6d07000041"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"test_predictive_score"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label_ids"</span><span class="p">:[</span><span class="w">
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"emailer_campaign_ids"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"5667b33a7ff0bb184000081f"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"unlocked"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_activity_date"</span><span class="p">:</span><span class="s2">"2015-12-18T17:10:13.362+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_status"</span><span class="p">:</span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_sent"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_open"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_clicked"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_bounced"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_replied_positive"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_replied"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"time_zone"</span><span class="p">:</span><span class="s2">"America/Chicago"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Dallas"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"Texas"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"country"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"salesforce_record_url"</span><span class="p">:</span><span class="s2">"https://na24.salesforce.com/00Q1a000008XlcTEAS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"salesforce_record_type"</span><span class="p">:</span><span class="s2">"lead"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contact_stage"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"564aacf79350783b9e000163"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Approaching"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2015-11-17T04:28:39.762Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"account_id"</span><span class="p">:</span><span class="s2">"5660dc1dbcc658b3673e5a29"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"existence_level"</span><span class="p">:</span><span class="s2">"full"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"organization"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"54a1351569702d333de2a500"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"EnterpriseDB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"website_url"</span><span class="p">:</span><span class="s2">"http://www.enterprisedb.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"blog_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"angellist_url"</span><span class="p">:</span><span class="s2">"http://angel.co/enterprisedb"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="s2">"http://www.linkedin.com/company/14958"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"twitter_url"</span><span class="p">:</span><span class="s2">"http://twitter.com/EnterpriseDB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"facebook_url"</span><span class="p">:</span><span class="s2">"http://www.facebook.com/EnterpriseDB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"image_urls"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"https://d2gn4xht817m0g.cloudfront.net/p/product_screenshots/images/original/000/371/769/371769-ac27b11e1969beb82f6d886f6729bd6c74c0543c.?1407426311"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"domain"</span><span class="p">:</span><span class="s2">"enterprisedb.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"domain_status"</span><span class="p">:</span><span class="s2">"ticklable"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"primary_phone"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"(781) 357-3390"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"http://www.enterprisedb.com/"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"linkedin_industry_tag_cleaned_names"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"computer software"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"linkedin_specialty_tag_cleaned_names"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"open source database"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"database"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"postgresql"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"postgres"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"oracle compatibility"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"training"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"certification"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"remote dba"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"angellist_market_tag_cleaned_names"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"open source"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"business intelligence"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"big data analytics"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"hardware + software"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"linkedin_company_size_tag_cleaned_names"</span><span class="p">:[</span><span class="w">
+               </span><span class="s2">"201-500 employees"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"estimated_num_employees"</span><span class="p">:</span><span class="mi">360</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"seo_description"</span><span class="p">:</span><span class="s2">"The leader in open source database products, services, support, training and expertise based on PostgreSQL. Free downloads, documentation, and tutorials."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"short_description"</span><span class="p">:</span><span class="s2">"EnterpriseDB is the leading worldwide provider of Postgres software and services that enable enterprises to reduce their reliance on costly proprietary solutions and slash their database spend by 80% or more. With powerful performance and security enhancements for PostgreSQL, sophisticated management tools for global deployments and Oracle compatibility, EnterpriseDB software supports both mission and non-mission critical enterprise applications. More than 3,300 enterprises, governments and other organizations worldwide use EnterpriseDB software, support, training and certifications, and professional services to integrate open source software into their existing data infrastructures. Based in Bedford, MA, EnterpriseDB is privately held.\n"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Middleborough"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"Massachusetts"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"country"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"raw_address"</span><span class="p">:</span><span class="s2">"Suite 200 Bedford MA 01730 United States"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
+
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves a paginated set of people who matches the specific criteria.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/people/search</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="query-parameters-on-the-person">Query Parameters on the Person</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>Array of people ids to filter by</td>
+<td></td>
+</tr>
+<tr>
+<td>not_ids</td>
+<td>Array of people ids to exclude</td>
+<td></td>
+</tr>
+<tr>
+<td>q_person_name</td>
+<td>String of the person&rsquo;s name. Supports boolean queries.</td>
+<td></td>
+</tr>
+<tr>
+<td>q_person_title</td>
+<td>String of the person&rsquo;s title. Supports boolean queries.</td>
+<td>(VP OR Director) AND (Sales OR &ldquo;Business Development&rdquo;)</td>
+</tr>
+<tr>
+<td>person_titles</td>
+<td>Array of title keywords you want this person to have.</td>
+<td>[&ldquo;CRO&rdquo;, &ldquo;CMO&rdquo;]</td>
+</tr>
+<tr>
+<td>person_not_titles</td>
+<td>Array of title keywords you want to EXCLUDE</td>
+<td></td>
+</tr>
+<tr>
+<td>has_email</td>
+<td>String of &ldquo;yes&rdquo; or &ldquo;no&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>has_phone</td>
+<td>String of &ldquo;yes&rdquo; or &ldquo;no&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>person_functions</td>
+<td>Array of job function tokens. <em>Possible values</em>: accounting, sales, operations, finance, marketing, human_resources, information_technology, administrator, legal, engineering, business_development, product_management, consulting, education, administrative, media_and_commmunication, arts_and_design, entrepreneurship.</td>
+<td></td>
+</tr>
+<tr>
+<td>person_seniorities</td>
+<td>Array of job seniority tokens. <em>Possible values</em>: owner, founder, c_suite, partner, vp, head, director, manager, senior, entry, intern</td>
+<td></td>
+</tr>
+<tr>
+<td>person_locations</td>
+<td>Array of location strings for the <em>persons</em>&rsquo;s current location</td>
+<td></td>
+</tr>
+<tr>
+<td>person_location_name, person_location_radius</td>
+<td>If instead you want to search via Location/Zip + Radius, enter a String of location name and a Integer radius expressed in miles</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters-on-the-person-39-s-organization">Query Parameters on the Person&rsquo;s Organization</h3>
 
 <table><thead>
 <tr>
@@ -287,76 +410,245 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>organization_ids</td>
+<td>Array of organization ids to filter by</td>
+</tr>
+<tr>
+<td>organization_websites</td>
+<td>Array of organization websites to filter by</td>
+</tr>
+<tr>
+<td>not_organization_ids</td>
+<td>Array of organization ids to exclude</td>
+</tr>
+<tr>
+<td>not_organization_websites</td>
+<td>Array of organization websites to exclude</td>
+</tr>
+<tr>
+<td>organization_locations</td>
+<td>Array of location strings for the <em>organization HQ</em>&rsquo;s current location</td>
+</tr>
+<tr>
+<td>organization_location_name, organization_location_radius</td>
+<td>If instead you want to search via Location/Zip + Radius, enter a String of location name and a Integer radius expressed in miles</td>
+</tr>
+<tr>
+<td>currently_using_any_of_technology_uids</td>
+<td>Array of technologies the organization is using. Joined by &ldquo;OR&rdquo;</td>
+</tr>
+<tr>
+<td>currently_using_all_of_technology_uids</td>
+<td>Array of technologies the organization is using. Joined by &ldquo;AND&rdquo;</td>
+</tr>
+<tr>
+<td>currently_using_not_of_technology_uids</td>
+<td>Array of technologies the organization is NOT using. Joined by &ldquo;NOT&rdquo;</td>
+</tr>
+<tr>
+<td>added_technology_uids, added_technology_date_range</td>
+<td>Paired set of filters to target organizations who added a set of technologies within a date range.</td>
+</tr>
+<tr>
+<td>dropped_technology_uids, dropped_technology_date_range</td>
+<td>Paired set of filters to target organizations who dropped a set of technologies within a date range.</td>
+</tr>
+<tr>
+<td>organization_has_phone</td>
+<td>String of &ldquo;yes&rdquo; or &ldquo;no&rdquo; to target only organizations for which we have a phone number</td>
+</tr>
+<tr>
+<td>organization_latest_funding_stage_cd</td>
+<td>Array. Possible values: [:seed, :angel, :venture, :series_a, :series_b, :series_c, :series_d, :series_e, :series_f, :private_equity, :other]</td>
+</tr>
+<tr>
+<td>latest_funding_amount_range</td>
+<td>Hash of { min: X, max: Y }</td>
+</tr>
+<tr>
+<td>latest_funding_date_range</td>
+<td>Hash of { min: X, max: Y }</td>
+</tr>
+<tr>
+<td>total_funding_range</td>
+<td>Hash of { min: X, max: Y }</td>
+</tr>
+<tr>
+<td>organization_founded_year_range</td>
+<td>Hash of { min: X, max: Y }</td>
+</tr>
+<tr>
+<td>organization_domain_status_cd</td>
+<td>Array of whether or not the organization&rsquo;s domain supports SMTP verification, is a catch-all domain, or is invalid.</td>
+</tr>
+<tr>
+<td>organization_num_employees_ranges</td>
+<td>Array of # employee values</td>
+</tr>
+<tr>
+<td>organization_linkedin_industry_tag_ids</td>
+<td>Array of the &ldquo;LinkedIn&rdquo; industry tags</td>
+</tr>
+<tr>
+<td>organization_not_linkedin_industry_tag_ids</td>
+<td>Array of the &ldquo;LinkedIn&rdquo; industry tags to exclude</td>
+</tr>
+<tr>
+<td>organization_angellist_market_tag_ids</td>
+<td>Array of the AngelList market tags</td>
+</tr>
+<tr>
+<td>q_organization_job_titles</td>
+<td>String of the job posting titles the company is currently hiring for. Supports boolean queries</td>
+</tr>
+<tr>
+<td>organization_job_locations</td>
+<td>Array of the location of the job postings</td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h3 id="other-query-parameters">Other Query Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>include_contact</td>
+<td>Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>include_job_postings</td>
+<td>Boolean. If set to true, the result will return the company&rsquo;s first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>include_newsfeed_events</td>
+<td>Boolean. If set to true, the result will return the company&rsquo;s first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>per_page</td>
+<td>Integer. How many results you&rsquo;d like to return per page. Possible values: 10, 25.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>page</td>
+<td>Current page.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>prospected_by_current_team</td>
+<td>String. &ldquo;yes&rsquo;, &lsquo;no&rsquo;, &#39;or &#39;excluded&rsquo;. Use to filter to new people or people you&rsquo;ve already prospected.</td>
 </tr>
 </tbody></table>
+
+<h2 id="prospect-organizations">Prospect Organizations</h2>
+
+<h2 id="enrich-people">Enrich People</h2>
+
+<p>ZenProspect&rsquo;s people enrichment API lets you enter a set of criteria about a person and receive rich information about them. This is useful for:</p>
+
+<ul>
+<li>Finding the email address of a person when you already have their name + company</li>
+<li>Given an email address of a person, enriching your database with other information like industry, company size, technologies, etc.</li>
+<li>Given a ZenProspect Person ID, see detailed information about them</li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/people/enrich</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>Enter as much of the following information as you have available. Our algorithm will smartly pick the fields to optimally find the appropriate person</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>If the Person ID attribute exists, it will override all other attriutes</td>
+</tr>
+<tr>
+<td>email</td>
+<td>If the email exists, we&rsquo;ll use the email as the primary</td>
+</tr>
+<tr>
+<td>full_name</td>
+<td>We can automatically parse out the first/last name from the full name.</td>
+</tr>
+<tr>
+<td>first_name, last_name</td>
+<td></td>
+</tr>
+<tr>
+<td>company_name</td>
+<td></td>
+</tr>
+<tr>
+<td>company_website</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="enrich-organizations">Enrich Organizations</h2>
+
+<h2 id="tags">Tags</h2>
+
+          <h1 id="newsfeed-api">Newsfeed API</h1>
+
+<p>ZenProspect&rsquo;s Newsfeed API lets you interact with and get notifications on sales trigger events, such as:</p>
+
+<ul>
+<li>news article</li>
+<li>blog post</li>
+<li>job posting</li>
+<li>venture funding announcement</li>
+</ul>
+
+<p>There are 2 ways to interact with the Newsfeed API:</p>
+
+<ol>
+<li>Webhooks to get real-time updates whenever there&rsquo;s a new Newsfeed Event</li>
+<li>REST API that lets you query for Newsfeed Events given a certain set of filter criteria</li>
+</ol>
+
+<h2 id="newsfeed-webhooks">Newsfeed Webhooks</h2>
+
+<h2 id="newsfeed-rest-api">Newsfeed REST API</h2>
+
+          <h1 id="predictive-api">Predictive API</h1>
+
+          <h1 id="core-rest-api">Core REST API</h1>
+
+<p>ZenProspect&rsquo;s Core REST API lets you interact with core ZenProspect objects like contacts, accounts, and sequences.</p>
+
+<h2 id="accounts">Accounts</h2>
+
+<h2 id="activities">Activities</h2>
+
+<h2 id="calls">Calls</h2>
+
+<h2 id="contacts">Contacts</h2>
+
+<h2 id="customer-profiles">Customer Profiles</h2>
+
+<h2 id="mailings">Mailings</h2>
+
+<h2 id="sequences">Sequences</h2>
+
+<h2 id="tasks">Tasks</h2>
+
+<h2 id="templates">Templates</h2>
+
+<h2 id="users">Users</h2>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
