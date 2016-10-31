@@ -1,15 +1,11 @@
 ---
-title: API Reference
+title: ZenProspect API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -19,81 +15,42 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the ZenProspect API! 
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Our API is still in private alpha, is under active development, and is subject to change. Eventually, we plan to make available in the API almost everything you can do in the UI. Additionally, if you have have any suggestions for API methods you'd like to see, please let us know! We would be happy to build it into our API.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: testzenprospectapikey"
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-```
+> Make sure to replace `testzenprospectapikey` with your API key.
 
-> Make sure to replace `meowmeowmeow` with your API key.
+ZenProspect uses API keys to allow access to the API. Please contact your dedicated Customer Success Manager for your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+ZenProspect expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: testzenprospectapikey`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>testzenprospectapikey</code> with your personal API key.
 </aside>
 
-# Kittens
+# Prospect API
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Prospect for People
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://www.zenprospect.com/api/v1/people/search"
+  -H "Authorization: testzenprospectapikey"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -116,74 +73,87 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves a paginated set of people who matches the specific criteria.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://www.zenprospect.com/api/v1/people/search`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+per_page | 10 | How many results you'd like to return per page. Maximum = 100.
+page | 1 | Current page.
 
-<aside class="success">
+<!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
-</aside>
+</aside> -->
 
-## Get a Specific Kitten
+## Prospect for Companies
 
-```ruby
-require 'kittn'
+# Enrich API
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Enrich People 
 
-```python
-import kittn
+## Enrich Companies
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+# Newsfeed API
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+ZenProspect's Newsfeed API lets you instantly get notifications on any "trigger event", such as a new news article, blog post, job posting, venture funding announcement, and more. There are 2 ways to interact 
 
-```javascript
-const kittn = require('kittn');
+1. A webhook component
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
 
-> The above command returns JSON structured like this:
+## Newsfeed Webhooks
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+## Newsfeed REST API
 
-This endpoint retrieves a specific kitten.
+# Predictive APIs
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+TODO
 
-### HTTP Request
+# Core REST APIs
 
-`GET http://example.com/kittens/<ID>`
+## Accounts
 
-### URL Parameters
+TODO
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+
+## Activities
+
+TODO
+
+## Calls
+
+TODO
+
+## Contacts
+
+TODO
+
+## Customer Profiles
+
+TODO
+
+## Mailings
+
+TODO
+
+## Sequences
+
+TODO
+
+## Tasks
+
+TODO
+
+## Templates
+
+TODO
+
+## Users
+
+TODO
 
