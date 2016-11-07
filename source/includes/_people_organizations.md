@@ -246,6 +246,7 @@ per_page | Integer. How many results you'd like to return per page. Possible val
 page | Current page.
 prospected_by_current_team | String. "yes', 'no', 'or 'excluded'. Use to filter to new people or people you've already prospected.
 
+
 ## Prospect Organizations
 
 ## Enrich People 
