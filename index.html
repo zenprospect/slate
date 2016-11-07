@@ -643,6 +643,20 @@ You must replace <code>testzenprospectapikey</code> with your personal API key.
 
 <h2 id="accounts">Accounts</h2>
 
+<h3 id="edit-account">Edit Account</h3>
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.zenprospect.com/api/v1/accounts/54a3b5a8746869367615770c"</span> <span class="se">\</span>
+-X PUT <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: testzenprospectapikey"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "name": "Acme Co.",
+  "custom_fields": {
+    "Personalized Snippet": "Blah blah blah blah."
+  }
+}'</span> 
+
+</code></pre>
+
 <h2 id="activities">Activities</h2>
 
 <h2 id="calls">Calls</h2>
@@ -650,10 +664,10 @@ You must replace <code>testzenprospectapikey</code> with your personal API key.
 <h2 id="contacts">Contacts</h2>
 
 <h3 id="edit-contact">Edit Contact</h3>
-<pre class="highlight shell"><code>curl <span class="s2">"https://www.zenprospect.com/api/v1/contacts/54a3b5a8746869367615770c"</span> 
--H <span class="s1">'Content-Type: application/json'</span> 
--H <span class="s2">"Authorization: testzenprospectapikey"</span>
--X PUT 
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.zenprospect.com/api/v1/contacts/54a3b5a8746869367615770c"</span> <span class="se">\</span>
+-X PUT <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: testzenprospectapikey"</span> <span class="se">\</span>
 -d <span class="s1">'{
   "first_name":"Bob",
   "custom_fields": {
