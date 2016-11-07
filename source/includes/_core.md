@@ -6,7 +6,21 @@ ZenProspect's Core REST API lets you interact with core ZenProspect objects like
 
 ## Accounts
 
+### Edit Account
 
+```shell
+curl "https://www.zenprospect.com/api/v1/accounts/54a3b5a8746869367615770c" \
+-X PUT \
+-H 'Content-Type: application/json' \
+-H "Authorization: testzenprospectapikey" \
+-d '{
+  "name": "Acme Co.",
+  "custom_fields": {
+    "Personalized Snippet": "Blah blah blah blah."
+  }
+}' 
+
+```
 
 ## Activities
 
@@ -17,11 +31,12 @@ ZenProspect's Core REST API lets you interact with core ZenProspect objects like
 ## Contacts
 
 ### Edit Contact
+
 ```shell
-curl "https://www.zenprospect.com/api/v1/contacts/54a3b5a8746869367615770c" 
--H 'Content-Type: application/json' 
--H "Authorization: testzenprospectapikey"
--X PUT 
+curl "https://www.zenprospect.com/api/v1/contacts/54a3b5a8746869367615770c" \
+-X PUT \
+-H 'Content-Type: application/json' \
+-H "Authorization: testzenprospectapikey" \
 -d '{
   "first_name":"Bob",
   "custom_fields": {
