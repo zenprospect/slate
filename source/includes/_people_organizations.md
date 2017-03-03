@@ -1,4 +1,4 @@
-
+<!-- 
 # People & Organizations API
 
 ## Prospect People
@@ -281,3 +281,4 @@ include_newsfeed_events | Boolean. If set to true, the result will return the co
 ## Enrich Organizations
 
 ## Tags
+ -->

@@ -5,19 +5,17 @@
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: testzenprospectapikey"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": [YOUR_API_KEY]
+}' "https://www.zenprospect.com/api/v1/auth/health"
 ```
 
-
-> Make sure to replace `testzenprospectapikey` with your API key.
+> If authentication is successful, you should expect to see {"is_logged_in":true}
 
 ZenProspect uses API keys to allow access to the API. Please contact your dedicated Customer Success Manager for your API key.
 
-ZenProspect expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: testzenprospectapikey`
+ZenProspect expects for the API key to be included in all API requests to the server in as a query string parameter. 
 
 <aside class="notice">
-You must replace <code>testzenprospectapikey</code> with your personal API key.
+You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </aside>

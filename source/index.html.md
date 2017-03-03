@@ -10,11 +10,9 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - people_organizations
-  - newsfeed
-  - predictive
-  - core
-
+  - organizations
+  - contacts
+  - accounts
 
 search: true
 ---

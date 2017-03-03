@@ -1,4 +1,4 @@
-
+<!-- 
 # Newsfeed API
 
 ZenProspect's Newsfeed API lets you interact with and get notifications on sales trigger events, such as:
@@ -19,3 +19,4 @@ There are 2 ways to interact with the Newsfeed API:
 
 ## Newsfeed REST API
 
+ -->
