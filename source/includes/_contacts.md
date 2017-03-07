@@ -2,6 +2,72 @@
 
 Contact is a person your team has explicitly added to your database. It can be from prospected from ZenProspect, manually added by your team, or created by the API.
 
+## Create a contact
+
+> Create a contact:
+
+```shell
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "first_name": "Jon",
+    "last_name": "Snow",
+    "title": "Lord Commander",
+    "organization_name": "Westeros"
+}' "https://www.zenprospect.com/api/v1/contacts"
+```
+
+`POST https://www.zenprospect.com/api/v1/contacts`
+
+<aside class="notice">
+ZenProspect enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, ZenProspect merges it with the existing record instead of creating a new contact.
+</aside>
+
+Parameter | Description | Example
+--------- | ----------- | -----------
+first_name| First name | "Jon"
+last_name | Last Name   | "Snow"
+organization_name | Company Name   | "Westeros Inc."
+title | Title   | "Lord Commander"
+email     | Email. Invalid emails will be ignored.  | "jon.snow@westeros.com"
+website_url | The organization website ZenProspect can use to enrich data for you. DO NOT pass in personal social media urls such as "http://www.linkedin.com/profile_url", or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email. | "http://www.westeros.com"
+label_names | A list of names to tag this newly created contact. If the name does not exist, ZenProspect will automatically create it | ["inbound contact", "smb clients"]
+contact_stage_id | Assign contact to this stage, if the contact does not yet exist. Get a list of possible stage ids with GET /contact_stages | "583f2f7ed9ced98ab5bfXXXX"
+present_raw_address | The address string for this contact, ZenProspect will intelligently infer the city, state, country, and time zone from your address | "San Francisco"
+
+
+## Update a contact
+
+> Update a contact:
+
+```shell
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "id": "YOUR CONTACT ID", 
+    "first_name": "Jon",
+    "last_name": "Snow",
+    "title": "Lord Commander",
+    "organization_name": "Westeros"
+}' "https://www.zenprospect.com/api/v1/contacts"
+```
+
+`PUT https://www.zenprospect.com/api/v1/contacts`
+
+<aside class="notice">
+Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
+</aside>
+
+Parameter | Description | Example
+--------- | ----------- | -----------
+id (Required)        | Contact ID  | "583f2f7ed9ced98ab5bfXXXX"
+first_name| First name | "Jon"
+last_name | Last Name   | "Snow"
+organization_name | Company Name   | "Westeros Inc."
+title | Title   | "Lord Commander"
+email     | Email   | "jon.snow@westeros.com"
+label_names | A list of names to tag this contact. If the name does not exist, ZenProspect will automatically create it | ["inbound contact", "smb clients"]
+present_raw_address | The address string for this contact, ZenProspect will intelligently infer the city, state, and country from your address | "San Francisco"
+
+
 ## Searching for contacts
 
 > Searching for contacts:
