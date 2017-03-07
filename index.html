@@ -187,6 +187,150 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 
 <p>Contact is a person your team has explicitly added to your database. It can be from prospected from ZenProspect, manually added by your team, or created by the API.</p>
 
+<h2 id="create-a-contact">Create a contact</h2>
+
+<blockquote>
+<p>Create a contact:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "first_name": "Jon",
+    "last_name": "Snow",
+    "title": "Lord Commander",
+    "organization_name": "Westeros"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts"</span>
+</code></pre>
+
+<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/contacts</code></p>
+
+<aside class="notice">
+ZenProspect enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, ZenProspect merges it with the existing record instead of creating a new contact.
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>First name</td>
+<td>&ldquo;Jon&rdquo;</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Last Name</td>
+<td>&ldquo;Snow&rdquo;</td>
+</tr>
+<tr>
+<td>organization_name</td>
+<td>Company Name</td>
+<td>&ldquo;Westeros Inc.&rdquo;</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+<td>&ldquo;Lord Commander&rdquo;</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email. Invalid emails will be ignored.</td>
+<td>&ldquo;jon.snow@westeros.com&rdquo;</td>
+</tr>
+<tr>
+<td>website_url</td>
+<td>The organization website ZenProspect can use to enrich data for you. DO NOT pass in personal social media urls such as &ldquo;http://www.linkedin.com/profile_url&rdquo;, or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email.</td>
+<td>&ldquo;http://www.westeros.com&rdquo;</td>
+</tr>
+<tr>
+<td>label_names</td>
+<td>A list of names to tag this newly created contact. If the name does not exist, ZenProspect will automatically create it</td>
+<td>[&ldquo;inbound contact&rdquo;, &ldquo;smb clients&rdquo;]</td>
+</tr>
+<tr>
+<td>contact_stage_id</td>
+<td>Assign contact to this stage, if the contact does not yet exist. Get a list of possible stage ids with GET /contact_stages</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
+</tr>
+<tr>
+<td>present_raw_address</td>
+<td>The address string for this contact, ZenProspect will intelligently infer the city, state, country, and time zone from your address</td>
+<td>&ldquo;San Francisco&rdquo;</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-contact">Update a contact</h2>
+
+<blockquote>
+<p>Update a contact:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X PUT -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "id": "YOUR CONTACT ID", 
+    "first_name": "Jon",
+    "last_name": "Snow",
+    "title": "Lord Commander",
+    "organization_name": "Westeros"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts"</span>
+</code></pre>
+
+<p><code class="prettyprint">PUT https://www.zenprospect.com/api/v1/contacts</code></p>
+
+<aside class="notice">
+Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id (Required)</td>
+<td>Contact ID</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>First name</td>
+<td>&ldquo;Jon&rdquo;</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Last Name</td>
+<td>&ldquo;Snow&rdquo;</td>
+</tr>
+<tr>
+<td>organization_name</td>
+<td>Company Name</td>
+<td>&ldquo;Westeros Inc.&rdquo;</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+<td>&ldquo;Lord Commander&rdquo;</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Email</td>
+<td>&ldquo;jon.snow@westeros.com&rdquo;</td>
+</tr>
+<tr>
+<td>label_names</td>
+<td>A list of names to tag this contact. If the name does not exist, ZenProspect will automatically create it</td>
+<td>[&ldquo;inbound contact&rdquo;, &ldquo;smb clients&rdquo;]</td>
+</tr>
+<tr>
+<td>present_raw_address</td>
+<td>The address string for this contact, ZenProspect will intelligently infer the city, state, and country from your address</td>
+<td>&ldquo;San Francisco&rdquo;</td>
+</tr>
+</tbody></table>
+
 <h2 id="searching-for-contacts">Searching for contacts</h2>
 
 <blockquote>
