@@ -14,6 +14,7 @@ includes:
   - contacts
   - accounts
   - sequences
+  - misc
 
 search: true
 ---

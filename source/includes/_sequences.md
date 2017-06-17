@@ -23,12 +23,11 @@ q_name| Name | "Name of Sequence"
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
-    "contact_ids": ["contact id 1", "contact id 2"]
+    "contact_ids": ["contact id 1", "contact id 2"],
+    "send_email_from_email_account_id": "email_account_id",
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
-    "sequence_finished_in_other_campaigns": true,
-    "send_email_from_email_account_id": "email_account_id"
-    
+    "sequence_finished_in_other_campaigns": true,    
 }' "https://www.zenprospect.com/api/v1/emailer_campaigns/[emailer_campaign_id]/add_contact_ids"
 ```
 
