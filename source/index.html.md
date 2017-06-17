@@ -13,6 +13,7 @@ includes:
   - organizations
   - contacts
   - accounts
+  - sequences
 
 search: true
 ---
