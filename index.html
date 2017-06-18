@@ -418,6 +418,128 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tbody></table>
 
           
+          <h1 id="sequences-api">Sequences API</h1>
+
+<p>Use the Sequences API to interact with sequences, add contacts to sequence, and more!</p>
+
+<h2 id="searching-for-sequences">Searching for sequences</h2>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "q_name": "Sequence Name"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/search"</span>
+</code></pre>
+
+<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/emailer_campaigns/search</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q_name</td>
+<td>Name</td>
+<td>&ldquo;Name of Sequence&rdquo;</td>
+</tr>
+</tbody></table>
+
+<h2 id="adding-contacts-to-sequence">Adding Contacts to Sequence</h2>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "contact_ids": ["contact id 1", "contact id 2"],
+    "send_email_from_email_account_id": "email_account_id",
+    "sequence_active_in_other_campaigns": true,
+    "sequence_no_email": true,
+    "sequence_finished_in_other_campaigns": true,    
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/[emailer_campaign_id]/add_contact_ids"</span>
+</code></pre>
+
+<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/emailer_campaigns/add_contact_ids</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id (required)</td>
+<td>ID of the sequence</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
+</tr>
+<tr>
+<td>contact_ids (required)</td>
+<td>An array of contact Ids</td>
+<td>[&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;, &ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;]</td>
+</tr>
+<tr>
+<td>send_email_from_email_account_id (required)</td>
+<td>ID of the email account to send email from, use the email_account/search api to figure out the list IDs</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
+</tr>
+<tr>
+<td>sequence_no_email</td>
+<td>Whether to still sequence the contact if he/she does not have an email address</td>
+<td>true or false (default false)</td>
+</tr>
+<tr>
+<td>sequence_active_in_other_campaigns</td>
+<td>Whether to still sequence the contact if he/she is active or paused in another sequence</td>
+<td>true or false (default false)</td>
+</tr>
+<tr>
+<td>sequence_finished_in_other_campaigns</td>
+<td>Whether to still sequence the contact if he/she already finished another sequence</td>
+<td>true or false (default false)</td>
+</tr>
+</tbody></table>
+
+<h2 id="removing-contacts-from-sequence-marking-contacts-as-finished-in-sequence">Removing Contacts from Sequence / Marking Contacts as Finished in Sequence</h2>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "emailer_campaign_ids": ["contact id 1", "contact id 2"],
+    "contact_ids": ["contact id 1", "contact id 2"],
+    "mode": "mark_as_finished"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>emailer_campaign_ids (required)</td>
+<td>A list of ids to remove all contacts from</td>
+<td>[&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;, &ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;]</td>
+</tr>
+<tr>
+<td>contact_ids (required)</td>
+<td>An array of contact Ids to remove from the sequences</td>
+<td>[&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;, &ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;]</td>
+</tr>
+<tr>
+<td>mode (required)</td>
+<td>Whether to remove the contacts from the sequence, or mark them as finished</td>
+<td>mark_as_finished OR remove</td>
+</tr>
+</tbody></table>
+
+          <h1 id="misc">Misc</h1>
+
+<h2 id="get-a-list-of-email-accounts">Get a list of email accounts</h2>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/email_accounts"</span>
+</code></pre>
+
+<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/email_accounts</code></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
