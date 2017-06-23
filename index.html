@@ -532,9 +532,17 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
           <h1 id="misc">Misc</h1>
 
+<h2 id="get-a-list-of-users">Get a list of users</h2>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/users/search"</span>
+</code></pre>
+
+<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/users/search</code></p>
+
 <h2 id="get-a-list-of-email-accounts">Get a list of email accounts</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+    "api_key": "YOUR API KEY HERE"
 }'</span> <span class="s2">"https://www.zenprospect.com/api/v1/email_accounts"</span>
 </code></pre>
 
