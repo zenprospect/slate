@@ -121,3 +121,25 @@ Parameter | Description
 --------- | -----------
 contact_ids | An array of contact ids. You can filter for a list of contact IDS with the contacts/search API.
 contact_stage_id | The contact stage id to change into. You can GET a list of possible stage ids and its associated information from /contact_stages
+
+
+
+## Updating Contact Ownership
+> Update a contact owner:
+
+```shell
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "contact_ids": ["contact_id1", "contact_id2"],
+    "owner_id": "owner_id"
+}' "https://www.zenprospect.com/api/v1/contacts/update_owners"
+```
+
+`POST https://www.zenprospect.com/api/v1/contacts/update_owners`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+contact_ids | An array of contact ids. You can filter for a list of contact IDS with the contacts/search API.
+owner_id | The owner id to change into. You can GET a list of possible users and its associated information from /users
