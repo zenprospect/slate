@@ -152,7 +152,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 
 <p>An organization represents a company in ZenProspect&rsquo;s database.</p>
 
-<h2 id="organization-enrichment">Organization Enrichment</h2>
+<h2 id="enrichment">Enrichment</h2>
 
 <blockquote>
 <p>Enrich a company&rsquo;s information with just the domain:</p>
@@ -163,7 +163,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 }'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/enrich"</span>
 </code></pre>
 
-<p>This endpoint enriches a company based on the domain parameter passed in.</p>
+<p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.</p>
 
 <p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/organizations/enrich</code></p>
 
@@ -180,6 +180,36 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <td>domain</td>
 <td>The company domain</td>
 <td>google.com</td>
+</tr>
+</tbody></table>
+
+<h2 id="organization-jobs-postings">Organization Jobs Postings</h2>
+
+<blockquote>
+<p>Get a list of active job postings for a company:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
+</code></pre>
+
+<p>This endpoint enriches a company based on the domain parameter passed in.</p>
+
+<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the organization. You can obtain an ID with the company&rsquo;s domain using the enrich endpoint</td>
+<td>54fca1087369647fcXXXXXXX</td>
 </tr>
 </tbody></table>
 
