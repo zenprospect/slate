@@ -36,7 +36,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ```
 
 
-This endpoint enriches a company based on the domain parameter passed in.
+Get a list of active job postings for a company.
 
 `GET https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings`
 
