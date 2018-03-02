@@ -298,12 +298,11 @@ ZenProspect enforces strict deduplication during <code>CREATE</code>. If your re
 </blockquote>
 <pre class="highlight shell"><code>curl -X PUT -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
-    "id": "YOUR CONTACT ID", 
     "first_name": "Jon",
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts"</span>
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts/YOUR CONTACT ID"</span>
 </code></pre>
 
 <p><code class="prettyprint">PUT https://www.zenprospect.com/api/v1/contacts</code></p>
