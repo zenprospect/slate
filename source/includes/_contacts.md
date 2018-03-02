@@ -42,12 +42,11 @@ present_raw_address | The address string for this contact, ZenProspect will inte
 ```shell
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
-    "id": "YOUR CONTACT ID", 
     "first_name": "Jon",
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}' "https://www.zenprospect.com/api/v1/contacts"
+}' "https://www.zenprospect.com/api/v1/contacts/YOUR CONTACT ID"
 ```
 
 `PUT https://www.zenprospect.com/api/v1/contacts`
