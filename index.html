@@ -148,6 +148,70 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span
 You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </aside>
 
+          <h1 id="people-api">People API</h1>
+
+<p>A person represents a person in ZenProspect&rsquo;s database.</p>
+
+<h2 id="enrichment">Enrichment</h2>
+
+<blockquote>
+<p>Enrich a person&rsquo;s information with information:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "first_name": "Tim",
+    "last_name": "Zheng",
+    "organization_name": "ZenProspect",
+    "email": "tim@zenprospect.com",
+    "domain": "zenprospect.com"
+}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/enrich"</span>
+</code></pre>
+
+<p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.</p>
+
+<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/people/match</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name (optional)</td>
+<td>The person&rsquo;s first name</td>
+<td>Tim</td>
+</tr>
+<tr>
+<td>last_name (optional)</td>
+<td>The person&rsquo;s last name</td>
+<td>Zheng</td>
+</tr>
+<tr>
+<td>name (optional)</td>
+<td>The person&rsquo;s full name</td>
+<td>Tim Zheng</td>
+</tr>
+<tr>
+<td>email (optional)</td>
+<td>The person&rsquo;s email</td>
+<td>tim@zenprospect.com</td>
+</tr>
+<tr>
+<td>organization_name (optional)</td>
+<td>The person&rsquo;s company name</td>
+<td>ZenProspect Inc.</td>
+</tr>
+<tr>
+<td>domain (optional)</td>
+<td>The person&rsquo;s company domain</td>
+<td>zenprospect.com</td>
+</tr>
+</tbody></table>
+
           <h1 id="organizations-api">Organizations API</h1>
 
 <p>An organization represents a company in ZenProspect&rsquo;s database.</p>
