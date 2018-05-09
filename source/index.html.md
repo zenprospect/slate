@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - introduction
   - authentication
+  - people
   - organizations
   - contacts
   - accounts
