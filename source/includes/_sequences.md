@@ -28,15 +28,15 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
     "sequence_finished_in_other_campaigns": true,    
-}' "https://www.zenprospect.com/api/v1/emailer_campaigns/[emailer_campaign_id]/add_contact_ids"
+}' "https://www.zenprospect.com/api/v1/emailer_campaigns/[replace with sequence id]/add_contact_ids"
 ```
 
-`POST https://www.zenprospect.com/api/v1/emailer_campaigns/add_contact_ids`
+`POST https://www.zenprospect.com/api/v1/emailer_campaigns/[replace with sequence id]/add_contact_ids`
 
 
 Parameter | Description | Example
 --------- | ----------- | -----------
-id (required)| ID of the sequence | "583f2f7ed9ced98ab5bfXXXX"
+id (required, embedded in URL)| ID of the sequence | "583f2f7ed9ced98ab5bfXXXX"
 contact_ids (required)| An array of contact Ids | ["583f2f7ed9ced98ab5bfXXXX", "583f2f7ed9ced98ab5bfXXXX"]
 send_email_from_email_account_id (required)| ID of the email account to send email from, use the email_account/search api to figure out the list IDs | "583f2f7ed9ced98ab5bfXXXX"
 sequence_no_email | Whether to still sequence the contact if he/she does not have an email address | true or false (default false)
