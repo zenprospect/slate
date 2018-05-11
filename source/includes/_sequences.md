@@ -28,10 +28,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
     "sequence_finished_in_other_campaigns": true,    
-}' "https://www.zenprospect.com/api/v1/emailer_campaigns/[replace with sequence id]/add_contact_ids"
+}' "https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"
 ```
 
-`POST https://www.zenprospect.com/api/v1/emailer_campaigns/[replace with sequence id]/add_contact_ids`
+`POST https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids`
 
 
 Parameter | Description | Example
