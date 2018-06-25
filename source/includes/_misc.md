@@ -5,10 +5,10 @@
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://www.zenprospect.com/api/v1/users/search"
+}' "https://www.apollo.io/api/v1/users/search"
 ```
 
-`GET https://www.zenprospect.com/api/v1/users/search`
+`GET https://www.apollo.io/api/v1/users/search`
 
 
 
@@ -17,8 +17,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://www.zenprospect.com/api/v1/email_accounts"
+}' "https://www.apollo.io/api/v1/email_accounts"
 ```
 
-`GET https://www.zenprospect.com/api/v1/email_accounts`
+`GET https://www.apollo.io/api/v1/email_accounts`
 

@@ -8,10 +8,10 @@ Use the Sequences API to interact with sequences, add contacts to sequence, and 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
     "q_name": "Sequence Name"
-}' "https://www.zenprospect.com/api/v1/emailer_campaigns/search"
+}' "https://www.apollo.io/api/v1/emailer_campaigns/search"
 ```
 
-`POST https://www.zenprospect.com/api/v1/emailer_campaigns/search`
+`POST https://www.apollo.io/api/v1/emailer_campaigns/search`
 
 
 Parameter | Description | Example
@@ -28,10 +28,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
     "sequence_finished_in_other_campaigns": true,    
-}' "https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"
+}' "https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"
 ```
 
-`POST https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids`
+`POST https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids`
 
 
 Parameter | Description | Example
@@ -51,7 +51,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "emailer_campaign_ids": ["contact id 1", "contact id 2"],
     "contact_ids": ["contact id 1", "contact id 2"],
     "mode": "mark_as_finished"
-}' "https://www.zenprospect.com/api/v1/emailer_campaigns/remove_or_stop_contact_ids"
+}' "https://www.apollo.io/api/v1/emailer_campaigns/remove_or_stop_contact_ids"
 ```
 Parameter | Description | Example
 --------- | ----------- | -----------

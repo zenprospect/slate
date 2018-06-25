@@ -2,17 +2,17 @@
 
 # Core REST API
 
-ZenProspect's Core REST API lets you interact with core ZenProspect objects like contacts, accounts, and sequences.
+Apollo's Core REST API lets you interact with core Apollo objects like contacts, accounts, and sequences.
 
 ## Accounts
 
 ### Edit Account
 
 ```shell
-curl "https://www.zenprospect.com/api/v1/accounts/54a3b5a8746869367615770c" \
+curl "https://www.apollo.io/api/v1/accounts/54a3b5a8746869367615770c" \
 -X PUT \
 -H 'Content-Type: application/json' \
--H "Authorization: testzenprospectapikey" \
+-H "Authorization: testapolloapikey" \
 -d '{
   "name": "Acme Co.",
   "custom_fields": {
@@ -33,10 +33,10 @@ curl "https://www.zenprospect.com/api/v1/accounts/54a3b5a8746869367615770c" \
 ### Edit Contact
 
 ```shell
-curl "https://www.zenprospect.com/api/v1/contacts/54a3b5a8746869367615770c" \
+curl "https://www.apollo.io/api/v1/contacts/54a3b5a8746869367615770c" \
 -X PUT \
 -H 'Content-Type: application/json' \
--H "Authorization: testzenprospectapikey" \
+-H "Authorization: testapolloapikey" \
 -d '{
   "first_name":"Bob",
   "custom_fields": {
