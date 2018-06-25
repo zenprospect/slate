@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>ZenProspect API Reference</title>
+    <title>Apollo API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -119,9 +119,9 @@
         
           <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the ZenProspect API! </p>
+<p>Welcome to the Apollo API! </p>
 
-<p><strong>Our API is still under active development. It is subject to change without prior notice from ZenProspect.</strong> </p>
+<p><strong>Our API is still under active development. It is subject to change without prior notice from Apollo.</strong> </p>
 
 <p>Eventually, we plan to make available in the API almost everything you can do in the UI, plus some extra functionality not available in the UI. Additionally, if you have have any suggestions for API methods you&rsquo;d like to see, please let us know! We would be happy to see if we can build it into our API.</p>
 
@@ -133,16 +133,16 @@
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": [YOUR_API_KEY]
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/auth/health"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/auth/health"</span>
 </code></pre>
 
 <blockquote>
 <p>If authentication is successful, you should expect to see {&ldquo;is_logged_in&rdquo;:true}</p>
 </blockquote>
 
-<p>ZenProspect uses API keys to allow access to the API. Your may request an API key <a href="https://www.zenprospect.com/app/#/settings/integrations/api">here</a></p>
+<p>Apollo uses API keys to allow access to the API. Your may request an API key <a href="https://www.apollo.io/app/#/settings/integrations/api">here</a></p>
 
-<p>ZenProspect expects for the API key to be included in all API requests to the server in as a query string parameter. </p>
+<p>Apollo expects for the API key to be included in all API requests to the server in as a query string parameter. </p>
 
 <aside class="notice">
 You must replace <code>YOUR_API_KEY</code> with your personal API key.
@@ -150,7 +150,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 
           <h1 id="people-api">People API</h1>
 
-<p>A person represents a person in ZenProspect&rsquo;s database.</p>
+<p>A person represents a person in Apollo&rsquo;s database.</p>
 
 <h2 id="enrichment">Enrichment</h2>
 
@@ -161,15 +161,15 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
     "api_key": "YOUR API KEY HERE",
     "first_name": "Tim",
     "last_name": "Zheng",
-    "organization_name": "ZenProspect",
-    "email": "tim@zenprospect.com",
-    "domain": "zenprospect.com"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/enrich"</span>
+    "organization_name": "Apollo",
+    "email": "tim@apollo.io",
+    "domain": "apollo.io"
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/enrich"</span>
 </code></pre>
 
 <p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.</p>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/people/match</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/people/match</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -198,23 +198,23 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <tr>
 <td>email (optional)</td>
 <td>The person&rsquo;s email</td>
-<td>tim@zenprospect.com</td>
+<td>tim@apollo.io</td>
 </tr>
 <tr>
 <td>organization_name (optional)</td>
 <td>The person&rsquo;s company name</td>
-<td>ZenProspect Inc.</td>
+<td>Apollo Inc.</td>
 </tr>
 <tr>
 <td>domain (optional)</td>
 <td>The person&rsquo;s company domain</td>
-<td>zenprospect.com</td>
+<td>apollo.io</td>
 </tr>
 </tbody></table>
 
           <h1 id="organizations-api">Organizations API</h1>
 
-<p>An organization represents a company in ZenProspect&rsquo;s database.</p>
+<p>An organization represents a company in Apollo&rsquo;s database.</p>
 
 <h2 id="enrichment">Enrichment</h2>
 
@@ -224,12 +224,12 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "domain": "google.com"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/enrich"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/enrich"</span>
 </code></pre>
 
 <p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.</p>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/organizations/enrich</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/organizations/enrich</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -254,12 +254,12 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </blockquote>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
 </code></pre>
 
 <p>Get a list of active job postings for a company.</p>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -279,7 +279,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 
           <h1 id="contacts-api">Contacts API</h1>
 
-<p>Contact is a person your team has explicitly added to your database. It can be from prospected from ZenProspect, manually added by your team, or created by the API.</p>
+<p>Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
 
 <h2 id="create-a-contact">Create a contact</h2>
 
@@ -292,13 +292,13 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/contacts</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts</code></p>
 
 <aside class="notice">
-ZenProspect enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, ZenProspect merges it with the existing record instead of creating a new contact.
+Apollo enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo merges it with the existing record instead of creating a new contact.
 </aside>
 
 <table><thead>
@@ -335,12 +335,12 @@ ZenProspect enforces strict deduplication during <code>CREATE</code>. If your re
 </tr>
 <tr>
 <td>website_url</td>
-<td>The organization website ZenProspect can use to enrich data for you. DO NOT pass in personal social media urls such as &ldquo;http://www.linkedin.com/profile_url&rdquo;, or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email.</td>
+<td>The organization website Apollo can use to enrich data for you. DO NOT pass in personal social media urls such as &ldquo;http://www.linkedin.com/profile_url&rdquo;, or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email.</td>
 <td>&ldquo;http://www.westeros.com&rdquo;</td>
 </tr>
 <tr>
 <td>label_names</td>
-<td>A list of names to tag this newly created contact. If the name does not exist, ZenProspect will automatically create it</td>
+<td>A list of names to tag this newly created contact. If the name does not exist, Apollo will automatically create it</td>
 <td>[&ldquo;inbound contact&rdquo;, &ldquo;smb clients&rdquo;]</td>
 </tr>
 <tr>
@@ -350,7 +350,7 @@ ZenProspect enforces strict deduplication during <code>CREATE</code>. If your re
 </tr>
 <tr>
 <td>present_raw_address</td>
-<td>The address string for this contact, ZenProspect will intelligently infer the city, state, country, and time zone from your address</td>
+<td>The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address</td>
 <td>&ldquo;San Francisco&rdquo;</td>
 </tr>
 </tbody></table>
@@ -366,10 +366,10 @@ ZenProspect enforces strict deduplication during <code>CREATE</code>. If your re
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts/YOUR CONTACT ID"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/YOUR CONTACT ID"</span>
 </code></pre>
 
-<p><code class="prettyprint">PUT https://www.zenprospect.com/api/v1/contacts</code></p>
+<p><code class="prettyprint">PUT https://www.apollo.io/api/v1/contacts</code></p>
 
 <aside class="notice">
 Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
@@ -414,12 +414,12 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tr>
 <tr>
 <td>label_names</td>
-<td>A list of names to tag this contact. If the name does not exist, ZenProspect will automatically create it</td>
+<td>A list of names to tag this contact. If the name does not exist, Apollo will automatically create it</td>
 <td>[&ldquo;inbound contact&rdquo;, &ldquo;smb clients&rdquo;]</td>
 </tr>
 <tr>
 <td>present_raw_address</td>
-<td>The address string for this contact, ZenProspect will intelligently infer the city, state, and country from your address</td>
+<td>The address string for this contact, Apollo will intelligently infer the city, state, and country from your address</td>
 <td>&ldquo;San Francisco&rdquo;</td>
 </tr>
 </tbody></table>
@@ -433,10 +433,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts/search"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/contacts/search</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/search</code></p>
 
 <table><thead>
 <tr>
@@ -473,10 +473,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="getting-a-list-of-contact-stages">Getting a list of contact stages</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contact_stages"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contact_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/contact_stages</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/contact_stages</code></p>
 
 <h2 id="updating-contact-stage">Updating Contact Stage</h2>
 
@@ -487,10 +487,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "contact_stage_id": "stage_id"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts/update_stages"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/update_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/contacts/update_stages</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/update_stages</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -519,10 +519,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "owner_id": "owner_id"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/contacts/update_owners"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/update_owners"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/contacts/update_owners</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/update_owners</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -544,7 +544,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
           <h1 id="accounts-api">Accounts API</h1>
 
-<p>Account is a company your team has explicitly added to your database. It can be from prospected from ZenProspect, manually added by your team, or created by the API.</p>
+<p>Account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
 
 <h2 id="searching-for-accounts">Searching for accounts</h2>
 
@@ -555,10 +555,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/accounts/search"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/accounts/search</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/search</code></p>
 
 <table><thead>
 <tr>
@@ -595,10 +595,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="getting-a-list-of-account-stages">Getting a list of Account Stages</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/account_stages"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/account_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/account_stages</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/account_stages</code></p>
 
 <h2 id="updating-account-stage">Updating Account Stage</h2>
 
@@ -609,10 +609,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "account_stage_id": "stage_id"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/accounts/bulk_update"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/bulk_update"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/accounts/bulk_update</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/bulk_update</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -641,10 +641,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "owner_id": "owner_id"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/accounts/update_owners"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/update_owners"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/accounts/update_owners</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/update_owners</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -672,10 +672,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "q_name": "Sequence Name"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/search"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/emailer_campaigns/search</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/emailer_campaigns/search</code></p>
 
 <table><thead>
 <tr>
@@ -699,10 +699,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
     "sequence_finished_in_other_campaigns": true,    
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.zenprospect.com/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids</code></p>
+<p><code class="prettyprint">POST https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids</code></p>
 
 <table><thead>
 <tr>
@@ -749,7 +749,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "emailer_campaign_ids": ["contact id 1", "contact id 2"],
     "contact_ids": ["contact id 1", "contact id 2"],
     "mode": "mark_as_finished"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
 </code></pre>
 
 <table><thead>
@@ -781,18 +781,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="get-a-list-of-users">Get a list of users</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/users/search"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/users/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/users/search</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/users/search</code></p>
 
 <h2 id="get-a-list-of-email-accounts">Get a list of email accounts</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.zenprospect.com/api/v1/email_accounts"</span>
+}'</span> <span class="s2">"https://www.apollo.io/api/v1/email_accounts"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.zenprospect.com/api/v1/email_accounts</code></p>
+<p><code class="prettyprint">GET https://www.apollo.io/api/v1/email_accounts</code></p>
 
       </div>
       <div class="dark-box">
