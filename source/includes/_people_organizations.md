@@ -4,8 +4,8 @@
 ## Prospect People
 
 ```shell
-curl "https://www.zenprospect.com/api/v1/people/search"
-  -H "Authorization: testzenprospectapikey"
+curl "https://www.apollo.io/api/v1/people/search"
+  -H "Authorization: testapolloapikey"
 ```
 
 
@@ -183,7 +183,7 @@ This endpoint retrieves a paginated set of people who matches the specific crite
 
 ### HTTP Request
 
-`POST https://www.zenprospect.com/api/v1/people/search`
+`POST https://www.apollo.io/api/v1/people/search`
 
 ### Query Parameters on the Person
 
@@ -239,7 +239,7 @@ organization_job_locations | Array of the location of the job postings
 
 Parameter | Description 
 --------- | ----------- 
-include_contact | Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.
+include_contact | Boolean. If set to true, the result will return the Apollo contact as an embedded object if the person has already been prospected. Defaults to true.
 include_job_postings | Boolean. If set to true, the result will return the company's first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.
 include_newsfeed_events | Boolean. If set to true, the result will return the company's first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.
 per_page | Integer. How many results you'd like to return per page. Possible values: 10, 25.
@@ -251,16 +251,16 @@ prospected_by_current_team | String. "yes', 'no', 'or 'excluded'. Use to filter 
 
 ## Enrich People 
 
-ZenProspect's people enrichment API lets you enter a set of criteria about a person and receive rich information about them. This is useful for:
+Apollo's people enrichment API lets you enter a set of criteria about a person and receive rich information about them. This is useful for:
 
 - Finding the email address of a person when you already have their name + company
 - Given an email address of a person, enriching your database with other information like industry, company size, technologies, etc.
-- Given a ZenProspect Person ID, see detailed information about them
+- Given a Apollo Person ID, see detailed information about them
 
 
 ### HTTP Request
 
-`POST https://www.zenprospect.com/api/v1/people/enrich`
+`POST https://www.apollo.io/api/v1/people/enrich`
 
 ### Query Parameters
 
@@ -275,7 +275,7 @@ first_name | String.
 last_name | String. 
 company_name | String. Supports boolean queries
 company_website | String.
-include_contact | Boolean. If set to true, the result will return the ZenProspect contact as an embedded object if the person has already been prospected. Defaults to true.
+include_contact | Boolean. If set to true, the result will return the Apollo contact as an embedded object if the person has already been prospected. Defaults to true.
 include_job_postings | Boolean. If set to true, the result will return the company's first 10 job postings as an embedded array. Defaults to false. Refer to the Newsfeed API to find job postings beyond the first 10.
 include_newsfeed_events | Boolean. If set to true, the result will return the company's first 10 newsfeed events as an embedded array. Defaults to false. Refer to the Newsfeed API to events beyond the first 10.
 ## Enrich Organizations

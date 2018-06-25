@@ -1,6 +1,6 @@
 # Organizations API
 
-An organization represents a company in ZenProspect's database.
+An organization represents a company in Apollo's database.
 
 ## Enrichment
 
@@ -10,13 +10,13 @@ An organization represents a company in ZenProspect's database.
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
     "domain": "google.com"
-}' "https://www.zenprospect.com/api/v1/organizations/enrich"
+}' "https://www.apollo.io/api/v1/organizations/enrich"
 ```
 
 
 This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.
 
-`GET https://www.zenprospect.com/api/v1/organizations/enrich`
+`GET https://www.apollo.io/api/v1/organizations/enrich`
 
 ### Query Parameters
 
@@ -32,13 +32,13 @@ domain | The company domain | google.com
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
-}' "https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings"
+}' "https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings"
 ```
 
 
 Get a list of active job postings for a company.
 
-`GET https://www.zenprospect.com/api/v1/organizations/[ORGANIZATION ID]/job_postings`
+`GET https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings`
 
 ### Query Parameters
 
