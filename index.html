@@ -99,7 +99,7 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <div style="padding: 20px 0 10px 10px;"><img src="images/logo.png" /></div>
+      <div style="padding: 20px 0 10px 10px;"><img src="images/logo.svg" /></div>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -672,10 +672,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "q_name": "Sequence Name"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/search"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/emailer_campaigns/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/emailer_campaigns/search</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/emailer_campaigns/search</code></p>
 
 <table><thead>
 <tr>
@@ -699,10 +699,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
     "sequence_finished_in_other_campaigns": true,    
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids</code></p>
 
 <table><thead>
 <tr>
@@ -749,7 +749,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "emailer_campaign_ids": ["contact id 1", "contact id 2"],
     "contact_ids": ["contact id 1", "contact id 2"],
     "mode": "mark_as_finished"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
 </code></pre>
 
 <table><thead>
