@@ -5,10 +5,10 @@
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://api.apollo/v1/users/search"
+}' "https://api.apollo.io/v1/users/search"
 ```
 
-`GET https://api.apollo/v1/users/search`
+`GET https://api.apollo.io/v1/users/search`
 
 
 
@@ -17,8 +17,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://api.apollo/v1/email_accounts"
+}' "https://api.apollo.io/v1/email_accounts"
 ```
 
-`GET https://api.apollo/v1/email_accounts`
+`GET https://api.apollo.io/v1/email_accounts`
 

@@ -4,7 +4,7 @@
 ## Prospect People
 
 ```shell
-curl "https://api.apollo/v1/people/search"
+curl "https://api.apollo.io/v1/people/search"
   -H "Authorization: testapolloapikey"
 ```
 
@@ -183,7 +183,7 @@ This endpoint retrieves a paginated set of people who matches the specific crite
 
 ### HTTP Request
 
-`POST https://api.apollo/v1/people/search`
+`POST https://api.apollo.io/v1/people/search`
 
 ### Query Parameters on the Person
 
@@ -260,7 +260,7 @@ Apollo's people enrichment API lets you enter a set of criteria about a person a
 
 ### HTTP Request
 
-`POST https://api.apollo/v1/people/enrich`
+`POST https://api.apollo.io/v1/people/enrich`
 
 ### Query Parameters
 

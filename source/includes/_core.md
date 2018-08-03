@@ -9,7 +9,7 @@ Apollo's Core REST API lets you interact with core Apollo objects like contacts,
 ### Edit Account
 
 ```shell
-curl "https://api.apollo/v1/accounts/54a3b5a8746869367615770c" \
+curl "https://api.apollo.io/v1/accounts/54a3b5a8746869367615770c" \
 -X PUT \
 -H 'Content-Type: application/json' \
 -H "Authorization: testapolloapikey" \
@@ -33,7 +33,7 @@ curl "https://api.apollo/v1/accounts/54a3b5a8746869367615770c" \
 ### Edit Contact
 
 ```shell
-curl "https://api.apollo/v1/contacts/54a3b5a8746869367615770c" \
+curl "https://api.apollo.io/v1/contacts/54a3b5a8746869367615770c" \
 -X PUT \
 -H 'Content-Type: application/json' \
 -H "Authorization: testapolloapikey" \
