@@ -133,7 +133,7 @@
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": [YOUR_API_KEY]
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/auth/health"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/auth/health"</span>
 </code></pre>
 
 <blockquote>
@@ -164,12 +164,12 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
     "organization_name": "Apollo",
     "email": "tim@apollo.io",
     "domain": "apollo.io"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/enrich"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/organizations/enrich"</span>
 </code></pre>
 
 <p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.</p>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/people/match</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/people/match</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -224,12 +224,12 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "domain": "google.com"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/enrich"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/organizations/enrich"</span>
 </code></pre>
 
 <p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.</p>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/organizations/enrich</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/organizations/enrich</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -254,12 +254,12 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </blockquote>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
 </code></pre>
 
 <p>Get a list of active job postings for a company.</p>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/organizations/[ORGANIZATION ID]/job_postings</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/organizations/[ORGANIZATION ID]/job_postings</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -292,10 +292,10 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contacts"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/contacts</code></p>
 
 <aside class="notice">
 Apollo enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo merges it with the existing record instead of creating a new contact.
@@ -366,10 +366,10 @@ Apollo enforces strict deduplication during <code>CREATE</code>. If your record 
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/YOUR CONTACT ID"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contacts/YOUR CONTACT ID"</span>
 </code></pre>
 
-<p><code class="prettyprint">PUT https://www.apollo.io/api/v1/contacts</code></p>
+<p><code class="prettyprint">PUT https://api.apollo/v1/contacts</code></p>
 
 <aside class="notice">
 Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
@@ -433,10 +433,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/search"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contacts/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/search</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/contacts/search</code></p>
 
 <table><thead>
 <tr>
@@ -473,10 +473,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="getting-a-list-of-contact-stages">Getting a list of contact stages</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contact_stages"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contact_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/contact_stages</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/contact_stages</code></p>
 
 <h2 id="updating-contact-stage">Updating Contact Stage</h2>
 
@@ -487,10 +487,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "contact_stage_id": "stage_id"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/update_stages"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contacts/update_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/update_stages</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/contacts/update_stages</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -519,10 +519,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "owner_id": "owner_id"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/contacts/update_owners"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/contacts/update_owners"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/contacts/update_owners</code></p>
+<p><code class="prettyprint">POST https://api.apollo/v1/contacts/update_owners</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -555,10 +555,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/search"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/search</code></p>
+<p><code class="prettyprint">POST https://api.apollo.io/v1/accounts/search</code></p>
 
 <table><thead>
 <tr>
@@ -595,10 +595,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="getting-a-list-of-account-stages">Getting a list of Account Stages</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/account_stages"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/account_stages"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/account_stages</code></p>
+<p><code class="prettyprint">GET https://api.apollo.io/v1/account_stages</code></p>
 
 <h2 id="updating-account-stage">Updating Account Stage</h2>
 
@@ -609,10 +609,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "account_stage_id": "stage_id"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/bulk_update"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/bulk_update"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/bulk_update</code></p>
+<p><code class="prettyprint">POST https://api.apollo.io/v1/accounts/bulk_update</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -641,10 +641,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "owner_id": "owner_id"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/accounts/update_owners"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/update_owners"</span>
 </code></pre>
 
-<p><code class="prettyprint">POST https://www.apollo.io/api/v1/accounts/update_owners</code></p>
+<p><code class="prettyprint">POST https://api.apollo.io/v1/accounts/update_owners</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -781,18 +781,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <h2 id="get-a-list-of-users">Get a list of users</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/users/search"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/users/search"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/users/search</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/users/search</code></p>
 
 <h2 id="get-a-list-of-email-accounts">Get a list of email accounts</h2>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://www.apollo.io/api/v1/email_accounts"</span>
+}'</span> <span class="s2">"https://api.apollo/v1/email_accounts"</span>
 </code></pre>
 
-<p><code class="prettyprint">GET https://www.apollo.io/api/v1/email_accounts</code></p>
+<p><code class="prettyprint">GET https://api.apollo/v1/email_accounts</code></p>
 
       </div>
       <div class="dark-box">
