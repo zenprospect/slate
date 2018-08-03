@@ -13,10 +13,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}' "https://www.apollo.io/api/v1/contacts"
+}' "https://api.apollo/v1/contacts"
 ```
 
-`POST https://www.apollo.io/api/v1/contacts`
+`POST https://api.apollo/v1/contacts`
 
 <aside class="notice">
 Apollo enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo merges it with the existing record instead of creating a new contact.
@@ -46,10 +46,10 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "last_name": "Snow",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}' "https://www.apollo.io/api/v1/contacts/YOUR CONTACT ID"
+}' "https://api.apollo/v1/contacts/YOUR CONTACT ID"
 ```
 
-`PUT https://www.apollo.io/api/v1/contacts`
+`PUT https://api.apollo/v1/contacts`
 
 <aside class="notice">
 Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
@@ -76,10 +76,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
-}' "https://www.apollo.io/api/v1/contacts/search"
+}' "https://api.apollo/v1/contacts/search"
 ```
 
-`POST https://www.apollo.io/api/v1/contacts/search`
+`POST https://api.apollo/v1/contacts/search`
 
 Parameter | Description
 --------- | -----------
@@ -95,10 +95,10 @@ per_page | how many contacts to return per page. Max = 200
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://www.apollo.io/api/v1/contact_stages"
+}' "https://api.apollo/v1/contact_stages"
 ```
 
-`GET https://www.apollo.io/api/v1/contact_stages`
+`GET https://api.apollo/v1/contact_stages`
 
 
 ## Updating Contact Stage
@@ -109,10 +109,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "contact_stage_id": "stage_id"
-}' "https://www.apollo.io/api/v1/contacts/update_stages"
+}' "https://api.apollo/v1/contacts/update_stages"
 ```
 
-`POST https://www.apollo.io/api/v1/contacts/update_stages`
+`POST https://api.apollo/v1/contacts/update_stages`
 
 ### Query Parameters
 
@@ -131,10 +131,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact_id1", "contact_id2"],
     "owner_id": "owner_id"
-}' "https://www.apollo.io/api/v1/contacts/update_owners"
+}' "https://api.apollo/v1/contacts/update_owners"
 ```
 
-`POST https://www.apollo.io/api/v1/contacts/update_owners`
+`POST https://api.apollo/v1/contacts/update_owners`
 
 ### Query Parameters
 

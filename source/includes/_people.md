@@ -14,14 +14,14 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "organization_name": "Apollo",
     "email": "tim@apollo.io",
     "domain": "apollo.io"
-}' "https://www.apollo.io/api/v1/organizations/enrich"
+}' "https://api.apollo/v1/organizations/enrich"
 ```
 
 
 
 This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.
 
-`GET https://www.apollo.io/api/v1/people/match`
+`GET https://api.apollo/v1/people/match`
 
 ### Query Parameters
 

@@ -12,10 +12,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
-}' "https://www.apollo.io/api/v1/accounts/search"
+}' "https://api.apollo.io/v1/accounts/search"
 ```
 
-`POST https://www.apollo.io/api/v1/accounts/search`
+`POST https://api.apollo.io/v1/accounts/search`
 
 Parameter | Description
 --------- | -----------
@@ -31,10 +31,10 @@ per_page | how many accounts to return per page. Max = 200
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE"
-}' "https://www.apollo.io/api/v1/account_stages"
+}' "https://api.apollo.io/v1/account_stages"
 ```
 
-`GET https://www.apollo.io/api/v1/account_stages`
+`GET https://api.apollo.io/v1/account_stages`
 
 
 ## Updating Account Stage
@@ -45,10 +45,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "account_stage_id": "stage_id"
-}' "https://www.apollo.io/api/v1/accounts/bulk_update"
+}' "https://api.apollo.io/v1/accounts/bulk_update"
 ```
 
-`POST https://www.apollo.io/api/v1/accounts/bulk_update`
+`POST https://api.apollo.io/v1/accounts/bulk_update`
 
 ### Query Parameters
 
@@ -67,10 +67,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "account_ids": ["account_id1", "account_id2"],
     "owner_id": "owner_id"
-}' "https://www.apollo.io/api/v1/accounts/update_owners"
+}' "https://api.apollo.io/v1/accounts/update_owners"
 ```
 
-`POST https://www.apollo.io/api/v1/accounts/update_owners`
+`POST https://api.apollo.io/v1/accounts/update_owners`
 
 ### Query Parameters
 
