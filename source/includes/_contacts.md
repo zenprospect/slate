@@ -65,6 +65,11 @@ title | Title   | "Lord Commander"
 email     | Email   | "jon.snow@westeros.com"
 label_names | A list of names to tag this contact. If the name does not exist, Apollo will automatically create it | ["inbound contact", "smb clients"]
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, and country from your address | "San Francisco"
+direct_phone | The direct dial phone for this contact. If the contact already has a direct dial, this overwrites it. If a contact does not already have a direct dial, this ADDS a new direct dial on top of existing phone numbers | "123-456-7890"
+corporate_phone | The corporate phone for this contact. If the contact already has a corporate phone, this overwrites it. If a contact does not already have a corporate phone, this ADDS a new corporate phone on top of existing phone numbers | "123-456-7890"
+mobile_phone | The mobile phone for this contact. If the contact already has a mobile phone, this overwrites it. If a contact does not already have a mobile phone, this ADDS a new mobile phone on top of existing phone numbers | "123-456-7890"
+home_phone | The home phone for this contact. If the contact already has a home phone, this overwrites it. If a contact does not already have a home phone, this ADDS a new home phone on top of existing phone numbers | "123-456-7890"
+other_phone | Phone of unknown type for this contact. If the contact already has phone of unknown type, this overwrites it. If a contact does not already have phone of unknown type, this ADDS a new phone on top of existing phone numbers | "123-456-7890"
 
 
 ## Searching for contacts
