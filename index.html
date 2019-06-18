@@ -131,9 +131,7 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": [YOUR_API_KEY]
-}'</span> <span class="s2">"https://api.apollo.io/v1/auth/health"</span>
+curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/auth/health?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <blockquote>
@@ -221,10 +219,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <blockquote>
 <p>Enrich a company&rsquo;s information with just the domain:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
-    "domain": "google.com"
-}'</span> <span class="s2">"https://api.apollo.io/v1/organizations/enrich"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/organizations/enrich?api_key=YOUR_API_KEY_HERE&amp;domain=google.com"</span>
 </code></pre>
 
 <p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.</p>
@@ -252,9 +247,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <blockquote>
 <p>Get a list of active job postings for a company:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
-}'</span> <span class="s2">"https://api.apollo.io/v1/organizations/[ORGANIZATION ID]/job_postings"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/organizations/[ORGANIZATION ID]/job_postings?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <p>Get a list of active job postings for a company.</p>
@@ -618,9 +611,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tbody></table>
 
 <h2 id="getting-a-list-of-account-stages">Getting a list of Account Stages</h2>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://api.apollo.io/v1/account_stages"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/account_stages?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/account_stages</code></p>
@@ -804,17 +795,13 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
           <h1 id="misc">Misc</h1>
 
 <h2 id="get-a-list-of-users">Get a list of users</h2>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://api.apollo.io/v1/users/search"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/users/search?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/users/search</code></p>
 
 <h2 id="get-a-list-of-email-accounts">Get a list of email accounts</h2>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://api.apollo.io/v1/email_accounts"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/email_accounts?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/email_accounts</code></p>
