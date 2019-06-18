@@ -3,9 +3,7 @@
 ## Get a list of users
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE"
-}' "https://api.apollo.io/v1/users/search"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/users/search?api_key=YOUR_API_KEY_HERE"
 ```
 
 `GET https://api.apollo.io/v1/users/search`
@@ -15,9 +13,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ## Get a list of email accounts
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE"
-}' "https://api.apollo.io/v1/email_accounts"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/email_accounts?api_key=YOUR_API_KEY_HERE"
 ```
 
 `GET https://api.apollo.io/v1/email_accounts`

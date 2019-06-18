@@ -29,9 +29,7 @@ per_page | how many accounts to return per page. Max = 200
 ## Getting a list of Account Stages
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE"
-}' "https://api.apollo.io/v1/account_stages"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/account_stages?api_key=YOUR_API_KEY_HERE"
 ```
 
 `GET https://api.apollo.io/v1/account_stages`

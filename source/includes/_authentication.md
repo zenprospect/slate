@@ -5,9 +5,7 @@
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": [YOUR_API_KEY]
-}' "https://api.apollo.io/v1/auth/health"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/auth/health?api_key=YOUR_API_KEY_HERE"
 ```
 
 > If authentication is successful, you should expect to see {"is_logged_in":true}

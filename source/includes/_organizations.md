@@ -7,10 +7,7 @@ An organization represents a company in Apollo's database.
 > Enrich a company's information with just the domain:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
-    "domain": "google.com"
-}' "https://api.apollo.io/v1/organizations/enrich"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/organizations/enrich?api_key=YOUR_API_KEY_HERE&domain=google.com"
 ```
 
 
@@ -30,9 +27,7 @@ domain | The company domain | google.com
 > Get a list of active job postings for a company:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
-}' "https://api.apollo.io/v1/organizations/[ORGANIZATION ID]/job_postings"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/organizations/[ORGANIZATION ID]/job_postings?api_key=YOUR_API_KEY_HERE"
 ```
 
 
