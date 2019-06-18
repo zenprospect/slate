@@ -155,14 +155,14 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <blockquote>
 <p>Enrich a person&rsquo;s information with information:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "tim@apollo.io",
     "domain": "apollo.io"
-}'</span> <span class="s2">"https://api.apollo.io/v1/organizations/enrich"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/people/match"</span>
 </code></pre>
 
 <p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.</p>
