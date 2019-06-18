@@ -7,14 +7,14 @@ A person represents a person in Apollo's database.
 > Enrich a person's information with information:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "tim@apollo.io",
     "domain": "apollo.io"
-}' "https://api.apollo.io/v1/organizations/enrich"
+}' "https://api.apollo.io/v1/people/match"
 ```
 
 
