@@ -489,9 +489,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tbody></table>
 
 <h2 id="getting-a-list-of-contact-stages">Getting a list of contact stages</h2>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
-    "api_key": "YOUR API KEY HERE"
-}'</span> <span class="s2">"https://api.apollo.io/v1/contact_stages"</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/contact_stages?api_key=YOUR_API_KEY_HERE"</span>
 </code></pre>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/contact_stages</code></p>
