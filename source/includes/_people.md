@@ -19,7 +19,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 
 
-This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.
+This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. An enrichment is successful when Apollo returns all of the following information for a person: Name, Linkedin Profile, Current Company Information (Note that an enrichment may charge you credit even without returning an email). Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.
 
 `GET https://api.apollo.io/v1/people/match`
 
