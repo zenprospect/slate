@@ -165,7 +165,11 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 }'</span> <span class="s2">"https://api.apollo.io/v1/people/match"</span>
 </code></pre>
 
-<p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match. Each successful enrichment costs a fraction of your lead credits. Typically this is 0.01 credits per successful enrichment. But it may be higher depending on your specific plan.</p>
+<p>This endpoint enriches a person&rsquo;s information, the more information you pass in, the more likely we can find a match.  </p>
+
+<p>The enrich endpoint charges credits you for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
+
+<p>The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.</p>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/people/match</code></p>
 
@@ -322,6 +326,11 @@ Apollo enforces strict deduplication during <code>CREATE</code>. If your record 
 <td>&ldquo;Lord Commander&rdquo;</td>
 </tr>
 <tr>
+<td>account_id</td>
+<td>ID of the Account (Optional)</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
+</tr>
+<tr>
 <td>email</td>
 <td>Email. Invalid emails will be ignored.</td>
 <td>&ldquo;jon.snow@westeros.com&rdquo;</td>
@@ -399,6 +408,11 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>title</td>
 <td>Title</td>
 <td>&ldquo;Lord Commander&rdquo;</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>ID of the Account (Optional)</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
 </tr>
 <tr>
 <td>email</td>
@@ -803,6 +817,12 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </code></pre>
 
 <p><code class="prettyprint">GET https://api.apollo.io/v1/email_accounts</code></p>
+
+<h2 id="get-a-list-of-all-lists-tags">Get a list of all Lists/Tags</h2>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/labels?api_key=YOUR_API_KEY_HERE"</span>
+</code></pre>
+
+<p><code class="prettyprint">GET https://api.apollo.io/v1/labels</code></p>
 
       </div>
       <div class="dark-box">
