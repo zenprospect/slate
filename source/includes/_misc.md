@@ -27,3 +27,12 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 
 `GET https://api.apollo.io/v1/labels`
 
+
+## Get a list of all Custom Fields
+
+```shell
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/typed_custom_fields?api_key=YOUR_API_KEY_HERE"
+```
+
+`GET https://api.apollo.io/v1/typed_custom_fields`
+
