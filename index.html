@@ -150,6 +150,54 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 
 <p>A person represents a person in Apollo&rsquo;s database.</p>
 
+<h2 id="search">Search</h2>
+
+<blockquote>
+<p>Search a person&rsquo;s information. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the &ldquo;enrich&rdquo; endpoint. </p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "q_organization_domains": "apollo.io\ngoogle.com",
+    "page" : 1,
+    "person_titles" : ["sales manager", "engineer manager"]
+}'</span> <span class="s2">"https://api.apollo.io/v1/mixed_people/search"</span>
+</code></pre>
+
+<p>This endpoint searches for people </p>
+
+<p><code class="prettyprint">GET https://api.apollo.io/v1/mixed_people/search</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person_titles (optional)</td>
+<td>an array of the person&rsquo;s title. Apollo will return results matching ANY of the titles passed in</td>
+<td>[&ldquo;sales director&rdquo;, &ldquo;engineer manager&rdquo;]</td>
+</tr>
+<tr>
+<td>q_organization_domains (optional)</td>
+<td>an array of the the company domains to search for, joined by the new line character.</td>
+<td>&ldquo;google.com\nfacebook.com&rdquo;</td>
+</tr>
+<tr>
+<td>page (optional)</td>
+<td>an integer that allows you to paginate through the results</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-results">Return Results</h3>
+
+<p>&ldquo;people&rdquo; are people in Apollo&rsquo;s database.
+&ldquo;contacts&rdquo; are people already in your linked CRM.</p>
+
 <h2 id="enrichment">Enrichment</h2>
 
 <blockquote>
@@ -157,6 +205,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </blockquote>
 <pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
+    "id": "583f2f7ed9ced98ab5bfXXXX",
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
@@ -211,6 +260,11 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <td>domain (optional)</td>
 <td>The person&rsquo;s company domain</td>
 <td>apollo.io</td>
+</tr>
+<tr>
+<td>id (optional)</td>
+<td>The person&rsquo;s ID obtained from the search endpoint</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
 </tr>
 </tbody></table>
 
