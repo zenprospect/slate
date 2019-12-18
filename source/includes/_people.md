@@ -2,6 +2,38 @@
 
 A person represents a person in Apollo's database.
 
+## Search
+
+> Search a person's information. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the "enrich" endpoint. 
+
+
+```shell
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "q_organization_domains": "apollo.io\ngoogle.com",
+    "page" : 1,
+    "person_titles" : ["sales manager", "engineer manager"]
+}' "https://api.apollo.io/v1/mixed_people/search"
+```    
+    
+
+This endpoint searches for people 
+
+`GET https://api.apollo.io/v1/mixed_people/search`
+
+### Query Parameters
+
+Parameter | Description | Example
+--------- | ----------- | -----------
+person_titles (optional) | an array of the person's title. Apollo will return results matching ANY of the titles passed in |  ["sales director", "engineer manager"]
+q_organization_domains (optional) | an array of the the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
+page (optional) | an integer that allows you to paginate through the results  | 1
+
+### Return Results
+"people" are people in Apollo's database.
+"contacts" are people already in your linked CRM.
+
+
 ## Enrichment
 
 > Enrich a person's information with information:
@@ -9,6 +41,7 @@ A person represents a person in Apollo's database.
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
+    "id": "583f2f7ed9ced98ab5bfXXXX",
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
@@ -37,3 +70,4 @@ name (optional) | The person's full name | Tim Zheng
 email (optional) | The person's email | tim@apollo.io
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
+id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
