@@ -349,7 +349,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <p><code class="prettyprint">POST https://api.apollo.io/v1/contacts</code></p>
 
 <aside class="notice">
-Apollo enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo merges it with the existing record instead of creating a new contact.
+Apollo does not run any deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo will create a new contact instead of updating the existing contact.
 </aside>
 
 <table><thead>
