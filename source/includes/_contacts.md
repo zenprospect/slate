@@ -19,7 +19,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 `POST https://api.apollo.io/v1/contacts`
 
 <aside class="notice">
-Apollo enforces strict deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo merges it with the existing record instead of creating a new contact.
+Apollo does not run any deduplication during <code>CREATE</code>. If your record contains the same email or name+company as an existing contact, Apollo will create a new contact instead of updating the existing contact.
 </aside>
 
 Parameter | Description | Example
