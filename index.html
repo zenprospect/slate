@@ -777,6 +777,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <pre class="highlight shell"><code>curl -X POST -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Cache-Control: no-cache"</span> -d <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
     "contact_ids": ["contact id 1", "contact id 2"],
+    "emailer_campaign_id": REPLACE_WITH_SEQUENCE_ID,
     "send_email_from_email_account_id": "email_account_id",
     "sequence_active_in_other_campaigns": true,
     "sequence_no_email": true,
@@ -802,6 +803,11 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>contact_ids (required)</td>
 <td>An array of contact Ids</td>
 <td>[&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;, &ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;]</td>
+</tr>
+<tr>
+<td>emailer_campaign_id (required)</td>
+<td>The ID of sequence to deploy to</td>
+<td>&ldquo;583f2f7ed9ced98ab5bfXXXX&rdquo;</td>
 </tr>
 <tr>
 <td>send_email_from_email_account_id (required)</td>
