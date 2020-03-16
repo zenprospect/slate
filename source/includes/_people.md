@@ -4,7 +4,7 @@ A person represents a person in Apollo's database.
 
 ## Search
 
-> Search a person's information. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the "enrich" endpoint. 
+> Search for a person's information. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the "enrich" endpoint. 
 
 
 ```shell
