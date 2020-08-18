@@ -2,9 +2,9 @@
 
 Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
 
-## Create a contact
+## Create a Contact
 
-> Create a contact:
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -14,6 +14,76 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "title": "Lord Commander",
     "organization_name": "Westeros"
 }' "https://api.apollo.io/v1/contacts"
+```
+
+> Sample response:
+
+```json
+{
+    "contact": {
+        "id": "5f34e409eb645901140a15fa",
+        "first_name": "Jon",
+        "last_name": "Snow",
+        "name": "Jon Snow",
+        "linkedin_url": null,
+        "title": "Lord Commander",
+        "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
+        "owner_id": "5cc77d28806b9c098adca382",
+        "person_id": null,
+        "email_needs_tickling": false,
+        "organization_name": "Westeros",
+        "source": "api",
+        "original_source": "api",
+        "organization_id": null,
+        "headline": null,
+        "photo_url": null,
+        "present_raw_address": null,
+        "linkedin_uid": null,
+        "extrapolated_email_confidence": 0,
+        "salesforce_id": null,
+        "salesforce_lead_id": null,
+        "salesforce_contact_id": null,
+        "salesforce_account_id": null,
+        "salesforce_owner_id": null,
+        "created_at": "2020-08-13T06:56:09.789Z",
+        "lead_request_id": null,
+        "test_predictive_score": null,
+        "emailer_campaign_ids": [],
+        "email_manually_changed": false,
+        "direct_dial_status": null,
+        "direct_dial_enrichment_failed_at": null,
+        "email_status": null,
+        "account_id": null,
+        "last_activity_date": null,
+        "hubspot_vid": null,
+        "hubspot_company_id": null,
+        "sanitized_phone": null,
+        "merged_crm_ids": [],
+        "typed_custom_fields": {},
+        "updated_at": "2020-08-13T06:56:09.789Z",
+        "queued_for_crm_push": true,
+        "starred_by_user_ids": [],
+        "suggested_from_rule_engine_config_id": null,
+        "label_ids": [],
+        "has_pending_email_arcgate_request": false,
+        "has_email_arcgate_request": false,
+        "existence_level": "full",
+        "email": null,
+        "contact_campaign_statuses": [],
+        "next_contact_id": null,
+        "time_zone": null,
+        "city": null,
+        "state": null,
+        "country": null,
+        "phone_numbers": [],
+        "account_phone_note": null
+    },
+    "labels": [],
+    "team": {
+        "id": "5c1004a041f5ac0995d5f5e8",
+        "contacts_finder_empty": false
+    }
+}
 ```
 
 `POST https://api.apollo.io/v1/contacts`
@@ -36,9 +106,9 @@ contact_stage_id | Assign contact to this stage, if the contact does not yet exi
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address | "San Francisco"
 
 
-## Update a contact
+## Update a Contact
 
-> Update a contact:
+> Sample request:
 
 ```shell
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -48,6 +118,79 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "title": "Lord Commander",
     "organization_name": "Westeros"
 }' "https://api.apollo.io/v1/contacts/YOUR CONTACT ID"
+```
+
+> Sample response:
+
+```json
+{
+    "contact": {
+        "id": "5f34e409eb645901140a15fa",
+        "first_name": "Jon",
+        "last_name": "Snow",
+        "name": "Jon Snow",
+        "linkedin_url": null,
+        "title": "Lord Commander",
+        "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
+        "owner_id": "5cc77d28806b9c098adca382",
+        "person_id": null,
+        "email_needs_tickling": false,
+        "organization_name": "Westeros",
+        "source": "api",
+        "original_source": "api",
+        "organization_id": null,
+        "headline": null,
+        "photo_url": null,
+        "present_raw_address": null,
+        "linkedin_uid": null,
+        "extrapolated_email_confidence": 0,
+        "salesforce_id": null,
+        "salesforce_lead_id": null,
+        "salesforce_contact_id": null,
+        "salesforce_account_id": null,
+        "salesforce_owner_id": null,
+        "created_at": "2020-08-13T06:56:09.789Z",
+        "lead_request_id": null,
+        "test_predictive_score": null,
+        "emailer_campaign_ids": [],
+        "email_manually_changed": true,
+        "direct_dial_status": null,
+        "direct_dial_enrichment_failed_at": null,
+        "email_status": "verified",
+        "account_id": null,
+        "last_activity_date": null,
+        "hubspot_vid": null,
+        "hubspot_company_id": null,
+        "sanitized_phone": null,
+        "merged_crm_ids": [],
+        "typed_custom_fields": {},
+        "updated_at": "2020-08-13T07:21:10.336Z",
+        "queued_for_crm_push": false,
+        "starred_by_user_ids": [],
+        "suggested_from_rule_engine_config_id": null,
+        "label_ids": [],
+        "has_pending_email_arcgate_request": false,
+        "has_email_arcgate_request": false,
+        "existence_level": "full",
+        "email": "jon.snow@westeros.com",
+        "next_contact_id": null,
+        "time_zone": null,
+        "city": null,
+        "state": null,
+        "country": null,
+        "crm_job": {
+            "id": "5f34e6a7b70bf4000165fc76",
+            "note": "storage limit exceeded",
+            "job_type": "push_contacts",
+            "retry_at": "2020-08-13T07:17:19.707+00:00",
+            "status": "failed",
+            "created_at": "2020-08-13T07:07:19.696Z"
+        },
+        "phone_numbers": [],
+        "account_phone_note": null
+    },
+    "labels": []
+}
 ```
 
 `PUT https://api.apollo.io/v1/contacts`
@@ -74,9 +217,9 @@ home_phone | The home phone for this contact. If the contact already has a home 
 other_phone | Phone of unknown type for this contact. If the contact already has phone of unknown type, this overwrites it. If a contact does not already have phone of unknown type, this ADDS a new phone on top of existing phone numbers | "123-456-7890"
 
 
-## Searching for contacts
+## Searching for Contacts
 
-> Searching for contacts:
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -84,6 +227,158 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
 }' "https://api.apollo.io/v1/contacts/search"
+```
+
+> Sample response:
+
+```json
+{
+    "contacts": [
+        {
+            "id": "5da8ce2397df39000109c08c",
+            "first_name": "Tim",
+            "last_name": "Zheng",
+            "name": "Tim Zheng",
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+            "title": "Founder & CEO",
+            "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
+            "owner_id": "5c1004a041f5ac0995d5f620",
+            "person_id": "5f2b88ffaea69a0001ccc560",
+            "email_needs_tickling": false,
+            "organization_name": "Apollo",
+            "source": "search",
+            "original_source": "email_import",
+            "organization_id": "5e66b6381e05b4008c8331b8",
+            "headline": "Founder & CEO at Apollo",
+            "photo_url": "https://static-exp2.licdn.com/sc/h/djzv59yelk5urv2ujlazfyvrk",
+            "present_raw_address": "San Francisco, California, United States",
+            "linkedin_uid": "38777275",
+            "extrapolated_email_confidence": 0,
+            "salesforce_id": "0031U00001Oe4oWQAR",
+            "salesforce_lead_id": null,
+            "salesforce_contact_id": "0031U00001Oe4oWQAR",
+            "salesforce_account_id": "0011U00001OXEJcQAP",
+            "salesforce_owner_id": "0051U000001FAqXQAW",
+            "created_at": "2019-10-17T20:25:07.594Z",
+            "lead_request_id": null,
+            "test_predictive_score": null,
+            "emailer_campaign_ids": [],
+            "email_manually_changed": false,
+            "direct_dial_status": null,
+            "direct_dial_enrichment_failed_at": null,
+            "email_status": "verified",
+            "account_id": "5f1fad1dec295700017e2605",
+            "last_activity_date": "2018-06-26T16:30:35.000+00:00",
+            "hubspot_vid": null,
+            "hubspot_company_id": null,
+            "sanitized_phone": null,
+            "merged_crm_ids": [],
+            "typed_custom_fields": {
+                "5d856e9c6899d00098ca4a07": "Tim Zheng"
+            },
+            "updated_at": "2020-07-28T04:44:51.448Z",
+            "queued_for_crm_push": false,
+            "starred_by_user_ids": [],
+            "suggested_from_rule_engine_config_id": null,
+            "label_ids": [],
+            "has_pending_email_arcgate_request": false,
+            "has_email_arcgate_request": false,
+            "existence_level": "full",
+            "email": "tim@zenprospect.com",
+            "salesforce_record_url": "https://na85.salesforce.com/0031U00001Oe4oWQAR",
+            "contact_campaign_statuses": [],
+            "state": "California",
+            "city": "San Francisco",
+            "country": "United States",
+            "account": {
+                "id": "5f1fad1dec295700017e2605",
+                "name": "Apollo",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/MeetApollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo/",
+                "primary_phone": {},
+                "languages": [],
+                "alexa_ranking": 77520,
+                "phone": null,
+                "linkedin_uid": "18511550",
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5f026534d9225f00016d0505/picture",
+                "crunchbase_url": null,
+                "primary_domain": "apollo.io",
+                "starred_by_user_ids": [],
+                "persona_counts": {},
+                "domain": "apollo.io",
+                "team_id": "5c1004a041f5ac0995d5f5e8",
+                "typed_custom_fields": {},
+                "organization_id": "5e66b6381e05b4008c8331b8",
+                "account_stage_id": "5c1004a041f5ac0995d5f5f3",
+                "source": "salesforce",
+                "original_source": "salesforce",
+                "owner_id": "5c1004a041f5ac0995d5f620",
+                "created_at": "2020-07-28T04:44:13.821Z",
+                "phone_status": "no_status",
+                "test_predictive_score": null,
+                "hubspot_id": null,
+                "salesforce_id": "0011U00001OXEJcQAP",
+                "salesforce_owner_id": "0051U000001FAqXQAW",
+                "parent_account_id": null,
+                "account_playbook_statuses": [],
+                "existence_level": "full",
+                "label_ids": [],
+                "modality": "account",
+                "salesforce_record_url": "https://na85.salesforce.com/0011U00001OXEJcQAP"
+            },
+            "organization": {
+                "id": "5e66b6381e05b4008c8331b8",
+                "name": "Apollo",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/MeetApollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo/",
+                "primary_phone": {},
+                "languages": [],
+                "alexa_ranking": 77520,
+                "phone": null,
+                "linkedin_uid": "18511550",
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5f026534d9225f00016d0505/picture",
+                "crunchbase_url": null,
+                "primary_domain": "apollo.io",
+                "starred_by_user_ids": [],
+                "persona_counts": {}
+            },
+            "phone_numbers": [],
+            "account_phone_note": null,
+            "contact_job_change_event": null
+        }
+    ],
+    "breadcrumbs": [
+        {
+            "label": "Contains Keywords",
+            "signal_field_name": "q_keywords",
+            "value": "Tim Zheng, CEO, Apollo",
+            "display_name": "Tim Zheng, CEO, Apollo"
+        }
+    ],
+    "partial_results_only": false,
+    "disable_eu_prospecting": false,
+    "partial_results_limit": 10000,
+    "pagination": {
+        "page": 1,
+        "per_page": 25,
+        "total_entries": 1,
+        "total_pages": 1
+    },
+    "num_fetch_result": null
+}
+
 ```
 
 `POST https://api.apollo.io/v1/contacts/search`
@@ -97,17 +392,110 @@ sort_ascending | Possible values: true or false
 page | which page to return. Defaults to 1
 per_page | how many contacts to return per page. Max = 200
 
-## Getting a list of contact stages
+## Getting a List of Contact Stages
+
+> Sample request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/contact_stages?api_key=YOUR_API_KEY_HERE"
+```
+
+> Sample response:
+
+```json
+{
+    "contact_stages": [
+        {
+            "id": "5c48fb36ae29ba0f376d11ab",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Cold",
+            "name": "Cold",
+            "display_order": 0,
+            "ignore_trigger_override": false,
+            "category": "in_progress"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5eb",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Approaching",
+            "name": "Approaching",
+            "display_order": 1,
+            "ignore_trigger_override": null,
+            "category": "in_progress"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5ec",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Replied",
+            "name": "Replied",
+            "display_order": 2,
+            "ignore_trigger_override": null,
+            "category": "in_progress"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5ed",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Interested",
+            "name": "Interested",
+            "display_order": 3,
+            "ignore_trigger_override": true,
+            "category": "succeeded"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5ee",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Not Interested",
+            "name": "Not Interested",
+            "display_order": 4,
+            "ignore_trigger_override": true,
+            "category": "failed"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5ef",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Unresponsive",
+            "name": "Unresponsive",
+            "display_order": 5,
+            "ignore_trigger_override": null,
+            "category": "failed"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5f0",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Do Not Contact",
+            "name": "Do Not Contact",
+            "display_order": 6,
+            "ignore_trigger_override": true,
+            "category": "failed"
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5f1",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Bad Data",
+            "name": "Bad Data",
+            "display_order": 7,
+            "ignore_trigger_override": null,
+            "category": null
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f5f2",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "display_name": "Changed Job",
+            "name": "Changed Job",
+            "display_order": 8,
+            "ignore_trigger_override": true,
+            "category": null
+        }
+    ]
+}
 ```
 
 `GET https://api.apollo.io/v1/contact_stages`
 
 
 ## Updating Contact Stage
-> Update a contact stage:
+
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -115,6 +503,68 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "contact_ids": ["contact_id1", "contact_id2"],
     "contact_stage_id": "stage_id"
 }' "https://api.apollo.io/v1/contacts/update_stages"
+```
+
+> Sample response:
+
+```json
+{
+    "contacts": [
+        {
+            "id": "5f34e409eb645901140a15fa",
+            "first_name": "Jon",
+            "last_name": "Snow",
+            "name": "Jon Snow",
+            "linkedin_url": null,
+            "title": "Lord Commander",
+            "contact_stage_id": "new_contact_stage_id",
+            "owner_id": "5cc77d28806b9c098adca382",
+            "person_id": null,
+            "email_needs_tickling": false,
+            "organization_name": "Westeros",
+            "source": "api",
+            "original_source": "api",
+            "organization_id": null,
+            "headline": null,
+            "photo_url": null,
+            "present_raw_address": null,
+            "linkedin_uid": null,
+            "extrapolated_email_confidence": 0,
+            "salesforce_id": null,
+            "salesforce_lead_id": null,
+            "salesforce_contact_id": null,
+            "salesforce_account_id": null,
+            "salesforce_owner_id": null,
+            "created_at": "2020-08-13T06:56:09.789Z",
+            "lead_request_id": null,
+            "test_predictive_score": null,
+            "emailer_campaign_ids": [],
+            "email_manually_changed": true,
+            "direct_dial_status": null,
+            "direct_dial_enrichment_failed_at": null,
+            "email_status": "verified",
+            "account_id": null,
+            "last_activity_date": null,
+            "hubspot_vid": null,
+            "hubspot_company_id": null,
+            "sanitized_phone": null,
+            "merged_crm_ids": [],
+            "typed_custom_fields": {},
+            "updated_at": "2020-08-13T07:49:02.989Z",
+            "queued_for_crm_push": false,
+            "starred_by_user_ids": [],
+            "suggested_from_rule_engine_config_id": null,
+            "label_ids": [],
+            "has_pending_email_arcgate_request": false,
+            "has_email_arcgate_request": false,
+            "existence_level": "full",
+            "email": "jon.snow@westeros.com",
+            "contact_campaign_statuses": [],
+            "phone_numbers": [],
+            "account_phone_note": null
+        }
+    ]
+}
 ```
 
 `POST https://api.apollo.io/v1/contacts/update_stages`
@@ -129,7 +579,8 @@ contact_stage_id | The contact stage id to change into. You can GET a list of po
 
 
 ## Updating Contact Ownership
-> Update a contact owner:
+
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -137,6 +588,68 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "contact_ids": ["contact_id1", "contact_id2"],
     "owner_id": "owner_id"
 }' "https://api.apollo.io/v1/contacts/update_owners"
+```
+
+> Sample response:
+
+```json
+{
+    "contacts": [
+        {
+            "id": "5f34e409eb645901140a15fa",
+            "first_name": "Jon",
+            "last_name": "Snow",
+            "name": "Jon Snow",
+            "linkedin_url": null,
+            "title": "Lord Commander",
+            "contact_stage_id": "5c1004a041f5ac0995d5f5eb",
+            "owner_id": "new_owner_id",
+            "person_id": null,
+            "email_needs_tickling": false,
+            "organization_name": "Westeros",
+            "source": "api",
+            "original_source": "api",
+            "organization_id": null,
+            "headline": null,
+            "photo_url": null,
+            "present_raw_address": null,
+            "linkedin_uid": null,
+            "extrapolated_email_confidence": 0,
+            "salesforce_id": null,
+            "salesforce_lead_id": null,
+            "salesforce_contact_id": null,
+            "salesforce_account_id": null,
+            "salesforce_owner_id": null,
+            "created_at": "2020-08-13T06:56:09.789Z",
+            "lead_request_id": null,
+            "test_predictive_score": null,
+            "emailer_campaign_ids": [],
+            "email_manually_changed": true,
+            "direct_dial_status": null,
+            "direct_dial_enrichment_failed_at": null,
+            "email_status": "verified",
+            "account_id": null,
+            "last_activity_date": null,
+            "hubspot_vid": null,
+            "hubspot_company_id": null,
+            "sanitized_phone": null,
+            "merged_crm_ids": [],
+            "typed_custom_fields": {},
+            "updated_at": "2020-08-13T07:49:02.989Z",
+            "queued_for_crm_push": false,
+            "starred_by_user_ids": [],
+            "suggested_from_rule_engine_config_id": null,
+            "label_ids": [],
+            "has_pending_email_arcgate_request": false,
+            "has_email_arcgate_request": false,
+            "existence_level": "full",
+            "email": "jon.snow@westeros.com",
+            "contact_campaign_statuses": [],
+            "phone_numbers": [],
+            "account_phone_note": null
+        }
+    ]
+}
 ```
 
 `POST https://api.apollo.io/v1/contacts/update_owners`

@@ -1,37 +1,525 @@
 # Misc
 
-## Get a list of users
+## Get a List of Users
+
+> Sample request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/users/search?api_key=YOUR_API_KEY_HERE"
+```
+
+> Sample response:
+
+```json
+{
+    "pagination": {
+        "page": null,
+        "per_page": 25,
+        "total_entries": 2,
+        "total_pages": 1
+    },
+    "users": [
+        {
+            "id": "5cc77d28806b9c098adca382",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "first_name": "Test",
+            "last_name": "User",
+            "title": null,
+            "email": "alangrios14@gmail.com",
+            "created_at": "2019-04-29T22:39:36.645Z",
+            "credit_limit": 50,
+            "direct_dial_credit_limit": 0,
+            "salesforce_account": null,
+            "deleted": false,
+            "should_include_unsubscribe_link": false,
+            "opt_out_html_template": "If you don't want to hear from me again, please <%let me know%>.",
+            "name": "Test User",
+            "enable_click_tracking": false,
+            "password_needs_reset": false,
+            "salesforce_id": null,
+            "default_cockpit_layout": null,
+            "default_finder_view_ids": {},
+            "default_account_overview_layout_id": null,
+            "default_organization_overview_layout_id": null,
+            "default_contact_overview_layout_id": null,
+            "bridge_calls": false,
+            "bridge_phone_number": null,
+            "bridge_incoming_calls": false,
+            "bridge_incoming_phone_number": null,
+            "current_email_verified": true,
+            "record_calls": true,
+            "salesforce_instance_url": null,
+            "permission_set_id": "5c1004a041f5ac0995d5f615",
+            "assistant_setting": {
+                "_id": "5cc77d28806b9c098adca383",
+                "deal_size_metric": "amount",
+                "inactive_account_stage_ids": [],
+                "inactive_contact_stage_ids": [],
+                "insight_deal_size_signals": {},
+                "insight_sale_cycle_signals": {},
+                "insight_win_rate_signals": {},
+                "job_posting_locations": [],
+                "job_posting_titles": [],
+                "latest_funding_days": 90,
+                "latest_news_days": 30,
+                "max_num_active_accounts": 100,
+                "max_people_in_sequence_per_account": 5,
+                "num_inactive_days_to_re_engage": 180,
+                "persona_ids": [
+                    "5c1004a041f5ac0995d5f60d",
+                    "5c1004a041f5ac0995d5f60e"
+                ],
+                "success_case_account_stage_ids": [],
+                "technology_uids": [],
+                "territory_company_size_ranges": [],
+                "territory_location_override": false,
+                "territory_locations": [
+                    "United States"
+                ],
+                "territory_person_locations": [
+                    "United States"
+                ],
+                "id": "5cc77d28806b9c098adca383",
+                "key": "5cc77d28806b9c098adca383"
+            },
+            "typed_custom_fields": {},
+            "default_use_local_numbers": false,
+            "disable_email_linking": null,
+            "sync_salesforce_id": null,
+            "sync_crm_id": null,
+            "zp_contact_id": "59f9e05cf3e5bb2d66942f10",
+            "chrome_extension_downloaded": false,
+            "user_roles": [],
+            "email_oauth_signin_only": false,
+            "notification_last_created_at": "2020-04-07T00:40:12.399+00:00",
+            "crm_requested_to_integrate": null,
+            "has_invited_user": false,
+            "notification_last_read_at": null,
+            "daily_data_request_email": false,
+            "data_request_emails": true,
+            "daily_task_email": true,
+            "free_data_credits_email": true,
+            "dismiss_new_team_suggestion": null,
+            "request_email_change_to": null,
+            "self_identified_persona": "Product",
+            "added_contact_to_sequence": false,
+            "has_approved_emailer_campaign": false,
+            "main_emailer_campaign_id": null,
+            "current_onboarding_step": "create_account",
+            "onboarding_use_cases": {
+                "bulk_status": "started",
+                "current_use_case": "bulk",
+                "first_user_case": "bulk",
+                "searched_people": true,
+                "download_leads": true
+            },
+            "skip_use_case_selection": false,
+            "subteam_ids": [
+                "5cc77e9672728e09a13d5eaa"
+            ],
+            "prospect_territory_ids": [],
+            "linked_salesforce": null,
+            "linked_hubspot": false,
+            "linked_salesloft": false,
+            "default_chrome_extension_log_email_send_to_salesforce": true,
+            "chrome_extension_auto_match_salesforce_opportunity": true,
+            "chrome_extension_gmail_enable_email_tools": true,
+            "enable_desktop_notifications": true,
+            "default_chrome_extension_enable_reminders": false,
+            "chrome_extension_gmail_enable_crm_sidebar": true
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f620",
+            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "first_name": "Alan",
+            "last_name": "Rios",
+            "title": null,
+            "email": "alan@apollo.io",
+            "created_at": "2018-12-11T18:40:32.639Z",
+            "credit_limit": 50,
+            "direct_dial_credit_limit": 0,
+            "salesforce_account": "fencefeet@gmail.com",
+            "deleted": false,
+            "should_include_unsubscribe_link": false,
+            "opt_out_html_template": "If you don't want to hear from me again, please <%let me know%>.",
+            "name": "Alan Rios",
+            "enable_click_tracking": true,
+            "password_needs_reset": false,
+            "salesforce_id": "0051U000001FAqXQAW",
+            "default_cockpit_layout": "5c1004b79457462dbf953957",
+            "default_finder_view_ids": {},
+            "default_account_overview_layout_id": null,
+            "default_organization_overview_layout_id": null,
+            "default_contact_overview_layout_id": null,
+            "bridge_calls": false,
+            "bridge_phone_number": null,
+            "bridge_incoming_calls": false,
+            "bridge_incoming_phone_number": "+1 (408) 201-2216",
+            "current_email_verified": true,
+            "record_calls": true,
+            "salesforce_instance_url": "https://na85.salesforce.com",
+            "permission_set_id": "5c1004a041f5ac0995d5f615",
+            "assistant_setting": {
+                "_id": "5c1004a041f5ac0995d5f621",
+                "deal_size_metric": "amount",
+                "inactive_account_stage_ids": [],
+                "inactive_contact_stage_ids": [],
+                "insight_deal_size_signals": {},
+                "insight_sale_cycle_signals": {},
+                "insight_win_rate_signals": {},
+                "job_posting_locations": [],
+                "job_posting_titles": [],
+                "latest_funding_days": 90,
+                "latest_news_days": 30,
+                "max_num_active_accounts": 100,
+                "max_people_in_sequence_per_account": 5,
+                "num_inactive_days_to_re_engage": 180,
+                "persona_ids": [
+                    "5c1004a041f5ac0995d5f60d",
+                    "5c1004a041f5ac0995d5f60e"
+                ],
+                "success_case_account_stage_ids": [],
+                "technology_uids": [],
+                "territory_company_size_ranges": [],
+                "territory_location_override": false,
+                "territory_locations": [
+                    "United States"
+                ],
+                "territory_person_locations": [
+                    "United States"
+                ],
+                "id": "5c1004a041f5ac0995d5f621",
+                "key": "5c1004a041f5ac0995d5f621"
+            },
+            "typed_custom_fields": {},
+            "default_use_local_numbers": false,
+            "disable_email_linking": null,
+            "sync_salesforce_id": "0051U000001FAqXQAW",
+            "sync_crm_id": null,
+            "zp_contact_id": "5a9de5297dda4d91e1244fbf",
+            "chrome_extension_downloaded": true,
+            "user_roles": [
+                "admin"
+            ],
+            "email_oauth_signin_only": false,
+            "notification_last_created_at": "2019-11-06T22:48:12.812+00:00",
+            "crm_requested_to_integrate": null,
+            "has_invited_user": false,
+            "notification_last_read_at": "2019-09-25T18:09:05.000+00:00",
+            "daily_data_request_email": true,
+            "data_request_emails": true,
+            "daily_task_email": true,
+            "free_data_credits_email": true,
+            "dismiss_new_team_suggestion": true,
+            "request_email_change_to": null,
+            "self_identified_persona": null,
+            "subteam_ids": [],
+            "prospect_territory_ids": [],
+            "linked_salesforce": true,
+            "linked_hubspot": false,
+            "linked_salesloft": true,
+            "default_chrome_extension_log_email_send_to_salesforce": true,
+            "chrome_extension_auto_match_salesforce_opportunity": true,
+            "chrome_extension_gmail_enable_email_tools": true,
+            "enable_desktop_notifications": true,
+            "default_chrome_extension_enable_reminders": false,
+            "chrome_extension_gmail_enable_crm_sidebar": true
+        }
+    ],
+    "num_fetch_result": null
+}
 ```
 
 `GET https://api.apollo.io/v1/users/search`
 
 
 
-## Get a list of email accounts
+## Get a List of Email Accounts
+
+> Sample request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/email_accounts?api_key=YOUR_API_KEY_HERE"
 ```
 
+> Sample response:
+
+```json
+{
+    "email_accounts": [
+        {
+            "aliases": [
+                "alan@apollo.io"
+            ],
+            "id": "5a298f049d7968ec34bcc1ef",
+            "user_id": "5c1004a041f5ac0995d5f620",
+            "email": "alan@apollo.io",
+            "type": "gmail",
+            "active": true,
+            "default": true,
+            "seconds_delay_between_emails": 0,
+            "provider_display_name": "Gmail",
+            "nylas_provider": null,
+            "last_synced_at": "2020-08-18T06:28:04.028+00:00",
+            "email_sending_policy_cd": "default",
+            "sendgrid_api_user": null,
+            "mailgun_domains": null,
+            "signature_edit_disabled": true,
+            "email_daily_threshold": 100,
+            "max_outbound_emails_per_hour": 50,
+            "signature_html": "null"
+        }
+    ]
+}
+```
+
 `GET https://api.apollo.io/v1/email_accounts`
 
 
-## Get a list of all Lists/Tags
+## Get a List of All Lists/Tags
+
+> Sample Request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/labels?api_key=YOUR_API_KEY_HERE"
 ```
 
+> Sample response:
+
+```json
+[
+    {
+        "_id": "5f21cca21dd48900da0ec4a8",
+        "cached_count": 5,
+        "created_at": "2020-07-29T19:23:14.220Z",
+        "modality": "contacts",
+        "name": "test API label",
+        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "updated_at": "2020-08-04T18:16:32.733Z",
+        "user_id": "5c1004a041f5ac0995d5f620",
+        "id": "5f21cca21dd48900da0ec4a8",
+        "key": "5f21cca21dd48900da0ec4a8"
+    },
+    {
+        "_id": "5dc34dd58b06f700981cfd4b",
+        "cached_count": 0,
+        "created_at": "2019-11-06T22:48:53.173Z",
+        "modality": "contacts",
+        "name": "Test",
+        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "updated_at": "2020-07-29T19:23:14.308Z",
+        "user_id": "5c1004a041f5ac0995d5f620",
+        "id": "5dc34dd58b06f700981cfd4b",
+        "key": "5dc34dd58b06f700981cfd4b"
+    },
+    {
+        "_id": "5cd9ee269457467458c00e76",
+        "cached_count": 3001,
+        "created_at": "2019-05-13T22:22:30.843Z",
+        "modality": "contacts",
+        "name": "Test List 1000 Net New Contacts",
+        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "updated_at": "2019-05-13T23:38:49.323Z",
+        "user_id": "5c1004a041f5ac0995d5f620",
+        "id": "5cd9ee269457467458c00e76",
+        "key": "5cd9ee269457467458c00e76"
+    }
+]
+```
+
 `GET https://api.apollo.io/v1/labels`
 
 
-## Get a list of all Custom Fields
+## Get a List of All Custom Fields
+
+> Sample request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/typed_custom_fields?api_key=YOUR_API_KEY_HERE"
+```
+
+> Sample response:
+
+```json
+{
+    "typed_custom_fields": [
+        {
+            "id": "5c1004a041f5ac0995d5f619",
+            "modality": "opportunity",
+            "name": "Lead Source",
+            "type": "picklist",
+            "picklist_options": [],
+            "mapped_crm_field": "LeadSource",
+            "additional_mapped_crm_field": null,
+            "is_readonly_mapped_crm_field": false,
+            "picklist_options_last_synced_at": "2020-08-17T08:56:24.973+00:00",
+            "picklist_value_set_id": "5c1004a041f5ac0995d5f618",
+            "mirrored": false,
+            "system_name": "lead_source",
+            "text_field_max_length": null,
+            "picklist_values": [
+                {
+                    "_id": "5c14223b945746a058358f7a",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f619": "Web"
+                    },
+                    "name": "Web",
+                    "id": "5c14223b945746a058358f7a",
+                    "key": "5c14223b945746a058358f7a"
+                },
+                {
+                    "_id": "5c14223b945746a058358f7b",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f619": "Phone Inquiry"
+                    },
+                    "name": "Phone Inquiry",
+                    "id": "5c14223b945746a058358f7b",
+                    "key": "5c14223b945746a058358f7b"
+                },
+                {
+                    "_id": "5c14223b945746a058358f7c",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f619": "Partner Referral"
+                    },
+                    "name": "Partner Referral",
+                    "id": "5c14223b945746a058358f7c",
+                    "key": "5c14223b945746a058358f7c"
+                },
+                {
+                    "_id": "5c14223b945746a058358f7d",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f619": "Purchased List"
+                    },
+                    "name": "Purchased List",
+                    "id": "5c14223b945746a058358f7d",
+                    "key": "5c14223b945746a058358f7d"
+                },
+                {
+                    "_id": "5c14223b945746a058358f7e",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f619": "Other"
+                    },
+                    "name": "Other",
+                    "id": "5c14223b945746a058358f7e",
+                    "key": "5c14223b945746a058358f7e"
+                }
+            ]
+        },
+        {
+            "id": "5c1004a041f5ac0995d5f61b",
+            "modality": "opportunity",
+            "name": "Type",
+            "type": "picklist",
+            "picklist_options": [],
+            "mapped_crm_field": "Type",
+            "additional_mapped_crm_field": null,
+            "is_readonly_mapped_crm_field": false,
+            "picklist_options_last_synced_at": "2020-08-17T08:56:24.975+00:00",
+            "picklist_value_set_id": "5c1004a041f5ac0995d5f61a",
+            "mirrored": false,
+            "system_name": "type",
+            "text_field_max_length": null,
+            "picklist_values": [
+                {
+                    "_id": "5c14223b945746a058358f7f",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Upgrade"
+                    },
+                    "name": "Existing Customer - Upgrade",
+                    "id": "5c14223b945746a058358f7f",
+                    "key": "5c14223b945746a058358f7f"
+                },
+                {
+                    "_id": "5c14223b945746a058358f80",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Replacement"
+                    },
+                    "name": "Existing Customer - Replacement",
+                    "id": "5c14223b945746a058358f80",
+                    "key": "5c14223b945746a058358f80"
+                },
+                {
+                    "_id": "5c14223b945746a058358f81",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Downgrade"
+                    },
+                    "name": "Existing Customer - Downgrade",
+                    "id": "5c14223b945746a058358f81",
+                    "key": "5c14223b945746a058358f81"
+                },
+                {
+                    "_id": "5c14223b945746a058358f82",
+                    "mapped_crm_values": {
+                        "5c1004a041f5ac0995d5f61b": "New Customer"
+                    },
+                    "name": "New Customer",
+                    "id": "5c14223b945746a058358f82",
+                    "key": "5c14223b945746a058358f82"
+                }
+            ]
+        },
+        {
+            "id": "5c8bda2939fffa0929383cfb",
+            "modality": "contact",
+            "name": "User Lookup",
+            "type": "lookup_user",
+            "picklist_options": [],
+            "mapped_crm_field": "User_Lookup__c",
+            "additional_mapped_crm_field": null,
+            "is_readonly_mapped_crm_field": false,
+            "picklist_options_last_synced_at": "2019-03-15T17:00:14.000+00:00",
+            "picklist_value_set_id": null,
+            "mirrored": false,
+            "system_name": null,
+            "text_field_max_length": null
+        },
+        {
+            "id": "5c4f9c95035fb909ca948c91",
+            "modality": "contact",
+            "name": "Custom list",
+            "type": "string",
+            "picklist_options": [],
+            "mapped_crm_field": "Custom_List__c",
+            "additional_mapped_crm_field": null,
+            "is_readonly_mapped_crm_field": false,
+            "picklist_options_last_synced_at": "2019-01-29T00:21:38.000+00:00",
+            "picklist_value_set_id": null,
+            "mirrored": false,
+            "system_name": null,
+            "text_field_max_length": null
+        },
+        {
+            "id": "5d856e9c6899d00098ca4a07",
+            "modality": "contact",
+            "name": "Full Name Formula Field",
+            "type": "string",
+            "picklist_options": [],
+            "mapped_crm_field": "Name",
+            "additional_mapped_crm_field": "Name",
+            "is_readonly_mapped_crm_field": true,
+            "picklist_options_last_synced_at": "2019-09-21T00:28:11.000+00:00",
+            "picklist_value_set_id": null,
+            "mirrored": false,
+            "system_name": null,
+            "text_field_max_length": null
+        },
+        {
+            "id": "5e5849e9234c26008c96c240",
+            "modality": "contact",
+            "name": "Read-only field",
+            "type": "string",
+            "picklist_options": [],
+            "mapped_crm_field": "AssistantName",
+            "additional_mapped_crm_field": null,
+            "is_readonly_mapped_crm_field": true,
+            "picklist_options_last_synced_at": "2020-02-27T22:59:50.000+00:00",
+            "picklist_value_set_id": null,
+            "mirrored": false,
+            "system_name": null,
+            "text_field_max_length": null
+        }
+    ]
+}
 ```
 
 `GET https://api.apollo.io/v1/typed_custom_fields`
