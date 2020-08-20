@@ -67,7 +67,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "linkedin_uid": "1441",
             "publicly_traded_symbol": "GOOG",
             "publicly_traded_exchange": "nasdaq",
-            "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5f2d7f79a697fe0001e115d2/picture",
+            "logo_url": "https://zen-server.com/uploads/pictures/5f2d7fXXXXXXXXXXXXXXXXXX/picture",
             "crunchbase_url": "https://www.crunchbase.com/organization/google",
             "primary_domain": "google.com",
             "starred_by_user_ids": [],
