@@ -21,14 +21,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 ```json
 {
     "contact": {
-        "id": "5f34e409eb645901140a15fa",
+        "id": "5f34e4XXXXXXXXXXXXXXXXXX",
         "first_name": "Jon",
         "last_name": "Snow",
         "name": "Jon Snow",
         "linkedin_url": null,
         "title": "Lord Commander",
-        "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
-        "owner_id": "5cc77d28806b9c098adca382",
+        "contact_stage_id": "5c48fb3XXXXXXXXXXXXXXXXXX",
+        "owner_id": "5cc77dXXXXXXXXXXXXXXXXXX",
         "person_id": null,
         "email_needs_tickling": false,
         "organization_name": "Westeros",
@@ -80,7 +80,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     },
     "labels": [],
     "team": {
-        "id": "5c1004a041f5ac0995d5f5e8",
+        "id": "5c1004XXXXXXXXXXXXXXXXXX",
         "contacts_finder_empty": false
     }
 }
@@ -125,14 +125,14 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 ```json
 {
     "contact": {
-        "id": "5f34e409eb645901140a15fa",
+        "id": "5f34e4XXXXXXXXXXXXXXXXXX",
         "first_name": "Jon",
         "last_name": "Snow",
         "name": "Jon Snow",
         "linkedin_url": null,
         "title": "Lord Commander",
-        "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
-        "owner_id": "5cc77d28806b9c098adca382",
+        "contact_stage_id": "5c48fbXXXXXXXXXXXXXXXXXX",
+        "owner_id": "5cc77dXXXXXXXXXXXXXXXXXX",
         "person_id": null,
         "email_needs_tickling": false,
         "organization_name": "Westeros",
@@ -179,7 +179,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
         "state": null,
         "country": null,
         "crm_job": {
-            "id": "5f34e6a7b70bf4000165fc76",
+            "id": "5f34e6XXXXXXXXXXXXXXXXXX",
             "note": "storage limit exceeded",
             "job_type": "push_contacts",
             "retry_at": "2020-08-13T07:17:19.707+00:00",
@@ -235,30 +235,30 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 {
     "contacts": [
         {
-            "id": "5da8ce2397df39000109c08c",
+            "id": "5da8ceXXXXXXXXXXXXXXXXXX",
             "first_name": "Tim",
             "last_name": "Zheng",
             "name": "Tim Zheng",
             "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
             "title": "Founder & CEO",
             "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
-            "owner_id": "5c1004a041f5ac0995d5f620",
-            "person_id": "5f2b88ffaea69a0001ccc560",
+            "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "person_id": "5f2b88XXXXXXXXXXXXXXXXXX",
             "email_needs_tickling": false,
             "organization_name": "Apollo",
             "source": "search",
             "original_source": "email_import",
-            "organization_id": "5e66b6381e05b4008c8331b8",
+            "organization_id": "5e66b6XXXXXXXXXXXXXXXXXX",
             "headline": "Founder & CEO at Apollo",
             "photo_url": "https://static-exp2.licdn.com/sc/h/djzv59yelk5urv2ujlazfyvrk",
             "present_raw_address": "San Francisco, California, United States",
             "linkedin_uid": "38777275",
             "extrapolated_email_confidence": 0,
-            "salesforce_id": "0031U00001Oe4oWQAR",
+            "salesforce_id": "0031UXXXXXXXXXXXXXX",
             "salesforce_lead_id": null,
-            "salesforce_contact_id": "0031U00001Oe4oWQAR",
-            "salesforce_account_id": "0011U00001OXEJcQAP",
-            "salesforce_owner_id": "0051U000001FAqXQAW",
+            "salesforce_contact_id": "0031UXXXXXXXXXXXXXXX",
+            "salesforce_account_id": "0011UXXXXXXXXXXXXXXX",
+            "salesforce_owner_id": "0051UXXXXXXXXXXXXXXX",
             "created_at": "2019-10-17T20:25:07.594Z",
             "lead_request_id": null,
             "test_predictive_score": null,
@@ -267,14 +267,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "direct_dial_status": null,
             "direct_dial_enrichment_failed_at": null,
             "email_status": "verified",
-            "account_id": "5f1fad1dec295700017e2605",
+            "account_id": "5f1fadXXXXXXXXXXXXXXXXXX",
             "last_activity_date": "2018-06-26T16:30:35.000+00:00",
             "hubspot_vid": null,
             "hubspot_company_id": null,
             "sanitized_phone": null,
             "merged_crm_ids": [],
             "typed_custom_fields": {
-                "5d856e9c6899d00098ca4a07": "Tim Zheng"
+                "5d856eXXXXXXXXXXXXXXXXXX": "Tim Zheng"
             },
             "updated_at": "2020-07-28T04:44:51.448Z",
             "queued_for_crm_push": false,
@@ -285,13 +285,13 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "has_email_arcgate_request": false,
             "existence_level": "full",
             "email": "tim@zenprospect.com",
-            "salesforce_record_url": "https://na85.salesforce.com/0031U00001Oe4oWQAR",
+            "salesforce_record_url": "https://na85.salesforce.com/0031UXXXXXXXXXXXXXXXXXX",
             "contact_campaign_statuses": [],
             "state": "California",
             "city": "San Francisco",
             "country": "United States",
             "account": {
-                "id": "5f1fad1dec295700017e2605",
+                "id": "5f1fadXXXXXXXXXXXXXXXXXX",
                 "name": "Apollo",
                 "website_url": "http://www.apollo.io",
                 "blog_url": null,
@@ -306,34 +306,34 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
                 "linkedin_uid": "18511550",
                 "publicly_traded_symbol": null,
                 "publicly_traded_exchange": null,
-                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5f026534d9225f00016d0505/picture",
+                "logo_url": "https://zenprospect-server.com/uploads/pictures/5f0265XXXXXXXXXXXXXXXXXX/picture",
                 "crunchbase_url": null,
                 "primary_domain": "apollo.io",
                 "starred_by_user_ids": [],
                 "persona_counts": {},
                 "domain": "apollo.io",
-                "team_id": "5c1004a041f5ac0995d5f5e8",
+                "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
                 "typed_custom_fields": {},
-                "organization_id": "5e66b6381e05b4008c8331b8",
-                "account_stage_id": "5c1004a041f5ac0995d5f5f3",
+                "organization_id": "5e66b6XXXXXXXXXXXXXXXXXX",
+                "account_stage_id": "5c1004XXXXXXXXXXXXXXXXXX",
                 "source": "salesforce",
                 "original_source": "salesforce",
-                "owner_id": "5c1004a041f5ac0995d5f620",
+                "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
                 "created_at": "2020-07-28T04:44:13.821Z",
                 "phone_status": "no_status",
                 "test_predictive_score": null,
                 "hubspot_id": null,
-                "salesforce_id": "0011U00001OXEJcQAP",
-                "salesforce_owner_id": "0051U000001FAqXQAW",
+                "salesforce_id": "0011UXXXXXXXXXX",
+                "salesforce_owner_id": "0051UXXXXXXXXXX",
                 "parent_account_id": null,
                 "account_playbook_statuses": [],
                 "existence_level": "full",
                 "label_ids": [],
                 "modality": "account",
-                "salesforce_record_url": "https://na85.salesforce.com/0011U00001OXEJcQAP"
+                "salesforce_record_url": "https://na85.salesforce.com/0011UXXXXXXXXXXX"
             },
             "organization": {
-                "id": "5e66b6381e05b4008c8331b8",
+                "id": "5e66b6XXXXXXXXXXXXXXXXXX",
                 "name": "Apollo",
                 "website_url": "http://www.apollo.io",
                 "blog_url": null,
@@ -348,7 +348,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
                 "linkedin_uid": "18511550",
                 "publicly_traded_symbol": null,
                 "publicly_traded_exchange": null,
-                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5f026534d9225f00016d0505/picture",
+                "logo_url": "https://zenprospect-server.com/uploads/pictures/5f0265XXXXXXXXXXXXXXXXXX/picture",
                 "crunchbase_url": null,
                 "primary_domain": "apollo.io",
                 "starred_by_user_ids": [],
@@ -406,8 +406,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 {
     "contact_stages": [
         {
-            "id": "5c48fb36ae29ba0f376d11ab",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c48fbXXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Cold",
             "name": "Cold",
             "display_order": 0,
@@ -415,8 +415,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "in_progress"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5eb",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Approaching",
             "name": "Approaching",
             "display_order": 1,
@@ -424,8 +424,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "in_progress"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5ec",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Replied",
             "name": "Replied",
             "display_order": 2,
@@ -433,8 +433,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "in_progress"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5ed",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Interested",
             "name": "Interested",
             "display_order": 3,
@@ -442,8 +442,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "succeeded"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5ee",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Not Interested",
             "name": "Not Interested",
             "display_order": 4,
@@ -451,8 +451,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "failed"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5ef",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Unresponsive",
             "name": "Unresponsive",
             "display_order": 5,
@@ -460,8 +460,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "failed"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f0",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Do Not Contact",
             "name": "Do Not Contact",
             "display_order": 6,
@@ -469,8 +469,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "failed"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f1",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Bad Data",
             "name": "Bad Data",
             "display_order": 7,
@@ -478,8 +478,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": null
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f2",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Changed Job",
             "name": "Changed Job",
             "display_order": 8,
@@ -511,14 +511,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 {
     "contacts": [
         {
-            "id": "5f34e409eb645901140a15fa",
+            "id": "5f34e4XXXXXXXXXXXXXXXXXX",
             "first_name": "Jon",
             "last_name": "Snow",
             "name": "Jon Snow",
             "linkedin_url": null,
             "title": "Lord Commander",
             "contact_stage_id": "new_contact_stage_id",
-            "owner_id": "5cc77d28806b9c098adca382",
+            "owner_id": "5cc77dXXXXXXXXXXXXXXXXXX",
             "person_id": null,
             "email_needs_tickling": false,
             "organization_name": "Westeros",
@@ -596,13 +596,13 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 {
     "contacts": [
         {
-            "id": "5f34e409eb645901140a15fa",
+            "id": "5f34e4XXXXXXXXXXXXXXXXXX",
             "first_name": "Jon",
             "last_name": "Snow",
             "name": "Jon Snow",
             "linkedin_url": null,
             "title": "Lord Commander",
-            "contact_stage_id": "5c1004a041f5ac0995d5f5eb",
+            "contact_stage_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "owner_id": "new_owner_id",
             "person_id": null,
             "email_needs_tickling": false,

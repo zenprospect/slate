@@ -38,7 +38,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     },
     "accounts": [
         {
-            "id": "5c3d15a394574686ec3c65d4",
+            "id": "5c3d15XXXXXXXXXXXXXXXXXX",
             "name": "Google",
             "website_url": "http://www.google.com",
             "blog_url": null,
@@ -81,26 +81,26 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "organization_postal_code": "94043",
             "suggest_location_enrichment": false,
             "domain": "google.com",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "typed_custom_fields": {},
-            "organization_id": "54fca1087369647fc2010400",
-            "account_stage_id": "5c1004a041f5ac0995d5f5f3",
+            "organization_id": "54fca10XXXXXXXXXXXXXXXXXX",
+            "account_stage_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "source": "csv_import",
             "original_source": "csv_import",
-            "owner_id": "5c1004a041f5ac0995d5f620",
+            "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "created_at": "2019-01-14T23:05:07.335Z",
             "phone_status": "no_status",
             "test_predictive_score": null,
             "hubspot_id": null,
-            "salesforce_id": "0011U00000Qyc1CQAR",
-            "salesforce_owner_id": "0051U000001FAqXQAW",
+            "salesforce_id": "0011UXXXXXXXXXXXXXX",
+            "salesforce_owner_id": "0051UXXXXXXXXXXXXXX",
             "parent_account_id": null,
             "sanitized_phone": "+15122256000",
             "account_playbook_statuses": [],
             "existence_level": "full",
             "label_ids": [],
             "modality": "account",
-            "salesforce_record_url": "https://na85.salesforce.com/0011U00000Qyc1CQAR",
+            "salesforce_record_url": "https://na85.salesforce.com/0011UXXXXXXXXXXXX",
             "contact_emailer_campaign_ids": [],
             "contact_campaign_status_tally": {},
             "num_contacts": 12,
@@ -136,8 +136,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 {
     "account_stages": [
         {
-            "id": "5c1004a041f5ac0995d5f5f3",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Cold",
             "name": "Cold",
             "display_order": 0,
@@ -145,8 +145,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "in_progress"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f4",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Current Client",
             "name": "Current Client",
             "display_order": 1,
@@ -154,8 +154,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "succeeded"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f5",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004a04XXXXXXXXXXXXXX",
+            "team_id": "5c1004aXXXXXXXXXXXXXXXX",
             "display_name": "Active Opportunity",
             "name": "Active Opportunity",
             "display_order": 2,
@@ -163,8 +163,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "succeeded"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f6",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Dead Opportunity",
             "name": "Dead Opportunity",
             "display_order": 3,
@@ -172,8 +172,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "category": "failed"
         },
         {
-            "id": "5c1004a041f5ac0995d5f5f7",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "display_name": "Do Not Prospect",
             "name": "Do Not Prospect",
             "display_order": 4,
@@ -205,7 +205,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 {
     "accounts": [
         {
-            "id": "5c3d15a394574686ec3c65d4",
+            "id": "5c3d15XXXXXXXXXXXXXXXXXX",
             "account_stage_id": "new_account_stage_id"
         }
     ]
@@ -241,7 +241,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 {
     "accounts": [
         {
-            "id": "5c3d15a394574686ec3c65d4",
+            "id": "5c3d15XXXXXXXXXXXXXXXXXX",
             "owner_id": "new_owner_id"
         }
     ]

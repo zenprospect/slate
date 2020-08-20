@@ -33,25 +33,25 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     ],
     "emailer_campaigns": [
         {
-            "id": "5c87514b7b971a09134afd59",
+            "id": "5c8751XXXXXXXXXXXXXXXX",
             "name": "Manual Message Sequence",
             "archived": false,
             "created_at": "2019-03-12T06:27:23.539Z",
             "emailer_schedule_id": "5c1004a041f5ac0995d5f622",
             "max_emails_per_day": null,
-            "user_id": "5c1004a041f5ac0995d5f620",
+            "user_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "same_account_reply_policy_cd": null,
             "excluded_account_stage_ids": [
-                "5c1004a041f5ac0995d5f5f4",
-                "5c1004a041f5ac0995d5f5f5",
-                "5c1004a041f5ac0995d5f5f6",
-                "5c1004a041f5ac0995d5f5f7"
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX"
             ],
             "excluded_contact_stage_ids": [
-                "5c1004a041f5ac0995d5f5f1",
-                "5c1004a041f5ac0995d5f5f0",
-                "5c1004a041f5ac0995d5f5ec",
-                "5c1004a041f5ac0995d5f5ed"
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX",
+                "5c1004XXXXXXXXXXXXXXXXXX"
             ],
             "contact_email_event_to_stage_mapping": {},
             "label_ids": [],

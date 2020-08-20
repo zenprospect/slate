@@ -20,8 +20,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
     },
     "users": [
         {
-            "id": "5cc77d28806b9c098adca382",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5cc77dXXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "first_name": "Test",
             "last_name": "User",
             "title": null,
@@ -49,9 +49,9 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "current_email_verified": true,
             "record_calls": true,
             "salesforce_instance_url": null,
-            "permission_set_id": "5c1004a041f5ac0995d5f615",
+            "permission_set_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "assistant_setting": {
-                "_id": "5cc77d28806b9c098adca383",
+                "_id": "5cc77dXXXXXXXXXXXXXXXXXX",
                 "deal_size_metric": "amount",
                 "inactive_account_stage_ids": [],
                 "inactive_contact_stage_ids": [],
@@ -66,8 +66,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
                 "max_people_in_sequence_per_account": 5,
                 "num_inactive_days_to_re_engage": 180,
                 "persona_ids": [
-                    "5c1004a041f5ac0995d5f60d",
-                    "5c1004a041f5ac0995d5f60e"
+                    "5c1004XXXXXXXXXXXXXXXXXX",
+                    "5c1004XXXXXXXXXXXXXXXXXX"
                 ],
                 "success_case_account_stage_ids": [],
                 "technology_uids": [],
@@ -79,15 +79,15 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
                 "territory_person_locations": [
                     "United States"
                 ],
-                "id": "5cc77d28806b9c098adca383",
-                "key": "5cc77d28806b9c098adca383"
+                "id": "5cc77dXXXXXXXXXXXXXXXXXX",
+                "key": "5cc77XXXXXXXXXXXXXXXXXX"
             },
             "typed_custom_fields": {},
             "default_use_local_numbers": false,
             "disable_email_linking": null,
             "sync_salesforce_id": null,
             "sync_crm_id": null,
-            "zp_contact_id": "59f9e05cf3e5bb2d66942f10",
+            "zp_contact_id": "59f9e0XXXXXXXXXXXXXXXXXX",
             "chrome_extension_downloaded": false,
             "user_roles": [],
             "email_oauth_signin_only": false,
@@ -115,7 +115,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             },
             "skip_use_case_selection": false,
             "subteam_ids": [
-                "5cc77e9672728e09a13d5eaa"
+                "5cc77XXXXXXXXXXXXXXXXXX"
             ],
             "prospect_territory_ids": [],
             "linked_salesforce": null,
@@ -129,8 +129,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "chrome_extension_gmail_enable_crm_sidebar": true
         },
         {
-            "id": "5c1004a041f5ac0995d5f620",
-            "team_id": "5c1004a041f5ac0995d5f5e8",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "first_name": "Alan",
             "last_name": "Rios",
             "title": null,
@@ -145,8 +145,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "name": "Alan Rios",
             "enable_click_tracking": true,
             "password_needs_reset": false,
-            "salesforce_id": "0051U000001FAqXQAW",
-            "default_cockpit_layout": "5c1004b79457462dbf953957",
+            "salesforce_id": "0051XXXXXXXXXXXXXX",
+            "default_cockpit_layout": "5c1004XXXXXXXXXXXXXXXXXX",
             "default_finder_view_ids": {},
             "default_account_overview_layout_id": null,
             "default_organization_overview_layout_id": null,
@@ -158,9 +158,9 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "current_email_verified": true,
             "record_calls": true,
             "salesforce_instance_url": "https://na85.salesforce.com",
-            "permission_set_id": "5c1004a041f5ac0995d5f615",
+            "permission_set_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "assistant_setting": {
-                "_id": "5c1004a041f5ac0995d5f621",
+                "_id": "5c1004XXXXXXXXXXXXXXXXXX",
                 "deal_size_metric": "amount",
                 "inactive_account_stage_ids": [],
                 "inactive_contact_stage_ids": [],
@@ -175,8 +175,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
                 "max_people_in_sequence_per_account": 5,
                 "num_inactive_days_to_re_engage": 180,
                 "persona_ids": [
-                    "5c1004a041f5ac0995d5f60d",
-                    "5c1004a041f5ac0995d5f60e"
+                    "5c1004XXXXXXXXXXXXXXXXXX",
+                    "5c1004XXXXXXXXXXXXXXXXXX"
                 ],
                 "success_case_account_stage_ids": [],
                 "technology_uids": [],
@@ -188,15 +188,15 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
                 "territory_person_locations": [
                     "United States"
                 ],
-                "id": "5c1004a041f5ac0995d5f621",
-                "key": "5c1004a041f5ac0995d5f621"
+                "id": "5c1004XXXXXXXXXXXXXXXXXX",
+                "key": "5c1004XXXXXXXXXXXXXXXXXX"
             },
             "typed_custom_fields": {},
             "default_use_local_numbers": false,
             "disable_email_linking": null,
-            "sync_salesforce_id": "0051U000001FAqXQAW",
+            "sync_salesforce_id": "0051UXXXXXXXXXXXXXX",
             "sync_crm_id": null,
-            "zp_contact_id": "5a9de5297dda4d91e1244fbf",
+            "zp_contact_id": "5a9de5XXXXXXXXXXXXXXXXXX",
             "chrome_extension_downloaded": true,
             "user_roles": [
                 "admin"
@@ -251,8 +251,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "aliases": [
                 "alan@apollo.io"
             ],
-            "id": "5a298f049d7968ec34bcc1ef",
-            "user_id": "5c1004a041f5ac0995d5f620",
+            "id": "5a298fXXXXXXXXXXXXXXXXXX",
+            "user_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "email": "alan@apollo.io",
             "type": "gmail",
             "active": true,
@@ -278,7 +278,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 
 ## Get a List of All Lists/Tags
 
-> Sample Request:
+> Sample request:
 
 ```shell
 curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/labels?api_key=YOUR_API_KEY_HERE"
@@ -289,40 +289,40 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 ```json
 [
     {
-        "_id": "5f21cca21dd48900da0ec4a8",
+        "_id": "5f21ccXXXXXXXXXXXXXXXXXX",
         "cached_count": 5,
         "created_at": "2020-07-29T19:23:14.220Z",
         "modality": "contacts",
         "name": "test API label",
-        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
         "updated_at": "2020-08-04T18:16:32.733Z",
-        "user_id": "5c1004a041f5ac0995d5f620",
-        "id": "5f21cca21dd48900da0ec4a8",
-        "key": "5f21cca21dd48900da0ec4a8"
+        "user_id": "5c1004XXXXXXXXXXXXXXXXXX",
+        "id": "5f21ccXXXXXXXXXXXXXXXXXX",
+        "key": "5f21ccXXXXXXXXXXXXXXXXXX"
     },
     {
-        "_id": "5dc34dd58b06f700981cfd4b",
+        "_id": "5dc34dXXXXXXXXXXXXXXXXXX",
         "cached_count": 0,
         "created_at": "2019-11-06T22:48:53.173Z",
         "modality": "contacts",
         "name": "Test",
-        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
         "updated_at": "2020-07-29T19:23:14.308Z",
-        "user_id": "5c1004a041f5ac0995d5f620",
-        "id": "5dc34dd58b06f700981cfd4b",
-        "key": "5dc34dd58b06f700981cfd4b"
+        "user_id": "5c1004XXXXXXXXXXXXXXXXXX",
+        "id": "5dc34dXXXXXXXXXXXXXXXXXX",
+        "key": "5dc34dXXXXXXXXXXXXXXXXXX"
     },
     {
-        "_id": "5cd9ee269457467458c00e76",
+        "_id": "5cd9eeXXXXXXXXXXXXXXXXXX",
         "cached_count": 3001,
         "created_at": "2019-05-13T22:22:30.843Z",
         "modality": "contacts",
         "name": "Test List 1000 Net New Contacts",
-        "team_id": "5c1004a041f5ac0995d5f5e8",
+        "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
         "updated_at": "2019-05-13T23:38:49.323Z",
-        "user_id": "5c1004a041f5ac0995d5f620",
-        "id": "5cd9ee269457467458c00e76",
-        "key": "5cd9ee269457467458c00e76"
+        "user_id": "5c1004XXXXXXXXXXXXXXXXXX",
+        "id": "5cd9eeXXXXXXXXXXXXXXXXXX",
+        "key": "5cd9eeXXXXXXXXXXXXXXXXXX"
     }
 ]
 ```
@@ -344,7 +344,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 {
     "typed_custom_fields": [
         {
-            "id": "5c1004a041f5ac0995d5f619",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
             "modality": "opportunity",
             "name": "Lead Source",
             "type": "picklist",
@@ -353,60 +353,60 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "additional_mapped_crm_field": null,
             "is_readonly_mapped_crm_field": false,
             "picklist_options_last_synced_at": "2020-08-17T08:56:24.973+00:00",
-            "picklist_value_set_id": "5c1004a041f5ac0995d5f618",
+            "picklist_value_set_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "mirrored": false,
             "system_name": "lead_source",
             "text_field_max_length": null,
             "picklist_values": [
                 {
-                    "_id": "5c14223b945746a058358f7a",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f619": "Web"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Web"
                     },
                     "name": "Web",
-                    "id": "5c14223b945746a058358f7a",
-                    "key": "5c14223b945746a058358f7a"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f7b",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f619": "Phone Inquiry"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Phone Inquiry"
                     },
                     "name": "Phone Inquiry",
-                    "id": "5c14223b945746a058358f7b",
-                    "key": "5c14223b945746a058358f7b"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f7c",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f619": "Partner Referral"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Partner Referral"
                     },
                     "name": "Partner Referral",
-                    "id": "5c14223b945746a058358f7c",
-                    "key": "5c14223b945746a058358f7c"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f7d",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f619": "Purchased List"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Purchased List"
                     },
                     "name": "Purchased List",
-                    "id": "5c14223b945746a058358f7d",
-                    "key": "5c14223b945746a058358f7d"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f7e",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f619": "Other"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Other"
                     },
                     "name": "Other",
-                    "id": "5c14223b945746a058358f7e",
-                    "key": "5c14223b945746a058358f7e"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 }
             ]
         },
         {
-            "id": "5c1004a041f5ac0995d5f61b",
+            "id": "5c1004XXXXXXXXXXXXXXXXXX",
             "modality": "opportunity",
             "name": "Type",
             "type": "picklist",
@@ -415,51 +415,51 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "additional_mapped_crm_field": null,
             "is_readonly_mapped_crm_field": false,
             "picklist_options_last_synced_at": "2020-08-17T08:56:24.975+00:00",
-            "picklist_value_set_id": "5c1004a041f5ac0995d5f61a",
+            "picklist_value_set_id": "5c1004XXXXXXXXXXXXXXXXXX",
             "mirrored": false,
             "system_name": "type",
             "text_field_max_length": null,
             "picklist_values": [
                 {
-                    "_id": "5c14223b945746a058358f7f",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Upgrade"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Existing Customer - Upgrade"
                     },
                     "name": "Existing Customer - Upgrade",
-                    "id": "5c14223b945746a058358f7f",
-                    "key": "5c14223b945746a058358f7f"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f80",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Replacement"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Existing Customer - Replacement"
                     },
                     "name": "Existing Customer - Replacement",
-                    "id": "5c14223b945746a058358f80",
-                    "key": "5c14223b945746a058358f80"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f81",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f61b": "Existing Customer - Downgrade"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "Existing Customer - Downgrade"
                     },
                     "name": "Existing Customer - Downgrade",
-                    "id": "5c14223b945746a058358f81",
-                    "key": "5c14223b945746a058358f81"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 },
                 {
-                    "_id": "5c14223b945746a058358f82",
+                    "_id": "5c1422XXXXXXXXXXXXXXXXXX",
                     "mapped_crm_values": {
-                        "5c1004a041f5ac0995d5f61b": "New Customer"
+                        "5c1004XXXXXXXXXXXXXXXXXX": "New Customer"
                     },
                     "name": "New Customer",
-                    "id": "5c14223b945746a058358f82",
-                    "key": "5c14223b945746a058358f82"
+                    "id": "5c1422XXXXXXXXXXXXXXXXXX",
+                    "key": "5c1422XXXXXXXXXXXXXXXXXX"
                 }
             ]
         },
         {
-            "id": "5c8bda2939fffa0929383cfb",
+            "id": "5c8bdaXXXXXXXXXXXXXXXXXX",
             "modality": "contact",
             "name": "User Lookup",
             "type": "lookup_user",
@@ -474,7 +474,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "text_field_max_length": null
         },
         {
-            "id": "5c4f9c95035fb909ca948c91",
+            "id": "5c4f9XXXXXXXXXXXXXXXXXX",
             "modality": "contact",
             "name": "Custom list",
             "type": "string",
@@ -489,7 +489,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "text_field_max_length": null
         },
         {
-            "id": "5d856e9c6899d00098ca4a07",
+            "id": "5d856XXXXXXXXXXXXXXXXXX",
             "modality": "contact",
             "name": "Full Name Formula Field",
             "type": "string",
@@ -504,7 +504,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "text_field_max_length": null
         },
         {
-            "id": "5e5849e9234c26008c96c240",
+            "id": "5e5849XXXXXXXXXXXXXXXXXX",
             "modality": "contact",
             "name": "Read-only field",
             "type": "string",
