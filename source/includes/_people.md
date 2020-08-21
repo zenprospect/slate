@@ -68,7 +68,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "extrapolated_email_confidence": null,
             "headline": "Founder & CEO at Apollo",
             "country": "United States",
-            "email": "tim@apollo.io",
+            "email": "email@domain.io",
             "state": "CA",
             "excluded_for_leadgen": false,
             "starred_by_user_ids": [],
@@ -82,7 +82,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
                 "linkedin_url": "http://www.linkedin.com/company/apolloio",
                 "twitter_url": "https://twitter.com/MeetApollo/",
                 "facebook_url": "https://www.facebook.com/MeetApollo/",
-                "primary_phone": {},
                 "languages": [],
                 "alexa_ranking": 77520,
                 "phone": null,
@@ -105,7 +104,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
                 "linkedin_url": "http://www.linkedin.com/company/apolloio",
                 "twitter_url": "https://twitter.com/MeetApollo/",
                 "facebook_url": "https://www.facebook.com/MeetApollo/",
-                "primary_phone": {},
                 "languages": [],
                 "alexa_ranking": 77520,
                 "phone": null,
@@ -171,7 +169,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
-    "email": "tim@apollo.io",
+    "email": "name@domain.io",
     "domain": "apollo.io"
 }' "https://api.apollo.io/v1/people/match"
 ```
@@ -196,7 +194,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
         "extrapolated_email_confidence": null,
         "headline": "Founder & CEO at Apollo",
         "country": "United States",
-        "email": "tim@apollo.io",
+        "email": "name@domain.io",
         "state": "CA",
         "excluded_for_leadgen": false,
         "contact_id": "5da8ceXXXXXXXXXXXXXXXX",
@@ -240,7 +238,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "sanitized_phone": null,
             "merged_crm_ids": [],
             "typed_custom_fields": {
-                "5d856e9c6899d00098ca4a07": "Tim Zheng"
+                "5d856e9c6899d00098XXXXXX": "Tim Zheng"
             },
             "updated_at": "2020-07-28T04:44:51.448Z",
             "queued_for_crm_push": false,
@@ -250,7 +248,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "has_pending_email_arcgate_request": false,
             "has_email_arcgate_request": false,
             "existence_level": "full",
-            "email": "tim@zenprospect.com",
+            "email": "example@domain.com",
             "salesforce_record_url": "https://na85.salesforce.com/0031UXXXXXXXXXXXX",
             "phone_numbers": [],
             "account_phone_note": null
@@ -266,7 +264,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "linkedin_url": "http://www.linkedin.com/company/apolloio",
             "twitter_url": "https://twitter.com/MeetApollo/",
             "facebook_url": "https://www.facebook.com/MeetApollo/",
-            "primary_phone": {},
             "languages": [],
             "alexa_ranking": 1955,
             "phone": null,

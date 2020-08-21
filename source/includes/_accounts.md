@@ -46,10 +46,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "linkedin_url": "http://www.linkedin.com/company/google",
             "twitter_url": "http://twitter.com/google",
             "facebook_url": "https://www.facebook.com/Google",
-            "primary_phone": {
-                "source": "Google",
-                "number": "(512) 225-6000"
-            },
             "languages": [
                 "English",
                 "German",
