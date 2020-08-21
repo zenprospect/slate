@@ -378,7 +378,7 @@ Parameter | Description | Example
 first_name (optional) | The person's first name | Tim
 last_name (optional) | The person's last name | Zheng
 name (optional) | The person's full name | Tim Zheng
-email (optional) | The person's email | tim@apollo.io
+email (optional) | The person's email | example@domani.com
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
