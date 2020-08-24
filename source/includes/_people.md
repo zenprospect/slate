@@ -2,10 +2,9 @@
 
 A person represents a person in Apollo's database.
 
-## Search
+## Search 
 
-> Search a person's information. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the "enrich" endpoint. 
-
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -14,12 +13,137 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "page" : 1,
     "person_titles" : ["sales manager", "engineer manager"]
 }' "https://api.apollo.io/v1/mixed_people/search"
-```    
-    
+``` 
 
-This endpoint searches for people 
+> Sample response:
 
-`GET https://api.apollo.io/v1/mixed_people/search`
+```json 
+{
+    "breadcrumbs": [
+        {
+            "label": "Titles",
+            "signal_field_name": "person_titles",
+            "value": "sales manager",
+            "display_name": "sales manager"
+        },
+        {
+            "label": "Titles",
+            "signal_field_name": "person_titles",
+            "value": "engineer manager",
+            "display_name": "engineer manager"
+        },
+        {
+            "label": "Company Domains",
+            "signal_field_name": "q_organization_domains",
+            "value": [
+                "apollo.io",
+                "google.com"
+            ],
+            "display_name": "apollo.io, google.com"
+        }
+    ],
+    "partial_results_only": false,
+    "partial_results_limit": 10000,
+    "pagination": {
+        "page": 1,
+        "per_page": 10,
+        "total_entries": 1339,
+        "total_pages": 134
+    },
+    "contacts": [],
+    "people": [
+        {
+            "id": "583f2f7ed9ced98ab5bfXXXX",
+            "first_name": "Tim",
+            "last_name": "Zheng",
+            "name": "Tim Zheng",
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+            "title": "Founder & CEO",
+            "city": "San Francisco",
+            "email_status": null,
+            "photo_url": "https://media-server.url",
+            "twitter_url": null,
+            "github_url": null,
+            "facebook_url": null,
+            "extrapolated_email_confidence": null,
+            "headline": "Founder & CEO at Apollo",
+            "country": "United States",
+            "email": "email@domain.io",
+            "state": "CA",
+            "excluded_for_leadgen": false,
+            "starred_by_user_ids": [],
+            "organization_id": "5e66b6XXXXXXXXXXXXXXXXXX",
+            "organization": {
+                "id": "5e66b6XXXXXXXXXXXXXXXXXX",
+                "name": "Apollo",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/MeetApollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo/",
+                "languages": [],
+                "alexa_ranking": 77520,
+                "phone": null,
+                "linkedin_uid": "18511550",
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-server.com/uploads/pictures/5f0265XXXXXXXXXXXXXXXXXX/picture",
+                "crunchbase_url": null,
+                "primary_domain": "apollo.io",
+                "starred_by_user_ids": [],
+                "persona_counts": {}
+            },
+            "account_id": "5f1fadXXXXXXXXXXXXXXXXXX",
+            "account": {
+                "id": "5f1fadXXXXXXXXXXXXXXXXXX",
+                "name": "Apollo",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/MeetApollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo/",
+                "languages": [],
+                "alexa_ranking": 77520,
+                "phone": null,
+                "linkedin_uid": "18511550",
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-server.com/uploads/pictures/5f0265XXXXXXXXXXXXXXXXXX/picture",
+                "crunchbase_url": null,
+                "primary_domain": "apollo.io",
+                "starred_by_user_ids": [],
+                "persona_counts": {},
+                "domain": "apollo.io",
+                "team_id": "5c1004XXXXXXXXXXXXXXXXXX",
+                "typed_custom_fields": {},
+                "organization_id": "5e66b6XXXXXXXXXXXXXXXXXX",
+                "account_stage_id": "5c1004XXXXXXXXXXXXXXXXXX",
+                "source": "salesforce",
+                "original_source": "salesforce",
+                "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
+                "created_at": "2020-07-28T04:44:13.821Z",
+                "phone_status": "no_status",
+                "test_predictive_score": null,
+                "hubspot_id": null,
+                "salesforce_id": "0011UXXXXXXXXXX",
+                "salesforce_owner_id": "0051UXXXXXXXXXX",
+                "parent_account_id": null,
+                "account_playbook_statuses": [],
+                "existence_level": "full",
+                "label_ids": [],
+                "modality": "account",
+                "salesforce_record_url": "https://na85.salesforce.com/0011UXXXXXXXXXXX"
+            }
+        }
+    ]
+}
+```
+
+This endpoint searches for people. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the "enrich" endpoint.
+
+`POST https://api.apollo.io/v1/mixed_people/search`
 
 ### Query Parameters
 
@@ -36,7 +160,7 @@ page (optional) | an integer that allows you to paginate through the results  | 
 
 ## Enrichment
 
-> Enrich a person's information with information:
+> Sample request:
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -45,11 +169,198 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "first_name": "Tim",
     "last_name": "Zheng",
     "organization_name": "Apollo",
-    "email": "tim@apollo.io",
+    "email": "name@domain.io",
     "domain": "apollo.io"
 }' "https://api.apollo.io/v1/people/match"
 ```
 
+> Sample response:
+
+```json
+{
+    "person": {
+        "id": "583f2f7ed9ced98ab5bfXXXX",
+        "first_name": "Tim",
+        "last_name": "Zheng",
+        "name": "Tim Zheng",
+        "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+        "title": "Founder & CEO",
+        "city": "San Francisco",
+        "email_status": null,
+        "photo_url": "https://media-server.url",
+        "twitter_url": null,
+        "github_url": null,
+        "facebook_url": null,
+        "extrapolated_email_confidence": null,
+        "headline": "Founder & CEO at Apollo",
+        "country": "United States",
+        "email": "name@domain.io",
+        "state": "CA",
+        "excluded_for_leadgen": false,
+        "contact_id": "5da8ceXXXXXXXXXXXXXXXX",
+        "contact": {
+            "id": "5da8ceXXXXXXXXXXXXXXXX",
+            "first_name": "Tim",
+            "last_name": "Zheng",
+            "name": "Tim Zheng",
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+            "title": "Founder & CEO",
+            "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
+            "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
+            "person_id": "5eb53cXXXXXXXXXXXXXXXX",
+            "email_needs_tickling": false,
+            "organization_name": "Apollo",
+            "source": "search",
+            "original_source": "email_import",
+            "organization_id": "5e66b6XXXXXXXXXXXXXXXX",
+            "headline": "Founder & CEO at Apollo",
+            "photo_url": "https://static-exp2.licdn.com/sc/h/djzv59yelk5urv2ujlazfyvrk",
+            "present_raw_address": "San Francisco, California, United States",
+            "linkedin_uid": "38777275",
+            "extrapolated_email_confidence": 0,
+            "salesforce_id": "0031UXXXXXXXXXXXX",
+            "salesforce_lead_id": null,
+            "salesforce_contact_id": "0031UXXXXXXXXXXXX",
+            "salesforce_account_id": "0011UXXXXXXXXXXXX",
+            "salesforce_owner_id": "0051UXXXXXXXXXXXX",
+            "created_at": "2019-10-17T20:25:07.594Z",
+            "lead_request_id": null,
+            "test_predictive_score": null,
+            "emailer_campaign_ids": [],
+            "email_manually_changed": false,
+            "direct_dial_status": null,
+            "direct_dial_enrichment_failed_at": null,
+            "email_status": "verified",
+            "account_id": "5f1faXXXXXXXXXXXXXXXX",
+            "last_activity_date": "2018-06-26T16:30:35.000+00:00",
+            "hubspot_vid": null,
+            "hubspot_company_id": null,
+            "sanitized_phone": null,
+            "merged_crm_ids": [],
+            "typed_custom_fields": {
+                "5d856e9c6899d00098XXXXXX": "Tim Zheng"
+            },
+            "updated_at": "2020-07-28T04:44:51.448Z",
+            "queued_for_crm_push": false,
+            "starred_by_user_ids": [],
+            "suggested_from_rule_engine_config_id": null,
+            "label_ids": [],
+            "has_pending_email_arcgate_request": false,
+            "has_email_arcgate_request": false,
+            "existence_level": "full",
+            "email": "example@domain.com",
+            "salesforce_record_url": "https://na85.salesforce.com/0031UXXXXXXXXXXXX",
+            "phone_numbers": [],
+            "account_phone_note": null
+        },
+        "revealed_for_current_team": true,
+        "organization_id": "5e66b6XXXXXXXXXXXXXXXX",
+        "organization": {
+            "id": "5e66b6XXXXXXXXXXXXXXXX",
+            "name": "Apollo",
+            "website_url": "http://www.apollo.io",
+            "blog_url": null,
+            "angellist_url": null,
+            "linkedin_url": "http://www.linkedin.com/company/apolloio",
+            "twitter_url": "https://twitter.com/MeetApollo/",
+            "facebook_url": "https://www.facebook.com/MeetApollo/",
+            "languages": [],
+            "alexa_ranking": 1955,
+            "phone": null,
+            "linkedin_uid": "18511550",
+            "publicly_traded_symbol": null,
+            "publicly_traded_exchange": null,
+            "logo_url": "https://zenprospect-pserver.com/uploads/pictures/5f026XXXXXXXXXXXXXXXX/picture",
+            "crunchbase_url": null,
+            "primary_domain": "apollo.io",
+            "persona_counts": {},
+            "industry": "computer software",
+            "keywords": [
+                "sales engagement",
+                "lead generation",
+                "predictive analytics",
+                "lead scoring",
+                "sales strategy",
+                "conversation intelligence",
+                "sales enablement",
+                "lead routing",
+                "sales development",
+                "and email engagement"
+            ],
+            "estimated_num_employees": 38,
+            "snippets_loaded": true,
+            "industry_tag_id": "5567cdXXXXXXXXXXXXXXXX",
+            "retail_location_count": 0,
+            "raw_address": "535 Mission St, Suite 1100, San Francisco, California 94105, US",
+            "street_address": "535 Mission St",
+            "city": "San Francisco",
+            "state": "California",
+            "postal_code": "94105",
+            "country": "United States",
+            "owned_by_organization_id": null,
+            "suborganizations": [],
+            "num_suborganizations": 0,
+            "seo_description": "Apollo is an intelligent, data-first engagement platform that puts structured data at the core of your workflows to help you execute, analyze, and improve on your growth strategy.",
+            "short_description": "Apollo is the unified engagement acceleration platform that gives reps the ability to dramatically increase their number of quality conversations and opportunities. Reps are ...",
+            "total_funding": null,
+            "total_funding_printed": null,
+            "latest_funding_round_date": null,
+            "latest_funding_stage": null,
+            "funding_events": [],
+            "technology_names": [
+                "Cloudflare DNS",
+                "Rackspace MailGun",
+                "Gmail",
+                "Marketo",
+                "Google Apps",
+                "Microsoft Office 365",
+                "CloudFlare Hosting",
+                ...
+            ],
+            "current_technologies": [
+                {
+                    "uid": "cloudflare_dns",
+                    "name": "Cloudflare DNS",
+                    "category": "Domain Name Services"
+                },
+                {
+                    "uid": "rackspace_mailgun",
+                    "name": "Rackspace MailGun",
+                    "category": "Email Delivery"
+                },
+                {
+                    "uid": "gmail",
+                    "name": "Gmail",
+                    "category": "Email Providers"
+                },
+                {
+                    "uid": "marketo",
+                    "name": "Marketo",
+                    "category": "Marketing Automation"
+                },
+                {
+                    "uid": "google_apps",
+                    "name": "Google Apps",
+                    "category": "Other"
+                },
+                {
+                    "uid": "office_365",
+                    "name": "Microsoft Office 365",
+                    "category": "Other"
+                },
+                {
+                    "uid": "cloudflare_hosting",
+                    "name": "CloudFlare Hosting",
+                    "category": "Hosting"
+                },
+                {
+                   ...
+                }
+            ]
+        }
+    }
+}
+```
 
 
 This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match.  
@@ -58,7 +369,7 @@ The enrich endpoint charges credits you for its usage. If a verified email is su
 
 The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.
 
-`GET https://api.apollo.io/v1/people/match`
+`POST https://api.apollo.io/v1/people/match`
 
 ### Query Parameters
 
@@ -67,7 +378,7 @@ Parameter | Description | Example
 first_name (optional) | The person's first name | Tim
 last_name (optional) | The person's last name | Zheng
 name (optional) | The person's full name | Tim Zheng
-email (optional) | The person's email | tim@apollo.io
+email (optional) | The person's email | example@domani.com
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
