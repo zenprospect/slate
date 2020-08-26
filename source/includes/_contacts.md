@@ -115,6 +115,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "api_key": "YOUR API KEY HERE",
     "first_name": "Jon",
     "last_name": "Snow",
+    "email": “jon.snow@westeros.com”,
     "title": "Lord Commander",
     "organization_name": "Westeros"
 }' "https://api.apollo.io/v1/contacts/YOUR CONTACT ID"
@@ -224,6 +225,7 @@ other_phone | Phone of unknown type for this contact. If the contact already has
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
+    "q_keywords": "Tim Zheng, CEO, Apollo",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
 }' "https://api.apollo.io/v1/contacts/search"

@@ -237,4 +237,4 @@ Get a list of active job postings for a company.
 
 Parameter | Description | Example
 --------- | ----------- | -----------
-id | The id of the organization. You can obtain an ID with the company's domain using the enrich endpoint  | 54fca1087369647fcXXXXXXX
+id | The id of the organization (i.e. NOT account id). You can obtain this with a company's domain by using the enrich endpoint.  | 54fca1087369647fcXXXXXXX
