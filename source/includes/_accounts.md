@@ -10,6 +10,7 @@ Account is a company your team has explicitly added to your database. It can be 
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
+    "q_organization_name": "Google",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
 }' "https://api.apollo.io/v1/accounts/search"
