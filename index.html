@@ -1098,7 +1098,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>The id of the organization. You can obtain an ID with the company&#39;s domain using the enrich endpoint</td>
+<td>The id of the organization (i.e. NOT account id). You can obtain this with a company&#39;s domain by using the enrich endpoint.</td>
 <td>54fca1087369647fcXXXXXXX</td>
 </tr>
 </tbody></table>
@@ -1257,6 +1257,7 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
     "api_key": "YOUR API KEY HERE",
     "first_name": "Jon",
     "last_name": "Snow",
+    "email": “jon.snow@westeros.com”,
     "title": "Lord Commander",
     "organization_name": "Westeros"
 }'</span> <span class="s2">"https://api.apollo.io/v1/contacts/YOUR CONTACT ID"</span>
@@ -1423,6 +1424,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
+    "q_keywords": "Tim Zheng, CEO, Apollo",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
 }'</span> <span class="s2">"https://api.apollo.io/v1/contacts/search"</span>
@@ -1889,6 +1891,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
+    "q_organization_name": "Google",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
 }'</span> <span class="s2">"https://api.apollo.io/v1/accounts/search"</span>
@@ -2190,7 +2193,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual Message Sequence"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T06:27:23.539Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"emailer_schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004a041f5ac0995d5f622"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"emailer_schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"max_emails_per_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"same_account_reply_policy_cd"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2268,19 +2271,169 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
+    "async": false,
     "contact_ids": ["contact id 1", "contact id 2"],
     "emailer_campaign_id": REPLACE_WITH_SEQUENCE_ID,
     "send_email_from_email_account_id": "email_account_id",
-    "sequence_active_in_other_campaigns": true,
-    "sequence_no_email": true,
-    "sequence_finished_in_other_campaigns": true,    
+    "sequence_active_in_other_campaigns": false,
+    "sequence_no_email": false,
+    "sequence_finished_in_other_campaigns": false,    
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre></div>
 <blockquote>
 <p>Sample response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Getting a 404 with this endpoint - not sure whether there is a bug with it or if the code is formatted incorrectly.</span>
-</code></pre></div>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ray"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Li"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ray Li"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTO"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email_needs_tickling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"present_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"extrapolated_email_confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0036g000XXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0036g0000XXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0016g0000XXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0056g000000XXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-27T01:23:36.898Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lead_request_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"email_manually_changed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"direct_dial_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"direct_dial_enrichment_failed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_vid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+165XXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"merged_crm_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-27T01:23:36.898Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"queued_for_crm_push"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"suggested_from_rule_engine_config_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"has_pending_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"has_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ray@apollo.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na174.salesforce.com/0036g00000XXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_campaign_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"emailer_campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"send_email_from_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"inactive_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sequence inactive"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paused"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-26T17:53:02.533+00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"added_by_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"finished_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"paused_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"auto_unpause_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"send_email_from_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab@apollo.io"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"send_email_from_email_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"manually_set_unpause"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"failure_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"current_step_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"current_step_position"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"account_phone_note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"emailer_campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Sequence"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-26T09:21:01.510Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emailer_schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_emails_per_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"same_account_reply_policy_cd"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"excluded_account_stage_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"excluded_contact_stage_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"contact_email_event_to_stage_mapping"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"create_task_if_email_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email_open_trigger_task_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mark_finished_if_click"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"days_to_wait_before_mark_as_response"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"mark_finished_if_reply"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mark_finished_if_interested"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mark_paused_if_ooo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sequence_by_exact_daytime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_used_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-26T17:53:02.672+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sequence_ruleset_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"folder_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"same_account_reply_delay_days"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_scheduled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_delivered"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_bounced"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_opened"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_replied"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_demoed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_clicked"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unique_unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bounce_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"open_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"click_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reply_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"spam_blocked_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"opt_out_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"demo_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"loaded_stats"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contact_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"failed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"paused"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"finished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"not_sent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cc_emails"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bcc_emails"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"emailer_steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"emailer_touches"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sequences_finder_empty"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><code>POST https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids</code></p>
 
 <table><thead>
@@ -2325,6 +2478,11 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>Whether to still sequence the contact if he/she already finished another sequence</td>
 <td>true or false (default false)</td>
 </tr>
+<tr>
+<td>async</td>
+<td>Whether process should be executed synchronously or asynchronously</td>
+<td>true or false (default false)</td>
+</tr>
 </tbody></table>
 <h2 id='removing-contacts-from-sequence-marking-contacts-as-finished-in-sequence'>Removing Contacts from Sequence / Marking Contacts as Finished in Sequence</h2>
 <blockquote>
@@ -2334,14 +2492,86 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "api_key": "YOUR API KEY HERE",
     "emailer_campaign_ids": ["contact id 1", "contact id 2"],
     "contact_ids": ["contact id 1", "contact id 2"],
-    "mode": "mark_as_finished"
+    "mode": "remove",
+    "async": "false"
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
 </code></pre></div>
 <blockquote>
 <p>Sample response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Getting a 404 with this endpoint - not sure whether there is a bug with it or if the code is formatted incorrectly.</span>
-</code></pre></div>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f0d9de3XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon Snow"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f0d9d5aXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f0d9d5XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email_needs_tickling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winter"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"present_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"extrapolated_email_confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T11:58:27.395Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lead_request_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"email_manually_changed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"direct_dial_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"direct_dial_enrichment_failed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_vid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"merged_crm_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T11:58:27.395Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"queued_for_crm_push"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"suggested_from_rule_engine_config_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"has_pending_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"has_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@westeros.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_campaign_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"account_phone_note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"emailer_campaigns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f46297XXXXXXXXXXXXXXXXXX"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"contact_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"failed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paused"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"finished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"not_sent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"loading"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"emailer_steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST https://api.apollo.io/v1/emailer_campaigns/remove_or_stop_contact_ids</code></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2361,8 +2591,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tr>
 <tr>
 <td>mode (required)</td>
-<td>Whether to remove the contacts from the sequence, or mark them as finished</td>
-<td>mark_as_finished OR remove</td>
+<td>Whether to remove the contacts from the sequence, or mark them as finished or stop them</td>
+<td>mark_as_finished OR remove OR stop</td>
 </tr>
 </tbody></table>
 <h1 id='misc'>Misc</h1><h2 id='get-a-list-of-users'>Get a List of Users</h2>
