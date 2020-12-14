@@ -270,7 +270,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "linkedin_uid": "18511550",
             "publicly_traded_symbol": null,
             "publicly_traded_exchange": null,
-            "logo_url": "https://apollo-pserver.com/uploads/pictures/5f026XXXXXXXXXXXXXXXX/picture",
+            "logo_url": "https://apollo-server.com/uploads/pictures/5f026XXXXXXXXXXXXXXXX/picture",
             "crunchbase_url": null,
             "primary_domain": "apollo.io",
             "persona_counts": {},
