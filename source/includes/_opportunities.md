@@ -211,7 +211,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
     "description": null,
     "is_closed": true,
     "is_won": true,
-    "name": "Grand Hotels SLA",
+    "name": "Grand Apollo SLA",
     "stage_name": "Closed Won",
     "opportunity_stage_id": "5c10XXXXXXXXXXXXXXXXXXXX",
     "source": "crm",
@@ -228,3 +228,49 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 This Endpoint returns the full information about an opportunity
 
 `GET https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
+
+## Update Opportunity
+
+
+> Sample request:
+
+```shell
+curl -X PATCH -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "name": "Opportunity Name Updated",
+}' "https://api.apollo.io/v1/opportunities"
+```
+> Sample response:
+
+```json
+{
+  "opportunity": {
+    "id": "5c14XXXXXXXXXXXXXXXXXXXX",
+    "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+    "owner_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+    "salesforce_owner_id": "0051U000001FAqXQAW",
+    "amount": 90000.0,
+    "closed_date": "2018-08-27T15:00:00.000+00:00",
+    "account_id": "5c14XXXXXXXXXXXXXXXXXXXX",
+    "description": null,
+    "is_closed": true,
+    "is_won": true,
+    "name": "Opportunity Name Updated",
+    "stage_name": "Closed Won",
+    "opportunity_stage_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+    "source": "crm",
+    "salesforce_id": "0061U000XXXXXXXXXX",
+    "created_at": "2018-12-14T21:36:02.191Z",
+    "existence_level": "full",
+    "opportunity_contact_roles": [],
+    "salesforce_record_url": "https://na85.salesforce.com/0061U000XXXXXXXXXX",
+    "num_contacts": 0
+  }
+}
+```
+Update the details of an already existing opportunity 
+<aside class="notice">
+Only Supplied Fields will be updated, All other fields will be left untouched
+</aside>
+
+`PATCH https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
