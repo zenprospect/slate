@@ -47,14 +47,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 `POST https://api.apollo.io/v1/opportunities`
 
-| Parameter            | Description                                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| owner_id             | Owner ID . You can GET a list of possible users and its associated information from [Misc/Users](#get-a-list-of-users) |
-| name                 | Opportunity Name                                                                                                       |
-| amount               | The Amount of money involved in the Opportunity/ Deal                                                                  |
-| opportunity_stage_id | The ID of the current Stage (eg Prospecting, Closed Won, CLosed Lost) of this Opportunity                              |
-| closed_date          | The date the Opportunity was closed                                                                                    |
-| account_id           | ID of the Account                                                                                                      |
+| Parameter            | Description                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| owner_id             | Owner ID . You can GET a list of possible users and their associated information from [Misc/Users](#get-a-list-of-users) |
+| name                 | Opportunity Name                                                                                                         |
+| amount               | The Amount of money involved in the Opportunity/ Deal                                                                    |
+| opportunity_stage_id | The ID of the current Stage (e.g. Prospecting, Closed Won, Closed Lost) of this Opportunity                              |
+| closed_date          | The date the Opportunity was closed                                                                                      |
+| account_id           | ID of the Account                                                                                                        |
 
 ## Get all Opportunities
 
