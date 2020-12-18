@@ -1,7 +1,7 @@
 # Opportunities API
 
 Opportunities are records that you can use to track possible deals with your prospective customers.
-Opportunities can be associated with both companies and people in Apollo
+Opportunities can be associated with both companies and people in Apollo.
 
 ## Create Opportunity
 
@@ -47,14 +47,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 `POST https://api.apollo.io/v1/opportunities`
 
-| Parameter            | Description                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------ |
-| owner_id             | Owner ID . You can GET a list of possible users and its associated information from /users |
-| name                 | Opportunity Name                                                                           |
-| amount               | The Amount of money Involved in the Opportunity/ Deal                                      |
-| opportunity_stage_id | The id of the current Stage (eg prospecting, Closed Won, CLosed Lost) of this Opportunity  |
-| closed_date          | The date the Opportunity was closed                                                        |
-| account_id           | ID of the Account                                                                          |
+| Parameter            | Description                                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| owner_id             | Owner ID . You can GET a list of possible users and its associated information from [Misc/Users](#get-a-list-of-users) |
+| name                 | Opportunity Name                                                                                                       |
+| amount               | The Amount of money involved in the Opportunity/ Deal                                                                  |
+| opportunity_stage_id | The ID of the current Stage (eg Prospecting, Closed Won, CLosed Lost) of this Opportunity                              |
+| closed_date          | The date the Opportunity was closed                                                                                    |
+| account_id           | ID of the Account                                                                                                      |
 
 ## Get all Opportunities
 
@@ -184,9 +184,9 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
     ]
 ```
 
-This endpoint returns all opportunities you have Created
+This endpoint returns all opportunities you have Created.
 
-`POST https://api.apollo.io/v1/opportunities`
+`GET https://api.apollo.io/v1/opportunities`
 
 ## View Opportunity
 
@@ -225,12 +225,11 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 }
 ```
 
-This Endpoint returns the full information about an opportunity
+This endpoint returns the full information about an opportunity.
 
 `GET https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
 
 ## Update Opportunity
-
 
 > Sample request:
 
@@ -240,6 +239,7 @@ curl -X PATCH -H "Content-Type: application/json" -H "Cache-Control: no-cache" -
     "name": "Opportunity Name Updated",
 }' "https://api.apollo.io/v1/opportunities"
 ```
+
 > Sample response:
 
 ```json
@@ -268,9 +268,11 @@ curl -X PATCH -H "Content-Type: application/json" -H "Cache-Control: no-cache" -
   }
 }
 ```
-Update the details of an already existing opportunity 
+
+Update the details of an already existing opportunity.
+
 <aside class="notice">
-Only Supplied Fields will be updated, All other fields will be left untouched
+Only supplied fields will be updated. All other fields will be left untouched.
 </aside>
 
 `PATCH https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
