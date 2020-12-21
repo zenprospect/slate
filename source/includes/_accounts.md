@@ -61,6 +61,60 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 | phone_number | The corporate phone for this contact.                                                                                          |
 | raw_address  | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address |
 
+## Update an Account
+
+> Sample request:
+
+```shell
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "api_key": "YOUR API KEY HERE",
+    "name": "new name ",
+
+}' "https://api.apollo.io/v1/accounts/ACOUNT_ID"
+```
+
+> Sample response:
+
+```json
+{
+  "account": {
+    "id": "5fe0XXXXXXXXXXXXXXXXXXXX",
+    "domain": "google.com",
+    "name": "new name",
+    "team_id": "5fc6XXXXXXXXXXXXXXXXXXXX",
+    "typed_custom_fields": {},
+    "organization_id": null,
+    "account_stage_id": "5fc6XXXXXXXXXXXXXXXXXXXX",
+    "source": "api",
+    "original_source": "api",
+    "owner_id": "5fc6XXXXXXXXXXXXXXXXXXXX",
+    "created_at": "2020-12-21T15:55:01.956Z",
+    "phone": null,
+    "phone_status": "no_status",
+    "test_predictive_score": null,
+    "hubspot_id": null,
+    "salesforce_id": null,
+    "crm_owner_id": null,
+    "parent_account_id": null,
+    "account_playbook_statuses": [],
+    "existence_level": "full",
+    "label_ids": [],
+    "modality": "account",
+    "persona_counts": {}
+  },
+  "labels": []
+}
+```
+
+`PUT https://api.apollo.io/v1/accounts`
+
+| Parameter     | Description                                |
+| ------------- | ------------------------------------------ |
+| id (Required) | Account ID                                 |
+| name          | The account's name                         |
+| domain        | The domain of the account you are updating |
+| phone_number  | The corporate phone for this contact.      |
+
 ## Searching for Accounts
 
 > Sample request:
