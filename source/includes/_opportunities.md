@@ -47,14 +47,14 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 `POST https://api.apollo.io/v1/opportunities`
 
-| Parameter            | Description                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| owner_id             | Owner ID . You can GET a list of possible users and their associated information from [Misc/Users](#get-a-list-of-users) |
-| name                 | Opportunity Name                                                                                                         |
-| amount               | The Amount of money involved in the Opportunity/ Deal                                                                    |
-| opportunity_stage_id | The ID of the current Stage (e.g. Prospecting, Closed Won, Closed Lost) of this Opportunity                              |
-| closed_date          | The date the Opportunity was closed                                                                                      |
-| account_id           | ID of the Account                                                                                                        |
+| Parameter            | Description                                                                                                                        |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| owner_id             | Owner ID . You can GET a list of possible users and their associated information from [Misc/Users](#get-a-list-of-users)           |
+| name                 | Opportunity Name                                                                                                                   |
+| amount               | The Amount of money involved in the Opportunity/ Deal                                                                              |
+| opportunity_stage_id | The ID of the current Stage (e.g. Prospecting, Closed Won, Closed Lost). `opportunity_stage_id` can be gotten from the Team object |
+| closed_date          | The date the Opportunity was closed                                                                                                |
+| account_id           | ID of the Account                                                                                                                  |
 
 ## Get all Opportunities
 
@@ -77,7 +77,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "salesforce_owner_id": "0051U000XXXXXXXXXX",
             "amount": 90000.0,
             "closed_date": "2018-08-27T15:00:00.000+00:00",
-            "account_id": "5c14223d945746a058358f93",
+            "account_id": "5c14XXXXXXXXXXXXXXXXXXXX",
             "description": null,
             "is_closed": true,
             "is_won": true,
@@ -85,8 +85,8 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "stage_name": "Closed Won",
             "opportunity_stage_id": "5c10XXXXXXXXXXXXXXXXXXXX",
             "typed_custom_fields": {
-                "5c1004a041f5ac0995d5f619": [],
-                "5c1004a041f5ac0995d5f61b": [
+                "5c10XXXXXXXXXXXXXXXXXXXX": [],
+                "5c10XXXXXXXXXXXXXXXXXXXXX": [
                     "5c14XXXXXXXXXXXXXXXXXXXX"
                 ]
             },
@@ -150,7 +150,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
             "opportunity_contact_roles": [],
             "salesforce_record_url": "https://na85.salesforce.com/0061U000XXXXXXXXXX",
             "account": {
-                "id": "5c14223d945746a058358f8f",
+                "id": "5c14XXXXXXXXXXXXXXXXXXXX",
                 "domain": "apollooportunity.com",
                 "name": "Apollo Oportunity Limited",
                 "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
@@ -226,6 +226,9 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 ```
 
 This endpoint returns the full information about an opportunity.
+&nbsp;
+
+You can GET a list of all created Opportunities from [Opportunities/all](#get-all-opportunities)
 
 `GET https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
 
@@ -274,5 +277,8 @@ Update the details of an already existing opportunity.
 <aside class="notice">
 Only supplied fields will be updated. All other fields will be left untouched.
 </aside>
+&nbsp;
+
+You can GET a list of all created Opportunities from [Opportunities/all](#get-all-opportunities)
 
 `PATCH https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
