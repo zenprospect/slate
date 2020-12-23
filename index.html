@@ -334,6 +334,23 @@
               </ul>
           </li>
           <li>
+            <a href="#opportunities-api" class="toc-h1 toc-link" data-title="Opportunities API">Opportunities API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-opportunity" class="toc-h2 toc-link" data-title="Create Opportunity">Create Opportunity</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-opportunities" class="toc-h2 toc-link" data-title="Get all Opportunities">Get all Opportunities</a>
+                  </li>
+                  <li>
+                    <a href="#view-opportunity" class="toc-h2 toc-link" data-title="View Opportunity">View Opportunity</a>
+                  </li>
+                  <li>
+                    <a href="#update-opportunity" class="toc-h2 toc-link" data-title="Update Opportunity">Update Opportunity</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#contacts-api" class="toc-h1 toc-link" data-title="Contacts API">Contacts API</a>
               <ul class="toc-list-h2">
                   <li>
@@ -417,7 +434,7 @@
 
 <p><strong>Our API is still under active development. It is subject to change without prior notice from Apollo.</strong> </p>
 
-<p>Eventually, we plan to make available in the API almost everything you can do in the UI, plus some extra functionality not available in the UI. Additionally, if you have have any suggestions for API methods you&#39;d like to see, please let us know! We would be happy to see if we can build it into our API.</p>
+<p>Eventually, we plan to make available in the API almost everything you can do in the UI, plus some extra functionality not available in the UI. Additionally, if you have  any suggestions for API methods you&#39;d like to see, please let us know! We would be happy to see if we can build it into our API.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>Sample request:</p>
@@ -592,7 +609,7 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </tr>
 <tr>
 <td>q_organization_domains (optional)</td>
-<td>an array of the the company domains to search for, joined by the new line character.</td>
+<td>an array of the company domains to search for, joined by the new line character.</td>
 <td>&quot;google.com\nfacebook.com&quot;</td>
 </tr>
 <tr>
@@ -1102,8 +1119,299 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
 <td>54fca1087369647fcXXXXXXX</td>
 </tr>
 </tbody></table>
+<h1 id='opportunities-api'>Opportunities API</h1>
+<p>Opportunities are records that you can use to track possible deals with your prospective customers.
+Opportunities can be associated with both companies and people in Apollo.</p>
+<h2 id='create-opportunity'>Create Opportunity</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "owner_id":"5c10XXXXXXXXXXXXXXXXXXXX",
+    "name":"Opportunity Name",
+    "amount":"200",
+    "opportunity_stage_id":"5c14XXXXXXXXXXXXXXXXXXXX",
+    "closed_date":"2020-12-18",
+    "account_id":"5f06XXXXXXXXXXXXXXXXXXXX"
+}'</span> <span class="s2">"https://app.apollo.io/api/v1/opportunities"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"opportunity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fdcXXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"closed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-18T00:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f06XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opportunity Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-18T10:41:54.591Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_contact_roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST https://api.apollo.io/v1/opportunities</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>owner_id</td>
+<td>Owner ID . You can GET a list of possible users and their associated information from <a href="#get-a-list-of-users">Misc/Users</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>Opportunity Name</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>The Amount of money involved in the Opportunity/ Deal</td>
+</tr>
+<tr>
+<td>opportunity_stage_id</td>
+<td>The ID of the current Stage (e.g. Prospecting, Closed Won, Closed Lost). <code>opportunity_stage_id</code> can be gotten from the Team object</td>
+</tr>
+<tr>
+<td>closed_date</td>
+<td>The date the Opportunity was closed</td>
+</tr>
+<tr>
+<td>account_id</td>
+<td>ID of the Account</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-opportunities'>Get all Opportunities</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/search?api_key=YOUR_API_KEY_HERE"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"breadcrumbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"opportunities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c100XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">90000.0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"closed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T15:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo Inc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed Won"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"opportunity_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"5c10XXXXXXXXXXXXXXXXXXXXX"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crm"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:36:02.191Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"opportunity_contact_roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apollo.io"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo Inc"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"csv_import"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:35:57.141Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(312) 596-1000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1312XXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"contact_emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"contact_campaign_status_tally"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5e1fXXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"closed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T16:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Opportunity"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qualification"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"opportunity_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crm"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-16T00:41:30.834Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"opportunity_contact_roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apollooportunity.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo Oportunity Limited"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c100XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:35:57.141Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(512) 757-6000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1512XXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"contact_emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"contact_campaign_status_tally"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint returns all opportunities you have Created.</p>
+
+<p><code>GET https://api.apollo.io/v1/opportunities</code></p>
+<h2 id='view-opportunity'>View Opportunity</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID?api_key=YOUR_API_KEY_HERE"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"opportunity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000001FAqXQAW"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">90000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"closed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T15:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grand Apollo SLA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed Won"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crm"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:36:02.191Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_contact_roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint returns the full information about an opportunity.
+&nbsp;</p>
+
+<p>You can GET a list of all created Opportunities from <a href="#get-all-opportunities">Opportunities/all</a></p>
+
+<p><code>GET https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID</code></p>
+<h2 id='update-opportunity'>Update Opportunity</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "name": "Opportunity Name Updated",
+}'</span> <span class="s2">"https://api.apollo.io/v1/opportunities"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"opportunity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U000001FAqXQAW"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">90000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"closed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T15:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opportunity Name Updated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed Won"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crm"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:36:02.191Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opportunity_contact_roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0061U000XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Update the details of an already existing opportunity.</p>
+
+<aside class="notice">
+Only supplied fields will be updated. All other fields will be left untouched.
+</aside>
+
+<p>&nbsp;</p>
+
+<p>You can GET a list of all created Opportunities from <a href="#get-all-opportunities">Opportunities/all</a></p>
+
+<p><code>PATCH https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID</code></p>
 <h1 id='contacts-api'>Contacts API</h1>
-<p>Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
+<p>A Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
 <h2 id='create-a-contact'>Create a Contact</h2>
 <blockquote>
 <p>Sample request:</p>
@@ -1230,7 +1538,7 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 </tr>
 <tr>
 <td>website_url</td>
-<td>The organization website Apollo can use to enrich data for you. DO NOT pass in personal social media urls such as &quot;http://www.linkedin.com/profile_url&quot;, or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email.</td>
+<td>The organization website Apollo can use to enrich data for you. DO NOT pass in personal social media URLs such as &quot;http://www.linkedin.com/profile_url&quot;, or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email.</td>
 <td>&quot;http://www.westeros.com&quot;</td>
 </tr>
 <tr>
