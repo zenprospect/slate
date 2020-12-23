@@ -1,6 +1,6 @@
 # Contacts API
 
-Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
+A Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
 
 ## Create a Contact
 
@@ -100,7 +100,7 @@ organization_name | Company Name   | "Westeros Inc."
 title | Title   | "Lord Commander"
 account_id     | ID of the Account (Optional) | "583f2f7ed9ced98ab5bfXXXX"
 email     | Email. Invalid emails will be ignored.  | "jon.snow@westeros.com"
-website_url | The organization website Apollo can use to enrich data for you. DO NOT pass in personal social media urls such as "http://www.linkedin.com/profile_url", or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email. | "http://www.westeros.com"
+website_url | The organization website Apollo can use to enrich data for you. DO NOT pass in personal social media URLs such as "http://www.linkedin.com/profile_url", or your data will be incorrectly enriched. This argument will be ignored if you pass in a valid email. | "http://www.westeros.com"
 label_names | A list of names to tag this newly created contact. If the name does not exist, Apollo will automatically create it | ["inbound contact", "smb clients"]
 contact_stage_id | Assign contact to this stage, if the contact does not yet exist. Get a list of possible stage ids with GET /contact_stages | "583f2f7ed9ced98ab5bfXXXX"
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address | "San Francisco"

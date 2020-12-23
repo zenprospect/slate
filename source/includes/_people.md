@@ -150,7 +150,7 @@ This endpoint searches for people. Calls to the search endpoint do not cost you 
 Parameter | Description | Example
 --------- | ----------- | -----------
 person_titles (optional) | an array of the person's title. Apollo will return results matching ANY of the titles passed in |  ["sales director", "engineer manager"]
-q_organization_domains (optional) | an array of the the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
+q_organization_domains (optional) | an array of the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
 page (optional) | an integer that allows you to paginate through the results  | 1
 
 ### Return Results

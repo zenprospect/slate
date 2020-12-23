@@ -12,6 +12,7 @@ includes:
   - authentication
   - people
   - organizations
+  - opportunities
   - contacts
   - accounts
   - sequences
