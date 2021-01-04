@@ -16,6 +16,7 @@ includes:
   - contacts
   - accounts
   - sequences
+  - tasks
   - misc
 
 search: true
