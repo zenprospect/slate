@@ -113,7 +113,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 | id (Required) | Account ID                                 |
 | name          | The account's name                         |
 | domain        | The domain of the account you are updating |
-| phone_number  | The corporate phone for this contact.      |
+| phone_number  | The corporate phone for this account.      |
 
 ## Searching for Accounts
 
