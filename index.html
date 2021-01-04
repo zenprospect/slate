@@ -377,6 +377,12 @@
             <a href="#accounts-api" class="toc-h1 toc-link" data-title="Accounts API">Accounts API</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#create-an-account" class="toc-h2 toc-link" data-title="Create an Account">Create an Account</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-account" class="toc-h2 toc-link" data-title="Update an Account">Update an Account</a>
+                  </li>
+                  <li>
                     <a href="#searching-for-accounts" class="toc-h2 toc-link" data-title="Searching for Accounts">Searching for Accounts</a>
                   </li>
                   <li>
@@ -2193,6 +2199,145 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tbody></table>
 <h1 id='accounts-api'>Accounts API</h1>
 <p>Account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
+<h2 id='create-an-account'>Create an Account</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "name": "Google",
+    "domain": "google.com",
+    "phone_number": "1-866-246-6453",
+    "raw_address": "1600 Amphitheatre Parkway"
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fe0XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-21T15:33:02.709Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"team"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accounts_finder_empty"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST https://api.apollo.io/v1/accounts</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The account&#39;s name</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>The domain of the account you are adding</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>The corporate phone for this contact.</td>
+</tr>
+<tr>
+<td>raw_address</td>
+<td>The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-account'>Update an Account</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "name": "new name ",
+
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/ACOUNT_ID"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fe0XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-21T15:55:01.956Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>PUT https://api.apollo.io/v1/accounts</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id (Required)</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The account&#39;s name</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>The domain of the account you are updating</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>The corporate phone for this contact.</td>
+</tr>
+</tbody></table>
 <h2 id='searching-for-accounts'>Searching for Accounts</h2>
 <blockquote>
 <p>Sample request:</p>
@@ -2208,91 +2353,91 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <p>Sample response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"breadcrumbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Name"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q_organization_name"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"partial_results_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"disable_eu_prospecting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"partial_results_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"blog_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"angellist_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://angel.co/google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.linkedin.com/company/google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"twitter_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://twitter.com/google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"facebook_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/Google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"German"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Spanish"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"French"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Italian"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Portuguese"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Chinese"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Japanese"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Russian"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"English"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nl">"alexa_ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(512) 225-6000"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1441"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"publicly_traded_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOOG"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"publicly_traded_exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nasdaq"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zen-server.com/uploads/pictures/5f2d7fXXXXXXXXXXXXXXXXXX/picture"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"crunchbase_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.crunchbase.com/organization/google"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"primary_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"market_cap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"835.5B"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Parkway, Mountain View, CA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mountain View"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Parkway"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"organization_postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94043"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"suggest_location_enrichment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54fca10XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"csv_import"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"csv_import"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T23:05:07.335Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011UXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051UXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15122256000"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011UXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"contact_emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nl">"contact_campaign_status_tally"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"num_fetch_result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="nl">"breadcrumbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q_organization_name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"partial_results_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"disable_eu_prospecting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"partial_results_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blog_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"angellist_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://angel.co/google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.linkedin.com/company/google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"twitter_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://twitter.com/google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"facebook_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/Google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"German"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Spanish"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"French"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Italian"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Portuguese"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Chinese"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Japanese"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Russian"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"English"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"alexa_ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(512) 225-6000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1441"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"publicly_traded_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOOG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"publicly_traded_exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nasdaq"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zen-server.com/uploads/pictures/5f2d7fXXXXXXXXXXXXXXXXXX/picture"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"crunchbase_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.crunchbase.com/organization/google"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"market_cap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"835.5B"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Parkway, Mountain View, CA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mountain View"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Parkway"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organization_postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94043"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"suggest_location_enrichment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54fca10XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"csv_import"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"csv_import"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T23:05:07.335Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011UXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051UXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15122256000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011UXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"contact_emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"contact_campaign_status_tally"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"num_fetch_result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>POST https://api.apollo.io/v1/accounts/search</code></p>
@@ -2338,53 +2483,53 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <p>Sample response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"account_stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_progress"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Client"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Client"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeeded"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004a04XXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004aXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active Opportunity"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active Opportunity"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeeded"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dead Opportunity"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dead Opportunity"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do Not Prospect"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do Not Prospect"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"account_stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_progress"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Client"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Client"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeeded"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004a04XXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004aXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active Opportunity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active Opportunity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"succeeded"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dead Opportunity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dead Opportunity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c1004XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do Not Prospect"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do Not Prospect"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_exclude_for_leadgen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>GET https://api.apollo.io/v1/account_stages</code></p>
@@ -2402,12 +2547,12 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <p>Sample response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_account_stage_id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_account_stage_id"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>POST https://api.apollo.io/v1/accounts/bulk_update</code></p>
@@ -2441,12 +2586,12 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <p>Sample response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_owner_id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c3d15XXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_owner_id"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>POST https://api.apollo.io/v1/accounts/update_owners</code></p>
