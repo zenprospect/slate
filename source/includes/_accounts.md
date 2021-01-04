@@ -58,8 +58,8 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | name         | The account's name                                                                                                             |
 | domain       | The domain of the account you are adding                                                                                       |
-| phone_number | The corporate phone for this contact.                                                                                          |
-| raw_address  | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address |
+| phone_number | The corporate phone for this account.                                                                                          |
+| raw_address  | The address string for this account, Apollo will intelligently infer the city, state, country, and time zone from your address |
 
 ## Update an Account
 
