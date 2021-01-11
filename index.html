@@ -411,6 +411,17 @@
               </ul>
           </li>
           <li>
+            <a href="#tasks-api" class="toc-h1 toc-link" data-title="Tasks API">Tasks API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-task" class="toc-h2 toc-link" data-title="Creating a task">Creating a task</a>
+                  </li>
+                  <li>
+                    <a href="#getting-a-list-of-tasks" class="toc-h2 toc-link" data-title="Getting a list of tasks">Getting a list of tasks</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#misc" class="toc-h1 toc-link" data-title="Misc">Misc</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2198,7 +2209,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </tr>
 </tbody></table>
 <h1 id='accounts-api'>Accounts API</h1>
-<p>Account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
+<p>An Account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.</p>
 <h2 id='create-an-account'>Create an Account</h2>
 <blockquote>
 <p>Sample request:</p>
@@ -3046,6 +3057,416 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>mode (required)</td>
 <td>Whether to remove the contacts from the sequence, or mark them as finished or stop them</td>
 <td>mark_as_finished OR remove OR stop</td>
+</tr>
+</tbody></table>
+<h1 id='tasks-api'>Tasks API</h1>
+<p>A task is an action to be performed on a contact, The Task can be assigned to any member of your team and also given the appropriate priority</p>
+<h2 id='creating-a-task'>Creating a task</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "priority": "medium",
+    "user_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+    "due_at": "2020-12-21T16:16:48.311Z",
+    "type": "call",
+    "contact_ids": [
+        "5cd9XXXXXXXXXXXXXXXXXXXX",
+        "5cd9XXXXXXXXXXXXXXXXXXXX"
+    ],
+    "note": "Note to be attached to the task",
+    "status": "scheduled"
+}'</span> <span class="s2">"https://api.apollo.io/v1/tasks/bulk_create"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST https://api.apollo.io/v1/tasks/bulk_create</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>priority (required)</td>
+<td>Priority of the task</td>
+<td>&quot;high&quot;/&quot;medium&quot;/&quot;low&quot;</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>The ID of the user the task is to be assigned to . You can GET a list of possible users from <a href="#get-a-list-of-users">Misc/Users</a></td>
+<td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
+</tr>
+<tr>
+<td>due_at</td>
+<td>the due date and time for the task</td>
+<td>2020-12-21T16:16:48.311Z</td>
+</tr>
+<tr>
+<td>type</td>
+<td>The type of the task there are 3 valid task types <code>call</code>, <code>outreach_manual_email</code> ,<code>action_item</code></td>
+<td>call, outreach_manual_email ,action_item</td>
+</tr>
+<tr>
+<td>contact_ids (required)</td>
+<td>An array of contact Ids</td>
+<td>[&quot;583f2f7ed9ced98ab5bfXXXX&quot;, &quot;583f2f7ed9ced98ab5bfXXXX&quot;]</td>
+</tr>
+<tr>
+<td>note</td>
+<td>note to be attached to the task</td>
+<td>&quot;Example note&quot;</td>
+</tr>
+<tr>
+<td>status</td>
+<td>the status of the task</td>
+<td>&quot;scheduled&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='getting-a-list-of-tasks'>Getting a list of tasks</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+    "api_key": "YOUR API KEY HERE",
+    "sort_by_field": "task_created_at",
+    "per_page": 200,
+    "open_factor_names": [
+        "task_types"
+    ]
+}'</span> <span class="s2">"https://api.apollo.io/v1/tasks/search"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"emailer_campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ff3XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-04T15:48:10.467Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"skipped_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"due_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-04T15:46:48.361+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action_item"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answered"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"persona_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zp_ui"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"playbook_step_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"playbook_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"needs_playbook_autoprospecting"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">".com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T21:41:51.657Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(800) 424-9299"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+180xxxxxxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior QA Specialist"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"contact_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_needs_tickling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce_contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce_contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"present_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Washington, District of Columbia, United States"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extrapolated_email_confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0031U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0031U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T21:41:57.503Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"email_manually_changed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direct_dial_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direct_dial_enrichment_failed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_vid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+180xxxxxxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"merged_crm_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-28T10:51:37.432Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"queued_for_crm_push"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"suggested_from_rule_engine_config_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"has_pending_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"has_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@domain.io"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0031U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"outreach_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1X7"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"outreach_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app2a.outreach.io/prospects/XXX/overview"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesloft_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6XX1XX5X"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesloft_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.salesloft.com/app/people/6XXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"raw_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(X00) 4X4-XXXX"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"sanitized_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+280XXXXXXXX"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"account_phone_note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"emailer_campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ff3XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-04T15:36:09.033Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Call Contact"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"skipped_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"due_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-04T15:35:58.054+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"call"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"answered"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"persona_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zp_ui"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"playbook_step_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"playbook_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"needs_playbook_autoprospecting"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"starred_by_user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apple.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fcXXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T21:41:51.657Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(X00) 4X4-XXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3X0042XXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://na85.salesforce.com/0011U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"persona_counts"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doe"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior Engineer"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"contact_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_needs_tickling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce_contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesforce_contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"present_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Washington, District of Columbia, United States"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extrapolated_email_confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"003XXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0031XXXXXXXxXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011U00XXXXXXxXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0051U0XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-09T21:41:57.503Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"test_predictive_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"email_manually_changed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direct_dial_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direct_dial_enrichment_failed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fd1XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_vid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hubspot_company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+18XXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"merged_crm_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-28T10:51:37.432Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"queued_for_crm_push"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"suggested_from_rule_engine_config_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email_unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"has_pending_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"has_email_arcgate_request"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane.doe@apple.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://naXX.salesforce.com/0031U00XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"outreach_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4XX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"outreach_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app2a.outreach.io/prospects/4XX/overview"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesloft_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62619350"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"salesloft_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.salesloft.com/app/people/62XXXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"raw_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(8XX) 4X4-XXXX"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"sanitized_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1X004XXXXXX"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"account_phone_note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"breadcrumbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"faceting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"playbook_step_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_function_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_seniority_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"normalized_person_title_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_ids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_ids_in_query_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_persona_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_keywords_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"linkedin_industry_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"linkedin_specialty_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"angellist_market_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"linkedin_company_size_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"num_employees_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"currently_using_any_of_technology_uids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"currently_using_all_of_technology_uids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"currently_not_using_any_of_technology_uids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"added_technology_uids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"dropped_technology_uids_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"latest_funding_stage_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_city_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_state_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"person_country_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_hq_city_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_hq_state_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"organization_hq_country_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"task_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact_call"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Call Contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outreach_manual_email"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email Contact"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact_action_item"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact Action Item"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"total_facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pipeline_total"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"pipeline_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"num_fetch_result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>GET https://api.apollo.io/v1/tasks/search</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>open_factor_names (required)</td>
+<td>This is a required field and must be passed in with the request</td>
+<td>[&quot;task_types&quot;]</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>how many tasks to return per page. Max = 200</td>
+<td>100</td>
 </tr>
 </tbody></table>
 <h1 id='misc'>Misc</h1><h2 id='get-a-list-of-users'>Get a List of Users</h2>
