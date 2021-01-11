@@ -33,13 +33,13 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 | Parameter              | Description                                                                                                                     | Example                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| priority (required)    | Priority of the task                                                                                                            | high,medium,low                                          |
+| priority (required)    | Priority of the task                                                                                                            | "high"/"medium"/"low"                                    |
 | user_id                | The ID of the user the task is to be assigned to . You can GET a list of possible users from [Misc/Users](#get-a-list-of-users) | "583f2f7ed9ced98ab5bfXXXX"                               |
 | due_at                 | the due date and time for the task                                                                                              | 2020-12-21T16:16:48.311Z                                 |
 | type                   | The type of the task there are 3 valid task types `call`, `outreach_manual_email` ,`action_item`                                | call, outreach_manual_email ,action_item                 |
 | contact_ids (required) | An array of contact Ids                                                                                                         | ["583f2f7ed9ced98ab5bfXXXX", "583f2f7ed9ced98ab5bfXXXX"] |
 | note                   | note to be attached to the task                                                                                                 | "Example note"                                           |
-| status                 | the status of the task                                                                                                          | scheduled                                                |
+| status                 | the status of the task                                                                                                          | "scheduled"                                              |
 
 ## Getting a list of tasks
 
@@ -162,11 +162,11 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
                 "has_pending_email_arcgate_request": false,
                 "has_email_arcgate_request": false,
                 "existence_level": "full",
-                "email": "john.doe@google.com",
+                "email": "email@domain.io",
                 "salesforce_record_url": "https://na85.salesforce.com/0031U0XXXXXXXXXXXX",
-                "outreach_id": "457",
+                "outreach_id": "1X7",
                 "outreach_url": "https://app2a.outreach.io/prospects/XXX/overview",
-                "salesloft_id": "62619350",
+                "salesloft_id": "6XX1XX5X",
                 "salesloft_url": "https://app.salesloft.com/app/people/6XXXXXXX",
                 "phone_numbers": [
                     {
@@ -365,7 +365,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 
 `GET https://api.apollo.io/v1/tasks/search`
 
-| Parameter                    | Description                                  | Example        |
-| ---------------------------- | -------------------------------------------- | -------------- |
-| open_factor_names (required) |                                              | ["task_types"] |
-| per_page                     | how many tasks to return per page. Max = 200 | 100            |
+| Parameter                    | Description                                                     | Example        |
+| ---------------------------- | --------------------------------------------------------------- | -------------- |
+| open_factor_names (required) | This is a required field and must be passed in with the request | ["task_types"] |
+| per_page                     | how many tasks to return per page. Max = 200                    | 100            |
