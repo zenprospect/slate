@@ -524,3 +524,74 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 
 `GET https://api.apollo.io/v1/typed_custom_fields`
 
+
+## Get a List of Opportunity Stages
+
+> Sample request:
+
+```shell
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/opportunity_stages?api_key=YOUR_API_KEY_HERE"
+```
+
+> Sample response:
+
+```json
+{
+  "opportunity_stages": [
+    {
+      "id": "5c14XXXXXXXXXXXXXXXXXXXX",
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "name": "Negotiation/Review",
+      "display_order": 0.0,
+      "forecast_category_cd": "Pipeline",
+      "is_won": false,
+      "is_closed": false,
+      "probability": 90.0,
+      "description": null,
+      "salesforce_id": "01XXXXXXXXXX",
+      "type": "Open"
+    },
+    {
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "name": "Commit",
+      "display_order": 2.0,
+      "forecast_category_cd": "Committed",
+      "is_won": false,
+      "is_closed": false,
+      "probability": 90.0,
+      "description": "Self-explanatory",
+      "salesforce_id": null,
+      "type": "Open"
+    },
+    {
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "name": "Closed Won",
+      "display_order": 3.0,
+      "forecast_category_cd": "Closed",
+      "is_won": true,
+      "is_closed": true,
+      "probability": 100.0,
+      "description": "Self-explanatory",
+      "salesforce_id": "01J1UXXXXXXXXXX",
+      "type": "Closed/Won"
+    },
+    {
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "team_id": "5c10XXXXXXXXXXXXXXXXXXXX",
+      "name": "Closed Lost",
+      "display_order": 4.0,
+      "forecast_category_cd": "Omitted",
+      "is_won": false,
+      "is_closed": true,
+      "probability": 0.0,
+      "description": "Self-explanatory",
+      "salesforce_id": "0XX1U00XXXXXXXXXAC",
+      "type": "Closed/Lost"
+    }
+  ]
+}
+```
+
+`GET https://api.apollo.io/v1/opportunity_stages`
