@@ -436,6 +436,9 @@
                   <li>
                     <a href="#get-a-list-of-all-custom-fields" class="toc-h2 toc-link" data-title="Get a List of All Custom Fields">Get a List of All Custom Fields</a>
                   </li>
+                  <li>
+                    <a href="#get-a-list-of-opportunity-stages" class="toc-h2 toc-link" data-title="Get a List of Opportunity Stages">Get a List of Opportunity Stages</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1200,7 +1203,7 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 </tr>
 <tr>
 <td>opportunity_stage_id</td>
-<td>The ID of the current Stage (e.g. Prospecting, Closed Won, Closed Lost). <code>opportunity_stage_id</code> can be gotten from the Team object</td>
+<td>The ID of the current Stage .You can get a list of all opportunity stages from <a href="#get-a-list-of-opportunity-stages">Misc/Opportunity Stages</a></td>
 </tr>
 <tr>
 <td>closed_date</td>
@@ -3973,6 +3976,73 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>GET https://api.apollo.io/v1/typed_custom_fields</code></p>
+<h2 id='get-a-list-of-opportunity-stages'>Get a List of Opportunity Stages</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunity_stages?api_key=YOUR_API_KEY_HERE"</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"opportunity_stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c14XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Negotiation/Review"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forecast_category_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pipeline"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01XXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Commit"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forecast_category_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Committed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self-explanatory"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed Won"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forecast_category_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self-explanatory"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01J1UXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed/Won"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed Lost"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forecast_category_cd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omitted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_won"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self-explanatory"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0XX1U00XXXXXXXXXAC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed/Lost"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>GET https://api.apollo.io/v1/opportunity_stages</code></p>
 
       </div>
       <div class="dark-box">
