@@ -1,8 +1,8 @@
 # Organizations API
 
-An organization represents a company in Apollo's database.
+An Organization represents a company in Apollo's database.
 
-## Enrichment
+## Organization Enrichment
 
 > Sample request:
 
@@ -100,7 +100,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
                 "website_url": "http://www.labpixies.com"
             },
             {
-               ...            
+               ...
             },
         ],            "num_suborganizations": 212,
         "seo_description": "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
@@ -177,10 +177,9 @@ This endpoint enriches a company with info such as industry, company size, etc. 
 
 ### Query Parameters
 
-Parameter | Description | Example
---------- | ----------- | -----------
-domain | The company domain | google.com
-
+| Parameter | Description        | Example    |
+| --------- | ------------------ | ---------- |
+| domain    | The company domain | google.com |
 
 ## Organization Jobs Postings
 
@@ -194,38 +193,38 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 
 ```json
 {
-    "organization_job_postings": [
-        {
-            "id": "5ed76XXXXXXXXXXXXXXXX",
-            "title": "Product Marketing Manager, Security",
-            "url": "https://www.linkedin.com/jobs/view/product-marketing-manager-security-at-google-1878106711?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=14&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
-            "city": "San Francisco",
-            "state": "California",
-            "country": "United States",
-            "last_seen_at": "2020-06-03T09:09:57.751+00:00",
-            "posted_at": "2020-06-03T07:09:57.751+00:00"
-        },
-        {
-            "id": "5ed768XXXXXXXXXXXXXXXX",
-            "title": "Product Marketing Manager, Security",
-            "url": "https://www.linkedin.com/jobs/view/product-marketing-manager-security-at-google-1878108613?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=17&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
-            "city": "Sunnyvale",
-            "state": "California",
-            "country": "United States",
-            "last_seen_at": "2020-06-03T09:09:57.754+00:00",
-            "posted_at": "2020-06-03T07:09:57.754+00:00"
-        },
-        {
-            "id": "5ed768XXXXXXXXXXXXXXXX",
-            "title": "Staff Software Engineer, Platforms, Google Cloud",
-            "url": "https://www.linkedin.com/jobs/view/staff-software-engineer-platforms-google-cloud-at-google-1878104847?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=18&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
-            "city": "Sunnyvale",
-            "state": "California",
-            "country": "United States",
-            "last_seen_at": "2020-06-03T09:09:57.755+00:00",
-            "posted_at": "2020-07-30T07:32:24.298+00:00"
-        }
-    ]
+  "organization_job_postings": [
+    {
+      "id": "5ed76XXXXXXXXXXXXXXXX",
+      "title": "Product Marketing Manager, Security",
+      "url": "https://www.linkedin.com/jobs/view/product-marketing-manager-security-at-google-1878106711?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=14&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "United States",
+      "last_seen_at": "2020-06-03T09:09:57.751+00:00",
+      "posted_at": "2020-06-03T07:09:57.751+00:00"
+    },
+    {
+      "id": "5ed768XXXXXXXXXXXXXXXX",
+      "title": "Product Marketing Manager, Security",
+      "url": "https://www.linkedin.com/jobs/view/product-marketing-manager-security-at-google-1878108613?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=17&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
+      "city": "Sunnyvale",
+      "state": "California",
+      "country": "United States",
+      "last_seen_at": "2020-06-03T09:09:57.754+00:00",
+      "posted_at": "2020-06-03T07:09:57.754+00:00"
+    },
+    {
+      "id": "5ed768XXXXXXXXXXXXXXXX",
+      "title": "Staff Software Engineer, Platforms, Google Cloud",
+      "url": "https://www.linkedin.com/jobs/view/staff-software-engineer-platforms-google-cloud-at-google-1878104847?refId=e19c8d31-7452-4bfc-8097-66ab00fe06a8&position=18&pageNum=9&trk=public_jobs_job-result-card_result-card_full-click",
+      "city": "Sunnyvale",
+      "state": "California",
+      "country": "United States",
+      "last_seen_at": "2020-06-03T09:09:57.755+00:00",
+      "posted_at": "2020-07-30T07:32:24.298+00:00"
+    }
+  ]
 }
 ```
 
@@ -235,6 +234,6 @@ Get a list of active job postings for a company.
 
 ### Query Parameters
 
-Parameter | Description | Example
---------- | ----------- | -----------
-id | The id of the organization (i.e. NOT account id). You can obtain this with a company's domain by using the enrich endpoint.  | 54fca1087369647fcXXXXXXX
+| Parameter | Description                                                                                                                 | Example                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| id        | The id of the organization (i.e. NOT account id). You can obtain this with a company's domain by using the enrich endpoint. | 54fca1087369647fcXXXXXXX |
