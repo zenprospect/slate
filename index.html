@@ -312,6 +312,14 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#rate-limits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#response-headers" class="toc-h2 toc-link" data-title="Response Headers">Response Headers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#people-api" class="toc-h1 toc-link" data-title="People API">People API</a>
               <ul class="toc-list-h2">
                   <li>
@@ -479,6 +487,79 @@ curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">
 <aside class="notice">
 You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </aside>
+<h1 id='rate-limits'>Rate Limits</h1>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-daily-requests-left"</span><span class="p">:</span><span class="w"> </span><span class="mi">295</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-daily-usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-hourly-requests-left"</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-hourly-usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-minute-requests-left"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-minute-usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-rate-limit-daily"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-rate-limit-hourly"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"x-rate-limit-minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Requests to our API will be limited in accordance with your current pricing plan (detailed <a href="https://www.apollo.io/pricing/#compare-plans">here</a> under Compare Plans &gt; CRM &gt; API Access).</p>
+
+<p>To view how many requests your current plan allows, as well as how many requests you have used, you can reference the headers of a successful response from the API. See the sample response to the right for more detail.</p>
+<h3 id='response-headers'>Response Headers</h3>
+<table><thead>
+<tr>
+<th>Header Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x-daily-requests-left</td>
+<td>the total requests left for the current 24 hour period</td>
+<td>295</td>
+</tr>
+<tr>
+<td>x-daily-usage</td>
+<td>the total requests used for the current 24 hour period</td>
+<td>5</td>
+</tr>
+<tr>
+<td>x-hourly-requests-left</td>
+<td>the total requests left for the current 60 minute period</td>
+<td>95</td>
+</tr>
+<tr>
+<td>x-hourly-usage</td>
+<td>the total requests used for the current 60 minute period</td>
+<td>5</td>
+</tr>
+<tr>
+<td>x-minute-requests-left</td>
+<td>the total requests left for the current 60 second period</td>
+<td>45</td>
+</tr>
+<tr>
+<td>x-minute-usage</td>
+<td>the total requests used for the current 60 second period</td>
+<td>5</td>
+</tr>
+<tr>
+<td>x-rate-limit-daily</td>
+<td>based on your plan</td>
+<td>300</td>
+</tr>
+<tr>
+<td>x-rate-limit-hourly</td>
+<td>based on your plan</td>
+<td>100</td>
+</tr>
+<tr>
+<td>x-rate-limit-minute</td>
+<td>based on your plan</td>
+<td>50</td>
+</tr>
+</tbody></table>
 <h1 id='people-api'>People API</h1>
 <p>A person represents a person in Apollo&#39;s database.</p>
 <h2 id='search'>Search</h2>
