@@ -365,7 +365,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
 
 This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match.  
 
-The enrich endpoint charges credits you for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
+The enrich endpoint charges you credits for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
 
 The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.
 
