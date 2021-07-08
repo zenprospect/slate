@@ -503,9 +503,13 @@ You must replace <code>YOUR_API_KEY</code> with your personal API key.
     </span><span class="nl">"x-rate-limit-minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Requests to our API will be limited in accordance with your current pricing plan (detailed <a href="https://www.apollo.io/pricing/#compare-plans">here</a> under Compare Plans &gt; CRM &gt; API Access).</p>
+<p>Requests to our API will be limited in accordance with your current pricing plan, detailed <a href="https://www.apollo.io/pricing/#compare-plans">here</a> under Compare Plans &gt; CRM &gt; API Access.</p>
 
 <p>To view how many requests your current plan allows, as well as how many requests you have used, you can reference the headers of a successful response from the API. See the sample response to the right for more detail.</p>
+
+<aside class="notice">
+We use a fixed-window rate limiting strategy for calls to our API. If your team's rate limit is 50 requests per minute, those 50 api calls can be made at any interval within the 60 second window.
+</aside>
 <h3 id='response-headers'>Response Headers</h3>
 <table><thead>
 <tr>
